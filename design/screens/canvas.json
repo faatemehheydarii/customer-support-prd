@@ -1,107 +1,208 @@
 {
- "v": 3,
- "createdOnFiles": {
-  "v": 1,
-  "at": "2026-11-15T17:42:25Z"
- },
- "title": "دستیار پشتیبانی — طراحی صفحه‌ها",
- "launch": {
-  "view": "canvas"
- },
- "pages": [],
- "boards": {
-  "Main.dc.html": {
-   "x": 0,
-   "y": 0,
-   "w": 1440,
-   "h": 900,
-   "title": "SCR-10 · صف اقدام",
-   "expand": "fill"
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-15T17:42:25Z"
   },
-  "Conversation.dc.html": {
-   "x": 1520,
-   "y": 0,
-   "w": 1440,
-   "h": 1000,
-   "title": "SCR-11 · نمای مکالمه — مالک",
-   "expand": "fill"
+  "title": "دستیار پشتیبانی — طراحی صفحه‌ها",
+  "launch": {
+    "view": "canvas"
   },
-  "Chat-Welcome.dc.html": {
-   "x": 0,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۱ · خوش‌آمد"
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "SCR-10 · صف اقدام",
+      "expand": "fill"
+    },
+    "Conversation.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1000,
+      "title": "SCR-11 · نمای مکالمه — مالک",
+      "expand": "fill"
+    },
+    "Chat-Welcome.dc.html": {
+      "x": 0,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱ · خوش‌آمد"
+    },
+    "Chat-Clarify.dc.html": {
+      "x": 470,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۴ · رفع ابهام"
+    },
+    "Chat-Answer.dc.html": {
+      "x": 940,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۳ · پاسخ موجودی + تأیید حل"
+    },
+    "Chat-Registered.dc.html": {
+      "x": 1410,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"
+    },
+    "Chat-Human.dc.html": {
+      "x": 1880,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"
+    },
+    "Chat-Error.dc.html": {
+      "x": 2350,
+      "y": 1420,
+      "w": 390,
+      "h": 844,
+      "title": "ح۹ · خطای سرویس"
+    },
+    "Queue-Stopped.dc.html": {
+      "h": 900,
+      "title": "SCR-10 · پاسخ خودکار متوقف (R0-b)",
+      "w": 1440,
+      "x": 0,
+      "y": 2800,
+      "expand": "fill"
+    },
+    "Queue-Empty.dc.html": {
+      "h": 640,
+      "title": "SCR-10 · صف خالی",
+      "w": 1440,
+      "x": 1520,
+      "y": 2800,
+      "expand": "fill"
+    },
+    "Bots.dc.html": {
+      "h": 860,
+      "title": "SCR-12 · گفت‌وگوهای دستیار",
+      "w": 1440,
+      "x": 0,
+      "y": 3800,
+      "expand": "fill"
+    },
+    "Conversation-Queue.dc.html": {
+      "h": 980,
+      "title": "SCR-11 · نمای صف (S3)",
+      "w": 1440,
+      "x": 1520,
+      "y": 3800,
+      "expand": "fill"
+    },
+    "Conversation-Bot.dc.html": {
+      "h": 860,
+      "title": "SCR-11 · نمای دستیار (S2) با بازبینی",
+      "w": 1440,
+      "x": 0,
+      "y": 4880,
+      "expand": "fill"
+    },
+    "W1-Takeover.dc.html": {
+      "h": 260,
+      "title": "W1 · تحویل از دستیار",
+      "w": 520,
+      "x": 1520,
+      "y": 4880
+    },
+    "W2-Resolve.dc.html": {
+      "h": 440,
+      "title": "W2 · بستن مستند (دکمه تا پرشدن غیرفعال)",
+      "w": 520,
+      "x": 2120,
+      "y": 4880
+    },
+    "W3-CloseUnconfirmed.dc.html": {
+      "h": 400,
+      "title": "W3 · بستن بدون تأیید",
+      "w": 520,
+      "x": 2720,
+      "y": 4880
+    },
+    "W4-Stop.dc.html": {
+      "h": 260,
+      "title": "W4 · توقف پاسخ خودکار",
+      "w": 520,
+      "x": 3320,
+      "y": 4880
+    },
+    "W5-Handback.dc.html": {
+      "h": 240,
+      "title": "W5 · واگذاری به دستیار",
+      "w": 520,
+      "x": 3920,
+      "y": 4880
+    }
   },
-  "Chat-Clarify.dc.html": {
-   "x": 470,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۴ · رفع ابهام"
+  "order": [
+    "Main.dc.html",
+    "Conversation.dc.html",
+    "Chat-Welcome.dc.html",
+    "Chat-Clarify.dc.html",
+    "Chat-Answer.dc.html",
+    "Chat-Registered.dc.html",
+    "Chat-Human.dc.html",
+    "Chat-Error.dc.html",
+    "Queue-Stopped.dc.html",
+    "Queue-Empty.dc.html",
+    "Bots.dc.html",
+    "Conversation-Queue.dc.html",
+    "Conversation-Bot.dc.html",
+    "W1-Takeover.dc.html",
+    "W2-Resolve.dc.html",
+    "W3-CloseUnconfirmed.dc.html",
+    "W4-Stop.dc.html",
+    "W5-Handback.dc.html"
+  ],
+  "notes": {
+    "adm": {
+      "x": 0,
+      "y": -300,
+      "text": "پنل ادمین (دسکتاپ)",
+      "kind": "title1",
+      "maxW": 2960
+    },
+    "chat": {
+      "x": 0,
+      "y": 1120,
+      "text": "صفحه گفت‌وگوی مشتری (موبایل)",
+      "kind": "title1",
+      "maxW": 2740
+    },
+    "adm2": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "پنل ادمین — حالت‌ها و نماهای دیگر",
+      "w": 240,
+      "x": 0,
+      "y": 2500
+    },
+    "dlg": {
+      "kind": "title1",
+      "maxW": 2920,
+      "text": "دیالوگ‌ها (W1–W5)",
+      "w": 240,
+      "x": 1520,
+      "y": 4600
+    }
   },
-  "Chat-Answer.dc.html": {
-   "x": 940,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۳ · پاسخ موجودی + تأیید حل"
-  },
-  "Chat-Registered.dc.html": {
-   "x": 1410,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"
-  },
-  "Chat-Human.dc.html": {
-   "x": 1880,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"
-  },
-  "Chat-Error.dc.html": {
-   "x": 2350,
-   "y": 1420,
-   "w": 390,
-   "h": 844,
-   "title": "ح۹ · خطای سرویس"
-  }
- },
- "order": [
-  "Main.dc.html",
-  "Conversation.dc.html",
-  "Chat-Welcome.dc.html",
-  "Chat-Clarify.dc.html",
-  "Chat-Answer.dc.html",
-  "Chat-Registered.dc.html",
-  "Chat-Human.dc.html",
-  "Chat-Error.dc.html"
- ],
- "notes": {
-  "adm": {
-   "x": 0,
-   "y": -300,
-   "text": "پنل ادمین (دسکتاپ)",
-   "kind": "title1",
-   "maxW": 2960
-  },
-  "chat": {
-   "x": 0,
-   "y": 1120,
-   "text": "صفحه گفت‌وگوی مشتری (موبایل)",
-   "kind": "title1",
-   "maxW": 2740
-  }
- },
- "designSystems": [
-  {
-   "title": "دستیار پشتیبانی",
-   "namespace": "dastyar",
-   "artifact": "https://claude.ai/artifact/Wnt4fEfrQCmQeeE28BiSzb",
-   "version": null,
-   "copiedAt": "2026-11-15T17:42:25Z"
-  }
- ]
+  "designSystems": [
+    {
+      "title": "دستیار پشتیبانی",
+      "namespace": "dastyar",
+      "artifact": "https://claude.ai/artifact/Wnt4fEfrQCmQeeE28BiSzb",
+      "version": null,
+      "copiedAt": "2026-11-15T17:42:25Z"
+    }
+  ]
 }
