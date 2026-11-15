@@ -1,0 +1,107 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-15T17:42:25Z"
+ },
+ "title": "دستیار پشتیبانی — طراحی صفحه‌ها",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "SCR-10 · صف اقدام",
+   "expand": "fill"
+  },
+  "Conversation.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 1000,
+   "title": "SCR-11 · نمای مکالمه — مالک",
+   "expand": "fill"
+  },
+  "Chat-Welcome.dc.html": {
+   "x": 0,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۱ · خوش‌آمد"
+  },
+  "Chat-Clarify.dc.html": {
+   "x": 470,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۴ · رفع ابهام"
+  },
+  "Chat-Answer.dc.html": {
+   "x": 940,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۳ · پاسخ موجودی + تأیید حل"
+  },
+  "Chat-Registered.dc.html": {
+   "x": 1410,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"
+  },
+  "Chat-Human.dc.html": {
+   "x": 1880,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"
+  },
+  "Chat-Error.dc.html": {
+   "x": 2350,
+   "y": 1420,
+   "w": 390,
+   "h": 844,
+   "title": "ح۹ · خطای سرویس"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Conversation.dc.html",
+  "Chat-Welcome.dc.html",
+  "Chat-Clarify.dc.html",
+  "Chat-Answer.dc.html",
+  "Chat-Registered.dc.html",
+  "Chat-Human.dc.html",
+  "Chat-Error.dc.html"
+ ],
+ "notes": {
+  "adm": {
+   "x": 0,
+   "y": -300,
+   "text": "پنل ادمین (دسکتاپ)",
+   "kind": "title1",
+   "maxW": 2960
+  },
+  "chat": {
+   "x": 0,
+   "y": 1120,
+   "text": "صفحه گفت‌وگوی مشتری (موبایل)",
+   "kind": "title1",
+   "maxW": 2740
+  }
+ },
+ "designSystems": [
+  {
+   "title": "دستیار پشتیبانی",
+   "namespace": "dastyar",
+   "artifact": "https://claude.ai/artifact/Wnt4fEfrQCmQeeE28BiSzb",
+   "version": null,
+   "copiedAt": "2026-11-15T17:42:25Z"
+  }
+ ]
+}
