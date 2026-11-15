@@ -145,7 +145,7 @@
     },
     "Store-Discrepancies.dc.html": {
       "x": 0,
-      "y": 5400,
+      "y": 6700,
       "w": 1440,
       "h": 860,
       "title": "SCR-20 · فهرست مغایرت‌ها",
@@ -153,7 +153,7 @@
     },
     "Store-FixInventory.dc.html": {
       "x": 1520,
-      "y": 5400,
+      "y": 6700,
       "w": 1440,
       "h": 1080,
       "title": "SCR-21 · اصلاح موجودی گونه (قدیمی شده + پیش‌نویس)",
@@ -161,7 +161,7 @@
     },
     "Store-FixConflict.dc.html": {
       "x": 0,
-      "y": 6660,
+      "y": 7960,
       "w": 1440,
       "h": 760,
       "title": "SCR-21 · اطلاعات متعارض (R5)",
@@ -169,7 +169,7 @@
     },
     "Store-Products.dc.html": {
       "x": 1520,
-      "y": 6660,
+      "y": 7960,
       "w": 1440,
       "h": 760,
       "title": "SCR-22 · محصولات و گونه‌ها — فهرست",
@@ -177,7 +177,7 @@
     },
     "Store-ProductEdit.dc.html": {
       "x": 0,
-      "y": 7600,
+      "y": 8900,
       "w": 1440,
       "h": 900,
       "title": "SCR-22 · ویرایش محصول",
@@ -185,7 +185,7 @@
     },
     "Store-Knowledge.dc.html": {
       "x": 1520,
-      "y": 7600,
+      "y": 8900,
       "w": 1440,
       "h": 760,
       "title": "SCR-23 · دانش و سیاست — فهرست (همه)",
@@ -193,7 +193,7 @@
     },
     "Store-KnowledgeEdit.dc.html": {
       "x": 0,
-      "y": 8680,
+      "y": 9980,
       "w": 1440,
       "h": 820,
       "title": "SCR-23 · ویرایش منبع (منقضی)",
@@ -201,7 +201,7 @@
     },
     "Store-Settings.dc.html": {
       "x": 1520,
-      "y": 8680,
+      "y": 9980,
       "w": 1440,
       "h": 1260,
       "title": "SCR-24 · تنظیمات فروشگاه",
@@ -209,7 +209,7 @@
     },
     "Store-Permissions.dc.html": {
       "x": 0,
-      "y": 10120,
+      "y": 11420,
       "w": 1440,
       "h": 720,
       "title": "SCR-25 · مجوزها",
@@ -217,7 +217,7 @@
     },
     "Store-Report.dc.html": {
       "x": 1520,
-      "y": 10120,
+      "y": 11420,
       "w": 1440,
       "h": 1560,
       "title": "SCR-26 · گزارش سنجش",
@@ -270,6 +270,50 @@
       "h": 900,
       "title": "دسکتاپ · ح۹ · خطای سرویس",
       "expand": "fill"
+    },
+    "Conversation-Observer.dc.html": {
+      "x": 0,
+      "y": 4960,
+      "w": 1440,
+      "h": 1000,
+      "title": "SCR-11 · نمای ناظر (S4، مالک دیگر)",
+      "expand": "fill"
+    },
+    "Conversation-Closed.dc.html": {
+      "x": 1520,
+      "y": 4960,
+      "w": 1440,
+      "h": 1060,
+      "title": "SCR-11 · نمای بسته (S5)",
+      "expand": "fill"
+    },
+    "SW1-CloseDiscrepancy.dc.html": {
+      "x": 0,
+      "y": 13280,
+      "w": 520,
+      "h": 380,
+      "title": "W1 فروشگاه · بستن مغایرت بدون اصلاح"
+    },
+    "SW2-Threshold.dc.html": {
+      "x": 600,
+      "y": 13280,
+      "w": 520,
+      "h": 260,
+      "title": "W2 فروشگاه · تأیید آستانه"
+    },
+    "SW3-Grant.dc.html": {
+      "x": 1200,
+      "y": 13280,
+      "w": 520,
+      "h": 260,
+      "title": "W3 فروشگاه · تأیید اعطای مجوز"
+    },
+    "SW4-Leave.dc.html": {
+      "x": 1800,
+      "y": 13280,
+      "w": 520,
+      "h": 240,
+      "title": "W4 فروشگاه · ترک صفحه با تغییر ذخیره‌نشده"
     }
   },
   "order": [
@@ -306,7 +350,13 @@
     "Store-KnowledgeEdit.dc.html",
     "Store-Settings.dc.html",
     "Store-Permissions.dc.html",
-    "Store-Report.dc.html"
+    "Store-Report.dc.html",
+    "Conversation-Observer.dc.html",
+    "Conversation-Closed.dc.html",
+    "SW1-CloseDiscrepancy.dc.html",
+    "SW2-Threshold.dc.html",
+    "SW3-Grant.dc.html",
+    "SW4-Leave.dc.html"
   ],
   "notes": {
     "adm": {
@@ -344,7 +394,14 @@
       "maxW": 2400,
       "text": "پنل مدیریت فروشگاه (دسکتاپ)",
       "x": 0,
-      "y": 5100
+      "y": 6400
+    },
+    "sdlg": {
+      "kind": "title1",
+      "maxW": 2400,
+      "text": "دیالوگ‌های پنل فروشگاه (W1–W4)",
+      "x": 0,
+      "y": 13000
     }
   },
   "designSystems": [
