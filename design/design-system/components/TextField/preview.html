@@ -1,0 +1,23 @@
+<!-- @dsCard group="فرم" height=230 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap">
+<div class="ds-root" dir="rtl" style="padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+  <div class="ds-field">
+    <label class="ds-field__label" for="th">آستانه اعتبار موجودی (ساعت)</label>
+    <input class="ds-input ds-num" id="th" value="۲۴" inputmode="numeric">
+    <span class="ds-field__hint"><span>بین ۱ تا ۷۲۰ ساعت</span></span>
+  </div>
+  <div class="ds-field">
+    <label class="ds-field__label" for="q">جست‌وجو در صف</label>
+    <input class="ds-input" id="q" placeholder="شناسه، متن پیام یا نام محصول">
+  </div>
+  <div class="ds-field">
+    <label class="ds-field__label" for="note">یادداشت بستن</label>
+    <input class="ds-input" id="note" aria-invalid="true" aria-describedby="note-err">
+    <span class="ds-field__error" id="note-err">برای بستن مستند، یادداشت لازم است.</span>
+  </div>
+  <div class="ds-field">
+    <label class="ds-field__label" for="msg">پیام</label>
+    <input class="ds-input" id="msg" value="سایز ۳۸ مشکی هست؟">
+    <span class="ds-field__hint"><span>Enter برای ارسال</span><span class="ds-num">۸۸۲ / ۱۰۰۰</span></span>
+  </div>
+</div>
