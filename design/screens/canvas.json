@@ -142,6 +142,163 @@
       "w": 520,
       "x": 3920,
       "y": 4880
+    },
+    "Store-Discrepancies.dc.html": {
+      "x": 0,
+      "y": 5900,
+      "w": 1440,
+      "h": 860,
+      "title": "SCR-20 · فهرست مغایرت‌ها",
+      "expand": "fill"
+    },
+    "M-Store-Discrepancies.dc.html": {
+      "x": 1520,
+      "y": 5900,
+      "w": 390,
+      "h": 844,
+      "title": "موبایل · SCR-20"
+    },
+    "M-Store-Nav.dc.html": {
+      "x": 1990,
+      "y": 5900,
+      "w": 390,
+      "h": 844,
+      "title": "موبایل · منوی پنل"
+    },
+    "Store-FixInventory.dc.html": {
+      "x": 0,
+      "y": 6940,
+      "w": 1440,
+      "h": 1080,
+      "title": "SCR-21 · اصلاح موجودی گونه (قدیمی شده + پیش‌نویس)",
+      "expand": "fill"
+    },
+    "M-Store-FixInventory.dc.html": {
+      "x": 1520,
+      "y": 6940,
+      "w": 390,
+      "h": 1640,
+      "title": "موبایل · SCR-21"
+    },
+    "Store-FixConflict.dc.html": {
+      "x": 0,
+      "y": 8760,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-21 · اطلاعات متعارض (R5)",
+      "expand": "fill"
+    },
+    "M-Store-FixConflict.dc.html": {
+      "x": 1520,
+      "y": 8760,
+      "w": 390,
+      "h": 844,
+      "title": "موبایل · SCR-21 متعارض"
+    },
+    "Store-Products.dc.html": {
+      "x": 0,
+      "y": 9784,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-22 · محصولات و گونه‌ها — فهرست",
+      "expand": "fill"
+    },
+    "M-Store-Products.dc.html": {
+      "x": 1520,
+      "y": 9784,
+      "w": 390,
+      "h": 844,
+      "title": "موبایل · SCR-22 فهرست"
+    },
+    "Store-ProductEdit.dc.html": {
+      "x": 0,
+      "y": 10808,
+      "w": 1440,
+      "h": 900,
+      "title": "SCR-22 · ویرایش محصول",
+      "expand": "fill"
+    },
+    "M-Store-ProductEdit.dc.html": {
+      "x": 1520,
+      "y": 10808,
+      "w": 390,
+      "h": 1640,
+      "title": "موبایل · SCR-22 ویرایش"
+    },
+    "Store-Knowledge.dc.html": {
+      "x": 0,
+      "y": 12628,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-23 · دانش و سیاست — فهرست (همه)",
+      "expand": "fill"
+    },
+    "M-Store-Knowledge.dc.html": {
+      "x": 1520,
+      "y": 12628,
+      "w": 390,
+      "h": 844,
+      "title": "موبایل · SCR-23 فهرست"
+    },
+    "Store-KnowledgeEdit.dc.html": {
+      "x": 0,
+      "y": 13652,
+      "w": 1440,
+      "h": 820,
+      "title": "SCR-23 · ویرایش منبع (منقضی)",
+      "expand": "fill"
+    },
+    "M-Store-KnowledgeEdit.dc.html": {
+      "x": 1520,
+      "y": 13652,
+      "w": 390,
+      "h": 1100,
+      "title": "موبایل · SCR-23 ویرایش"
+    },
+    "Store-Settings.dc.html": {
+      "x": 0,
+      "y": 14932,
+      "w": 1440,
+      "h": 1260,
+      "title": "SCR-24 · تنظیمات فروشگاه",
+      "expand": "fill"
+    },
+    "M-Store-Settings.dc.html": {
+      "x": 1520,
+      "y": 14932,
+      "w": 390,
+      "h": 2560,
+      "title": "موبایل · SCR-24"
+    },
+    "Store-Permissions.dc.html": {
+      "x": 0,
+      "y": 17672,
+      "w": 1440,
+      "h": 720,
+      "title": "SCR-25 · مجوزها",
+      "expand": "fill"
+    },
+    "M-Store-Permissions.dc.html": {
+      "x": 1520,
+      "y": 17672,
+      "w": 390,
+      "h": 900,
+      "title": "موبایل · SCR-25"
+    },
+    "Store-Report.dc.html": {
+      "x": 0,
+      "y": 18752,
+      "w": 1440,
+      "h": 1560,
+      "title": "SCR-26 · گزارش سنجش",
+      "expand": "fill"
+    },
+    "M-Store-Report.dc.html": {
+      "x": 1520,
+      "y": 18752,
+      "w": 390,
+      "h": 2900,
+      "title": "موبایل · SCR-26"
     }
   },
   "order": [
@@ -162,7 +319,28 @@
     "W2-Resolve.dc.html",
     "W3-CloseUnconfirmed.dc.html",
     "W4-Stop.dc.html",
-    "W5-Handback.dc.html"
+    "W5-Handback.dc.html",
+    "Store-Discrepancies.dc.html",
+    "M-Store-Discrepancies.dc.html",
+    "M-Store-Nav.dc.html",
+    "Store-FixInventory.dc.html",
+    "M-Store-FixInventory.dc.html",
+    "Store-FixConflict.dc.html",
+    "M-Store-FixConflict.dc.html",
+    "Store-Products.dc.html",
+    "M-Store-Products.dc.html",
+    "Store-ProductEdit.dc.html",
+    "M-Store-ProductEdit.dc.html",
+    "Store-Knowledge.dc.html",
+    "M-Store-Knowledge.dc.html",
+    "Store-KnowledgeEdit.dc.html",
+    "M-Store-KnowledgeEdit.dc.html",
+    "Store-Settings.dc.html",
+    "M-Store-Settings.dc.html",
+    "Store-Permissions.dc.html",
+    "M-Store-Permissions.dc.html",
+    "Store-Report.dc.html",
+    "M-Store-Report.dc.html"
   ],
   "notes": {
     "adm": {
@@ -194,6 +372,13 @@
       "w": 240,
       "x": 1520,
       "y": 4600
+    },
+    "store": {
+      "kind": "title1",
+      "maxW": 2400,
+      "text": "پنل مدیریت فروشگاه — دسکتاپ و موبایل کنار هم",
+      "x": 0,
+      "y": 5600
     }
   },
   "designSystems": [
