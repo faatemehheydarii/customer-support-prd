@@ -53,10 +53,19 @@ R={
 'SW3-Grant':{'rules':[('اعطای مجوز','Store-Permissions'),('انصراف',B)]},
 'SW4-Leave':{'rules':[('ماندن',B),('ترک صفحه','Store-Discrepancies')]},
 }
-RT='''<style>[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
+RT='''<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
 (function(){var RULES=__R__,AUTO=__A__;
-function go(t){if(t==="back"){history.back();return}location.href=t+".html"}
+var MODALS=__M__;
+function go(t){if(t==="back"){history.back();return}if(MODALS[t]){openModal(t);return}location.href=t+".html"}
+function closeModal(){var o=document.getElementById("pmodal");if(o)o.remove()}
+function openModal(t){fetch(t+".html").then(function(r){return r.text()}).then(function(h){var d=new DOMParser().parseFromString(h,"text/html");var dlg=d.querySelector("[role=dialog]");if(!dlg)return;closeModal();
+var o=document.createElement("div");o.id="pmodal";o.setAttribute("style","position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(11,59,56,.38);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:pf .16s ease-out");
+dlg=document.importNode(dlg,true);dlg.style.maxWidth="480px";dlg.style.width="100%";o.appendChild(dlg);document.body.appendChild(o);
+o.addEventListener("click",function(e){if(e.target===o)closeModal()});
+var cs=[].slice.call(dlg.querySelectorAll("button"));MODALS[t].forEach(function(r){cs.forEach(function(b){var tx=b.textContent.replace(/\s+/g," ").trim();if(tx===r[0]){b.style.cursor="pointer";b.onclick=function(e){e.stopPropagation();if(r[1]==="back")closeModal();else{closeModal();location.href=r[1]+".html"}}}})});
+var f=dlg.querySelector("button:not([disabled])");if(f)f.focus()})}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
 function bind(el,t){if(!el||el.dataset.hot)return;el.dataset.hot=t;el.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();go(t)})}
 var cands=[].slice.call(document.querySelectorAll("button,a,label.sw,.sw,.nav,.chip,.tab,.lnk"));
 RULES.forEach(function(r){var k=r[0],t=r[1];
@@ -69,6 +78,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
 });
 document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.getAttribute("href").replace(".dc.html","");bind(a,t)});
 document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
+var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
@@ -83,7 +93,7 @@ def convert(name):
     if name.startswith('Login-'):
         s=re.sub(r'<div role="(alert|status)" style="display:flex;gap:8px;align-items:flex-start;padding:10px 12px;border-radius:10px;.*?</span></div>','',s,count=1,flags=re.S)
     r=R[name]
-    rt=RT.replace('__R__',json.dumps(r['rules'],ensure_ascii=False)).replace('__A__',json.dumps(list(r['auto']) if 'auto' in r else None))
+    rt=RT.replace('__M__',json.dumps({k:v['rules'] for k,v in R.items() if k.startswith(('W','SW'))},ensure_ascii=False)).replace('__R__',json.dumps(r['rules'],ensure_ascii=False)).replace('__A__',json.dumps(list(r['auto']) if 'auto' in r else None))
     s=s.replace('</body>',rt+'\n</body>')
     open(f'{OUT}/screens/{name}.html','w',encoding='utf-8').write(s)
 for n in R: convert(n)

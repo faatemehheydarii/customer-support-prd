@@ -7,7 +7,7 @@
 <body>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&amp;display=swap">
 <style>
-body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;color:#142624;background:#f7faf9}
+body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;color:#142624;background:#eef5f3}
 a{color:#0f766e}a:hover{color:#115e59}
 ::selection{background:#e7f4f1;color:#0b3b38}
 button{font-family:inherit}
@@ -18,9 +18,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .s3{background:#fdf1dc;color:#8a4b06}.s4{background:#0b3b38;color:#fff}.s5{background:#e8f5ec;color:#166534}.s1{background:#e7f4f1;color:#0b3b38}
 table{border-collapse:separate;border-spacing:0;width:100%}
-th{text-align:start;font-weight:500;font-size:14px;color:#4f6260;background:#eef3f2;padding:8px 16px;border-bottom:1px solid #d3dcda;white-space:nowrap}
+th{text-align:start;font-weight:500;font-size:14px;color:#0b3b38;background:#e7f4f1;padding:10px 16px;border-bottom:1px solid #d3dcda;white-space:nowrap}
 td{padding:12px 16px;border-bottom:1px solid #d3dcda;font-size:14px;line-height:24px;vertical-align:middle;white-space:nowrap}
-tbody tr:hover td{background:#f7faf9}
+tbody tr:hover td{background:#eef5f3}
 .btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;border:1px solid transparent;white-space:nowrap}
 .btn-p{background:#0f766e;color:#fff}.btn-p:hover{background:#115e59}
 .btn-s{background:#e7f4f1;color:#0b3b38}
@@ -41,10 +41,22 @@ tbody tr:hover td{background:#f7faf9}
 .who-h{color:#0b3b38;font-weight:600}
 .src{display:block;margin-top:4px;font-size:12px;line-height:18px;color:#4f6260}
 .nav[aria-current="page"]{background:#155e58;color:#fff;font-weight:600;box-shadow:inset 0 -3px 0 #99e2d6}
+/*polish*/
+*{scrollbar-width:thin;scrollbar-color:#0f766e transparent}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background:#115e59}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+textarea::-webkit-scrollbar-thumb{background:#7d8e8c}
+svg{flex:none}
+.btn svg{display:block}
+.brand-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);color:#fff;font-weight:700;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#f6c26b 0%,#e8894a 100%);color:#fff;font-size:18px;font-weight:700}
 </style>
-<div style="min-height:100vh;display:flex;flex-direction:column;background:#f7faf9">
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#eef5f3">
 <header style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:10px 24px;background:#0b3b38;color:#e6f2ef">
-<div style="font-weight:700;font-size:16px;line-height:24px;margin-inline-end:16px">دستیار پشتیبانی<span style="display:block;font-weight:400;font-size:12px;line-height:18px;color:#9cc9c1">پنل ادمین · فروشگاه نمایشی</span></div>
+<div style="display:flex;align-items:center;gap:10px;margin-inline-end:16px"><span class="brand-mark" style="width:36px;height:36px" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span><div style="font-weight:700;font-size:16px;line-height:24px">دستیار پشتیبانی<span style="display:block;font-weight:400;font-size:12px;line-height:18px;color:#9cc9c1">پنل ادمین · فروشگاه نمایشی</span></div></div>
 <nav aria-label="پنل ادمین" style="display:flex;gap:4px"><a class="nav" href="#" aria-current="page">صف اقدام<span style="font-size:12px;color:#9cc9c1">۶</span></a><a class="nav" href="#">گفت‌وگوهای دستیار<span style="font-size:12px;color:#9cc9c1">۱۲</span></a></nav>
 <div style="margin-inline-start:auto;display:flex;align-items:center;gap:12px"><span style="display:flex;align-items:center;gap:8px;font-size:14px"><span style="width:8px;height:8px;border-radius:50%;background:#99e2d6"></span>پاسخ خودکار: فعال</span><button class="btn" style="background:transparent;color:#e6f2ef;border-color:#9cc9c1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>توقف پاسخ خودکار</button>
 <span style="width:1px;height:24px;background:#155e58"></span>
@@ -61,7 +73,7 @@ tbody tr:hover td{background:#f7faf9}
 
 <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
 <section aria-label="تاریخچه گفت‌وگو" style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;background:#ffffff;border:1px solid #d3dcda;border-radius:14px;overflow:hidden">
-<div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px;min-height:360px;justify-content:flex-end;background:#f7faf9"><div class="grp me"><div class="bub tail">مانتو ب سرمه‌ای سایز L موجوده؟</div><span class="meta">مشتری · ۱۰:۴۰</span></div>
+<div style="display:flex;flex-direction:column;gap:20px;padding:24px 20px;min-height:360px;justify-content:flex-end;background:#eef5f3"><div class="grp me"><div class="bub tail">مانتو ب سرمه‌ای سایز L موجوده؟</div><span class="meta">مشتری · ۱۰:۴۰</span></div>
 <div class="grp them"><div class="bub">الان نمی‌توانم با اطمینان بگویم مانتو ب، سرمه‌ای، L موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. از همکارانم در پشتیبانی می‌پرسم.<span class="src">پاسخ قالبی · موجودی: قدیمی شده</span></div><div class="bub tail">درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.<span class="src">پاسخ قالبی</span></div><span class="meta">دستیار · ۱۰:۴۰</span></div>
 <div style="align-self:center;font-size:12px;line-height:18px;color:#4f6260">ارجاع ثبت شد · علت: پاسخ معتبر نبود · ۱۰:۴۰</div>
 <div class="grp me"><div class="bub tail">ممنون، منتظرم</div><span class="meta">مشتری · ۱۰:۴۱</span></div>
@@ -73,10 +85,19 @@ tbody tr:hover td{background:#f7faf9}
 <p style="margin:0;padding:10px 12px;border-radius:10px;background:#eef3f2;font-size:14px;line-height:24px">مشتری موجودی مانتو ب، سرمه‌ای، سایز L را می‌خواهد. دستیار به‌دلیل قدیمی‌بودن داده موجودی پاسخ قطعی نداد.<span style="display:block;margin-top:4px;font-size:12px;line-height:18px;color:#4f6260">خلاصه خودکار — برای جزئیات دقیق، تاریخچه را ببینید.</span></p>
 <dl style="margin:0;display:grid;gap:12px"><div style="display:grid;gap:2px"><dt style="font-size:12px;line-height:18px;color:#4f6260">آخرین درخواست مشتری</dt><dd style="margin:0;font-size:14px;line-height:22px">«ممنون، منتظرم»</dd></div><div style="display:grid;gap:2px"><dt style="font-size:12px;line-height:18px;color:#4f6260">گونه مرتبط</dt><dd style="margin:0;font-size:14px;line-height:22px">مانتو ب · سرمه‌ای · L</dd></div><div style="display:grid;gap:2px"><dt style="font-size:12px;line-height:18px;color:#4f6260">علت ارجاع</dt><dd style="margin:0;font-size:14px;line-height:22px">پاسخ معتبر نبود</dd></div><div style="display:grid;gap:2px"><dt style="font-size:12px;line-height:18px;color:#4f6260">اطلاعات ناقص</dt><dd style="margin:0;font-size:14px;line-height:22px">ندارد</dd></div></dl></aside></div>
 </main></div>
-<style>[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
+<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
 (function(){var RULES=[["صف اقدام", "Main"], ["گفت‌وگوهای دستیار", "Bots"], ["توقف پاسخ خودکار", "W4-Stop"], ["خروج", "Login-Admin"], ["بازگشت", "Main"]],AUTO=null;
-function go(t){if(t==="back"){history.back();return}location.href=t+".html"}
+var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مغایرت", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]]};
+function go(t){if(t==="back"){history.back();return}if(MODALS[t]){openModal(t);return}location.href=t+".html"}
+function closeModal(){var o=document.getElementById("pmodal");if(o)o.remove()}
+function openModal(t){fetch(t+".html").then(function(r){return r.text()}).then(function(h){var d=new DOMParser().parseFromString(h,"text/html");var dlg=d.querySelector("[role=dialog]");if(!dlg)return;closeModal();
+var o=document.createElement("div");o.id="pmodal";o.setAttribute("style","position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(11,59,56,.38);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:pf .16s ease-out");
+dlg=document.importNode(dlg,true);dlg.style.maxWidth="480px";dlg.style.width="100%";o.appendChild(dlg);document.body.appendChild(o);
+o.addEventListener("click",function(e){if(e.target===o)closeModal()});
+var cs=[].slice.call(dlg.querySelectorAll("button"));MODALS[t].forEach(function(r){cs.forEach(function(b){var tx=b.textContent.replace(/\s+/g," ").trim();if(tx===r[0]){b.style.cursor="pointer";b.onclick=function(e){e.stopPropagation();if(r[1]==="back")closeModal();else{closeModal();location.href=r[1]+".html"}}}})});
+var f=dlg.querySelector("button:not([disabled])");if(f)f.focus()})}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
 function bind(el,t){if(!el||el.dataset.hot)return;el.dataset.hot=t;el.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();go(t)})}
 var cands=[].slice.call(document.querySelectorAll("button,a,label.sw,.sw,.nav,.chip,.tab,.lnk"));
 RULES.forEach(function(r){var k=r[0],t=r[1];
@@ -89,6 +110,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
 });
 document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.getAttribute("href").replace(".dc.html","");bind(a,t)});
 document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
+var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
