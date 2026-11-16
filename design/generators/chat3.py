@@ -23,13 +23,18 @@ def chatx(title, items, header='on', footer=None):
         html=html[:i]+footer+html[j:]
     return html
 LONG='سلام. سفارش ۱۲۳۴ رو هفته پیش ثبت کردم و هنوز به دستم نرسیده. توی پیگیری نوشته ارسال شده ولی کد رهگیری کار نمی‌کنه. قبلاً هم یک بار از همین فروشگاه خرید کرده بودم و همه چیز خوب بود، برای همین تعجب کردم. یک مانتو و یک شلوار سفارش دادم، رنگ مانتو سرمه‌ای و سایز L بود و شلوار جین آبی سایز ۳۲. آدرس رو هم دوباره چک کردم درسته. می‌خواستم بدونم دقیقاً کجاست، کی می‌رسه، و اگر گم شده باشه چه کار باید بکنم. ضمناً اگر دیرتر از جمعه برسه دیگه لازمش ندارم چون برای مهمانی می‌خواستم و ممکنه بخوام مرجوعش کنم. شرایط مرجوعی چیه و هزینه ارسال برگشت با کیه؟ اگر بشه هم شماره تماس پیک رو بدید ممنون می‌شم. باز هم ببخشید پیام طولانی شد ولی می‌خواستم همه چیز رو یک‌جا بگم تا مجبور نشید چند بار…'
-FOOT_LONG=f'''<footer style="padding:10px 16px 24px;background:{C['card']};border-top:1px solid {C['border']}">
-<div style="display:flex;gap:8px;align-items:flex-end">
-<label style="flex:1;display:flex"><span class="sr">پیام</span>
-<textarea rows="5" aria-invalid="true" aria-describedby="h12" style="flex:1;resize:none;height:132px;box-sizing:border-box;padding:9px 16px;border:1px solid {C['dang']};border-radius:20px;font-family:inherit;font-size:16px;line-height:24px;color:{C['fg']};background:{C['card']}">{LONG}</textarea></label>
-<button aria-label="ارسال" disabled style="flex:none;width:44px;height:44px;border-radius:999px;border:0;background:{C['muted']};color:{C['mutedfg']};display:flex;align-items:center;justify-content:center">{I('send',20)}</button>
+FOOT_LONG=f'''<footer style="padding:10px 16px 20px;background:{C['card']};border-top:1px solid {C['border']}">
+<div style="display:flex;gap:8px;align-items:flex-start">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;flex-direction:column;border:1px solid {C['dang']};border-radius:20px;background:{C['card']};overflow:hidden">
+<label style="display:flex"><span class="sr">پیام</span>
+<textarea rows="4" aria-invalid="true" aria-describedby="h12 c12" style="flex:1;resize:none;height:100px;box-sizing:border-box;padding:9px 16px 4px;border:0;outline:0;font-family:inherit;font-size:16px;line-height:24px;color:{C['fg']};background:transparent">{LONG}</textarea></label>
+<div style="display:flex;justify-content:flex-end;padding:2px 10px 8px"><span id="c12" style="padding:0 8px;border-radius:999px;background:{C['dangs']};color:{C['dang']};font-size:12px;line-height:20px;font-weight:600;font-variant-numeric:tabular-nums">۱۰۴۲ از ۱۰۰۰</span></div>
 </div>
-<div id="h12" style="display:flex;justify-content:space-between;gap:12px;margin-top:6px;padding:0 4px;font-size:12px;line-height:18px"><span style="color:{C['dang']}">پیامتان طولانی است. لطفاً کوتاه‌ترش کنید یا در چند پیام بفرستید.</span><span class="num" style="color:{C['dang']};font-weight:600;white-space:nowrap">۱۰۴۲ از ۱۰۰۰</span></div>
+<p id="h12" role="alert" style="margin:0;padding:0 4px;font-size:12px;line-height:18px;color:{C['dang']}">پیامتان طولانی است. لطفاً کوتاه‌ترش کنید یا در چند پیام بفرستید.</p>
+</div>
+<button aria-label="ارسال" disabled style="flex:none;margin-top:88px;width:44px;height:44px;border-radius:999px;border:0;background:{C['muted']};color:{C['mutedfg']};display:flex;align-items:center;justify-content:center">{I('send',20)}</button>
+</div>
 </footer>'''
 ASK='مانتو الف مشکی، سایز M موجوده؟'
 f={}

@@ -3,17 +3,18 @@ import glob, re, sys
 DIR=sys.argv[1] if len(sys.argv)>1 else '/home/claude/canvas/project'
 BG_OLD,BG_NEW='#eef5f3','#f7faf9'  # tint reverted per review (2026-11-16)
 SCROLL='''/*polish*/
-*{scrollbar-width:thin;scrollbar-color:#0f766e transparent}
-::-webkit-scrollbar{width:6px;height:6px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px}
-::-webkit-scrollbar-thumb:hover{background:#115e59}
-::-webkit-scrollbar-button{display:none;width:0;height:0}
-textarea::-webkit-scrollbar-thumb{background:#7d8e8c}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:#e6ecea;border-radius:999px;margin:6px}
+::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px;border:2px solid transparent;background-clip:padding-box;min-height:32px}
+::-webkit-scrollbar-thumb:hover{background:#115e59;background-clip:padding-box}
+::-webkit-scrollbar-button,::-webkit-scrollbar-corner{display:none;width:0;height:0;background:transparent}
+@supports not selector(::-webkit-scrollbar){*{scrollbar-width:thin;scrollbar-color:#0f766e #e6ecea}}
 svg{flex:none}
-.btn svg{display:block}
+.btn svg,.chip svg{display:block}
+.chip{display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .brand-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);color:#fff;font-weight:700;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
-.store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#f6c26b 0%,#e8894a 100%);color:#fff;font-size:18px;font-weight:700}'''
+.store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#f6c26b 0%,#e8894a 100%);color:#fff;font-size:18px;font-weight:700}
+/*endpolish*/'''
 REF_OLD='<path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/>'
 REF_NEW='<path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/>'
 HS='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>'
@@ -34,7 +35,9 @@ n=0
 OLDMARK=f'<span class="brand-mark" style="width:36px;height:36px" aria-hidden="true">{HS}</span>'
 for f in glob.glob(DIR+'/*.dc.html')+glob.glob(DIR+'/*.html'):
     s=open(f,encoding='utf-8').read(); o=s
-    if '/*polish*/' not in s: s=s.replace('</style>',SCROLL+'\n</style>',1)
+    if '/*endpolish*/' not in s:
+        s=re.sub(r'/\*polish\*/.*?(?=/\*polish2\*/|\n</style>)','',s,count=1,flags=re.S)
+        s=s.replace('</style>',SCROLL+'\n</style>',1)
     if '/*polish2*/' not in s and 'class="rail"' in s: s=s.replace('</style>',P2+'\n</style>',1)
     s=s.replace(HB_OLD,HB_NEW)
     s=s.replace(OLDMARK,MARK)
@@ -57,3 +60,35 @@ for f in glob.glob(DIR+'/*.dc.html')+glob.glob(DIR+'/*.html'):
                     f'<div style="display:flex;align-items:center;gap:10px">{MARK}<div><div style="font-weight:700;font-size:16px;line-height:24px">دستیار پشتیبانی</div><div class="help">پنل فروشگاه · فروشگاه نمایشی</div></div></div>')
     if s!=o: open(f,'w',encoding='utf-8').write(s); n+=1
 print('polished',n)
+
+# ---- polish3: customer chat visual layer (2026-11-16) ----
+P3='''/*polish3*/
+header{height:72px!important;background:radial-gradient(120% 160% at 100% 0%,#14b8a6 0%,#0f766e 42%,#0b3b38 100%)!important;border-bottom:0!important;color:#fff}
+header [style*="color:#4f6260"]{color:#bfe9e1!important}
+header .store-mark{box-shadow:0 0 0 3px rgba(255,255,255,.25)}
+header button:not([disabled]){border-color:#fff!important;box-shadow:0 2px 10px rgba(0,0,0,.14)}
+main{background:radial-gradient(100% 45% at 50% 0%,rgba(153,226,214,.32),transparent 70%),radial-gradient(rgba(15,118,110,.08) 1px,transparent 1.3px) 0 0/18px 18px,#f7faf9}
+.me .bub{background:#0f766e!important;color:#fff!important}
+.them .bub{border-color:transparent!important;box-shadow:0 1px 2px rgba(11,59,56,.06),0 6px 16px rgba(11,59,56,.06)}
+.grp.them{position:relative;padding-inline-start:38px}
+.grp.them::before{content:"✦";position:absolute;inset-inline-start:0;bottom:20px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;font-size:13px;line-height:28px;text-align:center}
+.grp.them:has(.who-h)::before{content:"پ";background:#0b3b38;font-weight:700;font-size:14px}
+.chip:not(.on):not(.cta){background:#fff;box-shadow:0 1px 2px rgba(11,59,56,.08)}
+.day,.sys{background:rgba(255,255,255,.85);box-shadow:0 1px 2px rgba(11,59,56,.06);padding:3px 12px;border-radius:999px}
+footer{border-top:0!important;box-shadow:0 -6px 24px rgba(11,59,56,.07)}
+footer textarea:not([aria-invalid]){background:#f1f5f4!important;border-color:transparent!important}
+footer button[aria-label="ارسال"][disabled]{background:#e7f4f1!important;color:#0f766e!important;opacity:.55}
+body{background:radial-gradient(55% 70% at 85% 10%,rgba(20,184,166,.55) 0%,transparent 60%),linear-gradient(135deg,#0b3b38 0%,#0f766e 100%)!important}
+/*endpolish3*/'''
+HERO='<div class="hero" style="margin-block:auto;align-self:center;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center"><span class="store-mark" aria-hidden="true" style="width:72px;height:72px;font-size:30px;border-radius:22px;box-shadow:0 12px 28px rgba(232,137,74,.35)">ف</span><div style="font-size:18px;font-weight:700;line-height:28px;margin-top:6px">فروشگاه نمایشی</div><div style="font-size:13px;line-height:20px;color:#4f6260">دستیار پشتیبانی فروشگاه</div></div>'
+COL_OLD='width:560px;height:100vh;margin:0 auto;border-inline:1px solid #d3dcda;'
+COL_NEW='width:560px;height:calc(100vh - 48px);margin:24px auto;border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28);'
+import os
+for f in glob.glob(DIR+'/*Chat-*.html'):
+    s=open(f,encoding='utf-8').read(); o=s
+    if '/*polish3*/' not in s: s=s.replace('</style>',P3+'\n</style>',1)
+    s=s.replace(COL_OLD,COL_NEW)
+    if os.path.basename(f).replace('D-','').startswith('Chat-Welcome') and 'class="hero"' not in s:
+        s=s.replace('justify-content:flex-end;gap:20px;padding:20px 16px">','justify-content:flex-end;gap:20px;padding:20px 16px">\n'+HERO,1)
+    if s!=o: open(f,'w',encoding='utf-8').write(s); n+=1
+print('polish3 total',n)

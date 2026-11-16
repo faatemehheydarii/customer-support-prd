@@ -92,6 +92,8 @@ def convert(name):
         s=s.replace('width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;','width:100%;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;max-width:560px;margin:0 auto;')
     if name.startswith('Login-'):
         s=re.sub(r'<div role="(alert|status)" style="display:flex;gap:8px;align-items:flex-start;padding:10px 12px;border-radius:10px;.*?</span></div>','',s,count=1,flags=re.S)
+    if name.startswith('Chat-'):
+        s=s.replace('/*endpolish3*/','@media (min-width:700px){body>div[style*="max-width:560px"]{height:calc(100vh - 48px)!important;margin:24px auto!important;border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28)}}\n/*endpolish3*/',1)
     r=R[name]
     rt=RT.replace('__M__',json.dumps({k:v['rules'] for k,v in R.items() if k.startswith(('W','SW'))},ensure_ascii=False)).replace('__R__',json.dumps(r['rules'],ensure_ascii=False)).replace('__A__',json.dumps(list(r['auto']) if 'auto' in r else None))
     s=s.replace('</body>',rt+'\n</body>')
