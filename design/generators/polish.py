@@ -67,7 +67,8 @@ print('polished',n)
 # ---- polish3: customer chat visual layer (2026-11-16) ----
 P3='''/*polish3*/
 header{height:72px!important;background:#0f766e!important;border-bottom:0!important;color:#fff}
-header [style*="color:#4f6260"]{color:#cdeee7!important}
+header div[style*="color:#4f6260"]{color:#cdeee7!important}
+header button[disabled]{background:#eef3f2!important;color:#4f6260!important;opacity:1!important}
 header .store-mark{box-shadow:0 0 0 3px rgba(255,255,255,.25)}
 header button:not([disabled]){border-color:#fff!important}
 main{background:#ffffff!important}
