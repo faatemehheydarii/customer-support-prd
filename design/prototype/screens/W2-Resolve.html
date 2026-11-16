@@ -84,6 +84,13 @@ details.more>div .btn{width:100%;justify-content:flex-start;border:0}
 .choice label.on{border:2px solid #0f766e;background:#e7f4f1;padding:11px 13px}
 .choice b{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
 .choice span{font-size:13px;line-height:20px;color:#4f6260}
+html{scrollbar-width:none}
+html::-webkit-scrollbar{width:0!important;height:0!important;display:none}
+body>div>header:first-child{position:sticky;top:0;z-index:30}
+aside.rail{position:sticky;top:0;height:100vh;overflow-y:auto;scrollbar-width:none}
+aside.rail::-webkit-scrollbar{width:0;display:none}
+section[aria-label="تاریخچه گفت‌وگو"]>div:first-child{border-left:8px solid #f7faf9}
+section[aria-label="تاریخچه گفت‌وگو"]>div:first-child::-webkit-scrollbar-track{margin:12px 0}
 /*endpolish4*/
 </style>
 <div style="width:520px;height:440px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:rgba(11,59,56,0.32);padding:24px">
