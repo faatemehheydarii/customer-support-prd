@@ -59,6 +59,32 @@ svg{flex:none}
 .brand-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700}
 .store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:#ec9a55;color:#fff;font-size:18px;font-weight:700}
 /*endpolishB*/
+/*polish4*/
+.wait{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-weight:600}
+.wait.w1{background:#fdf1dc;color:#8a4b06}
+.wait.w2{background:#fdecea;color:#b42318}
+td span[style*="font-size:12px"]{font-size:13px!important}
+.unread{display:inline-flex;align-items:center;gap:6px;margin-inline-start:8px;color:#0f766e;font-weight:600;font-size:13px}
+.unread::before{content:"";width:8px;height:8px;border-radius:50%;background:#0f766e}
+section[aria-label="تاریخچه گفت‌وگو"]{height:calc(100vh - 300px);min-height:520px}
+section[aria-label="تاریخچه گفت‌وگو"]>div:first-child{flex:1;min-height:0!important;overflow:auto;justify-content:flex-start!important}
+section[aria-label="تاریخچه گفت‌وگو"]>div:first-child>:first-child{margin-top:auto}
+details.more{position:relative}
+details.more>summary{list-style:none}
+details.more>summary::-webkit-details-marker{display:none}
+details.more[open]>div{position:absolute;inset-inline-start:0;top:calc(100% + 4px);z-index:5;min-width:200px;padding:6px;background:#fff;border:1px solid #d3dcda;border-radius:12px;box-shadow:0 8px 24px rgba(11,59,56,.12)}
+details.more>div .btn{width:100%;justify-content:flex-start;border:0}
+.setup{display:grid;gap:12px;padding:16px 20px}
+.setup ol{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px}
+.setup li{display:flex;align-items:center;gap:8px;font-size:14px;line-height:22px}
+.setup li.ok{color:#166534}
+.setup li.todo{color:#8a4b06;font-weight:600}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.choice label{display:grid;gap:2px;padding:12px 14px;border:1px solid #7d8e8c;border-radius:12px;background:#fff;cursor:pointer}
+.choice label.on{border:2px solid #0f766e;background:#e7f4f1;padding:11px 13px}
+.choice b{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.choice span{font-size:13px;line-height:20px;color:#4f6260}
+/*endpolish4*/
 </style>
 <div style="width:520px;height:380px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:rgba(11,59,56,0.32);padding:24px">
 <div role="dialog" aria-modal="true" aria-labelledby="t" style="width:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:24px;background:#ffffff;border-radius:14px;box-shadow:0 12px 32px rgba(11,59,56,0.16)">
@@ -83,6 +109,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}
  cands.forEach(function(el){var tx=(el.textContent||"").replace(/\s+/g," ").trim();if(tx===k||tx.indexOf(k)===0&&tx.length<k.length+6)bind(el,t)});
@@ -91,6 +118,7 @@ document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.get
 document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
+if(!AUTO&&!sessionStorage.getItem("hint_"+location.pathname)){try{sessionStorage.setItem("hint_"+location.pathname,"1")}catch(e){}document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},1100)}
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
 </script>

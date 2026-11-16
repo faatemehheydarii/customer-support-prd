@@ -51,14 +51,14 @@ svg{flex:none}
 /*polish3*/
 header{height:72px!important;background:#0f766e!important;border-bottom:0!important;color:#fff}
 header div[style*="color:#4f6260"]{color:#cdeee7!important}
-header button[disabled]{background:#d9ece8!important;color:#2f8178!important;border:0!important;opacity:1!important}
+header button[disabled]{background:transparent!important;border:1px dashed rgba(255,255,255,.35)!important;color:#a6d8d0!important;opacity:1!important}
 header .store-mark{box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-header button:not([disabled]){border-color:#fff!important}
+header button:not([disabled]){background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.6)!important;color:#fff!important}
 main{background:#ffffff!important}
 .me .bub{background:#134e4a!important;color:#fff!important}
 .them .bub{background:#f1f4f3!important;border:0!important;box-shadow:none!important;color:#0b2422}
 .grp.them{position:relative;padding-inline-start:38px}
-.grp.them::before{content:"✦";position:absolute;inset-inline-start:0;bottom:22px;width:28px;height:28px;border-radius:50%;background:#0f766e;color:#fff;font-size:13px;line-height:28px;text-align:center}
+.grp.them::before{content:"ف";position:absolute;inset-inline-start:0;bottom:22px;width:28px;height:28px;border-radius:50%;background:#ec9a55;color:#fff;font-size:14px;font-weight:700;line-height:28px;text-align:center}
 .grp.them:not(:has(.meta))::before{bottom:6px}
 .typing{display:inline-flex!important;align-items:center;gap:8px;min-height:40px;padding:0 14px!important;border-radius:18px;background:#f1f4f3;border:0!important;color:#4f6260;font-size:13px}
 .grp.them:has(.who-h)::before{content:"پ";background:#0b3b38;font-weight:700;font-size:14px}
@@ -68,8 +68,9 @@ main{background:#ffffff!important}
 .act .qr-lab{min-width:40px;font-size:13px;font-weight:600;color:#166534}
 .act .qr-row:not(:has(.qr-lab)) .chip{flex:1}
 .act .chip{min-height:44px;border-color:#c4e2cd;background:#fff;color:#0b2422}
+.act .chip{white-space:nowrap;padding:0 12px}
 .act .chip.on{background:#fff;border:2px solid #166534;color:#166534;font-weight:600}
-.act .chip.cta{background:#0f766e;border-color:#0f766e;color:#fff}
+.act .chip.cta{background:#fff;border:1.5px solid #0f766e;color:#0f766e;font-weight:600}
 .day,.sys{background:transparent;box-shadow:none;color:#6b7c7a}
 footer{border-top:1px solid #edf1f0!important}
 footer textarea:not([aria-invalid]){background:#f1f5f4!important;border-color:transparent!important}
@@ -119,6 +120,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}
  cands.forEach(function(el){var tx=(el.textContent||"").replace(/\s+/g," ").trim();if(tx===k||tx.indexOf(k)===0&&tx.length<k.length+6)bind(el,t)});
@@ -127,6 +129,7 @@ document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.get
 document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
+if(!AUTO&&!sessionStorage.getItem("hint_"+location.pathname)){try{sessionStorage.setItem("hint_"+location.pathname,"1")}catch(e){}document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},1100)}
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
 </script>

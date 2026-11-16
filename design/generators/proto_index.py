@@ -36,7 +36,8 @@ nav button:hover{background:var(--bg)}nav button[aria-current=true]{background:v
 <div class="seg dev" id="dev" role="group" aria-label="دستگاه"><button data-d="m" aria-pressed="true">موبایل</button><button data-d="d" aria-pressed="false">دسکتاپ</button></div>
 <span class="hint">روی جای خالی بزنید تا نقاط کلیک‌پذیر نشان داده شوند</span></header>
 <div class="wrap"><nav id="nav"></nav><div class="stage" id="stage"></div></div>
-<script>
+<script>function tap(b,f){var t=0;b.addEventListener("pointerdown",function(e){if(e.button)return;t=Date.now();f()});b.addEventListener("click",function(){if(Date.now()-t>600)f()})}
+
 var G=__G__,area="customer",dev="m",cur=null;
 var stage=document.getElementById("stage"),nav=document.getElementById("nav");
 function frame(){var mobile=area==="customer"&&dev==="m";stage.innerHTML=mobile?'<div class="phone"><iframe id="f" title="صفحه"></iframe></div>':'<div class="desk" id="dk"><iframe id="f" title="صفحه"></iframe></div>';fit()}
@@ -45,9 +46,9 @@ function open(n){var p=n.split("?");document.getElementById("f").src="screens/"+
 function mark(n){cur=n;nav.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-current",b.dataset.n===n)})}
 function setArea(a){area=a;document.querySelectorAll("[data-a]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.a===a)});document.getElementById("dev").hidden=a!=="customer";
 var g=G[a];nav.innerHTML="<h2>"+g[1]+"</h2>"+g[2].map(function(s){return'<button data-n="'+s[0]+'">'+s[1]+"</button>"}).join("");
-nav.querySelectorAll("button").forEach(function(b){b.onclick=function(){open(b.dataset.n)}});frame();open(g[2][0][0]);mark(g[2][0][0])}
-document.querySelectorAll("[data-a]").forEach(function(b){b.onclick=function(){setArea(b.dataset.a)}});
-document.querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){dev=b.dataset.d;document.querySelectorAll("[data-d]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});var n=cur;frame();open(n)}});
+nav.querySelectorAll("button").forEach(function(b){tap(b,function(){open(b.dataset.n)})});frame();open(g[2][0][0]);mark(g[2][0][0])}
+document.querySelectorAll("[data-a]").forEach(function(b){tap(b,function(){setArea(b.dataset.a)})});
+document.querySelectorAll("[data-d]").forEach(function(b){tap(b,function(){dev=b.dataset.d;document.querySelectorAll("[data-d]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});var n=cur;frame();open(n)})});
 addEventListener("message",function(e){if(e.data&&e.data.proto==="screen")mark(e.data.name)});
 addEventListener("resize",fit);
 setArea("customer");

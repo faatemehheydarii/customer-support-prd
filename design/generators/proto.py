@@ -6,7 +6,7 @@ STORE_NAV=[('مغایرت‌ها','Store-Discrepancies'),('محصولات و گ�
 CHAT_HDR=[('گفت‌وگو با پشتیبان','Chat-Registering')]
 R={
 # customer
-'Chat-Welcome':{'rules':CHAT_HDR+[('@send','Chat-Clarify'),('@composer','Chat-Clarify')]},
+'Chat-Welcome':{'rules':CHAT_HDR+[('@send','Chat-Clarify'),('@composer','Chat-Clarify'),('موجودی محصول','Chat-Clarify'),('هزینه و زمان ارسال','Chat-Error'),('پیگیری سفارش','Chat-Typing'),('مرجوعی کالا','Chat-Typing')]},
 'Chat-Clarify':{'rules':CHAT_HDR+[('S','Chat-Typing'),('M','Chat-Typing'),('L','Chat-Typing'),('مشکی','Chat-Typing'),('کرم','Chat-Typing')]},
 'Chat-Typing':{'rules':CHAT_HDR,'auto':('Chat-Answer',1800)},
 'Chat-Answer':{'rules':CHAT_HDR+[('بله، ممنون','Chat-Closed'),('نه، هنوز نه','Chat-Registering')]},
@@ -38,7 +38,7 @@ R={
 # store
 'Login-Store':{'rules':[('ورود','Store-Discrepancies')]},
 'Store-Discrepancies':{'rules':STORE_NAV+[('@row1','Store-FixInventory'),('@row2','Store-FixConflict'),('@row3','Store-FixInventory'),('رفتن به تنظیمات','Store-Settings')]},
-'Store-FixInventory':{'rules':STORE_NAV+[('بستن مغایرت بدون اصلاح','SW1-CloseDiscrepancy'),('تأیید','Store-Discrepancies')]},
+'Store-FixInventory':{'rules':STORE_NAV+[('بستن مغایرت بدون اصلاح','SW1-CloseDiscrepancy'),('تأیید','Store-Discrepancies'),('@ok','Store-Discrepancies')]},
 'Store-FixConflict':{'rules':STORE_NAV+[('این رکورد درست است','Store-Discrepancies'),('بستن مغایرت بدون اصلاح','SW1-CloseDiscrepancy')]},
 'Store-Products':{'rules':STORE_NAV+[('@row1','Store-ProductEdit'),('@row2','Store-ProductEdit'),('@row3','Store-ProductEdit'),('@row4','Store-ProductEdit')]},
 'Store-ProductEdit':{'rules':STORE_NAV+[('اصلاح موجودی','Store-FixInventory')]},
@@ -72,6 +72,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}
  cands.forEach(function(el){var tx=(el.textContent||"").replace(/\\s+/g," ").trim();if(tx===k||tx.indexOf(k)===0&&tx.length<k.length+6)bind(el,t)});
@@ -80,6 +81,7 @@ document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.get
 document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
+if(!AUTO&&!sessionStorage.getItem("hint_"+location.pathname)){try{sessionStorage.setItem("hint_"+location.pathname,"1")}catch(e){}document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},1100)}
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
 </script>'''

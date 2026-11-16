@@ -29,7 +29,7 @@ def chat(title, items, status=None, header_btn=True):
     if status=='s3':
         st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:{C["warns"]};color:{C["warn"]};font-size:14px;line-height:22px">{I("clock",20)}<span>درخواستتان برای پشتیبانی ثبت شده است. پیام‌هایتان را همین‌جا بنویسید؛ پشتیبان همه را می‌بیند.</span></div>'
     if status=='s4':
-        st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:{C["deep"]};color:{C["deepfg"]};font-size:14px;line-height:22px">{I("headset",20)}<span>پشتیبان فروشگاه در گفت‌وگوست. پیام‌هایتان را همین‌جا بنویسید.</span></div>'
+        st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:#e8f5ec;color:#166534;font-size:14px;line-height:22px">{I("headset",20)}<span>پشتیبان فروشگاه در گفت‌وگوست. پیام‌هایتان را همین‌جا بنویسید.</span></div>'
     body=f'''<div style="width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;background:{C['bg']};overflow:hidden">
 <header style="display:flex;align-items:center;gap:16px;height:64px;box-sizing:border-box;padding:0 16px;background:{C['card']};border-bottom:1px solid {C['border']}">
 
@@ -56,7 +56,7 @@ def me(*texts, t='۱۰:۳۱'):
     return '<div class="grp me">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta">{t}</span></div>'
 def bot(*texts, t='۱۰:۳۲', qr=''):
     g='<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta">دستیار · {t}</span></div>'
-    return g+(f'<section class="act" aria-label="پاسخ سریع">{qr}</section>' if qr else '')
+    return g+(f'<section class="act" aria-label="{"پیشنهاد شروع" if "موجودی محصول" in qr else "پاسخ سریع"}">{qr}</section>' if qr else '')
 def human(*texts, t='۱۰:۴۶'):
     return '<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta"><span class="who-h">پشتیبان فروشگاه</span> · {t}</span></div>'
 def rows(*rs): return '<div class="qr">'+''.join(rs)+'</div>'
@@ -67,7 +67,7 @@ def chip(t): return f'<button class="chip">{t}</button>'
 def chip_on(t): return f'<button class="chip on" disabled aria-pressed="true">{I("check",16)}{t}</button>'
 DAY='<div class="day">امروز</div>'
 f={}
-f['Chat-Welcome.dc.html']=chat('صفحه گفت‌وگو — خوش‌آمد', bot('سلام! من دستیار پشتیبانی فروشگاه نمایشی هستم. درباره محصولات، موجودی، ارسال، سفارش یا مرجوعی بپرسید.','هر وقت خواستید، می‌توانید با پشتیبان انسانی هم صحبت کنید.',t='۱۰:۳۰'))
+f['Chat-Welcome.dc.html']=chat('صفحه گفت‌وگو — خوش‌آمد', bot('سلام! من دستیار پشتیبانی فروشگاه نمایشی هستم. درباره محصولات، موجودی، ارسال، سفارش یا مرجوعی بپرسید.','هر وقت خواستید، می‌توانید با پشتیبان انسانی هم صحبت کنید.',t='۱۰:۳۰',qr=rows(row('',chip('موجودی محصول'),chip('هزینه و زمان ارسال')),row('',chip('پیگیری سفارش'),chip('مرجوعی کالا')))))
 f['Chat-Clarify.dc.html']=chat('صفحه گفت‌وگو — رفع ابهام', DAY+me('سلام، مانتو الف رو دارید؟')+bot('این مانتو در سایزهای S، M، L و رنگ‌های مشکی و کرم هست. کدام را می‌خواهید؟',t='۱۰:۳۱',qr=rows(row('سایز',chip('S'),chip('M'),chip('L')),row('رنگ',chip('مشکی'),chip('کرم')))))
 f['Chat-Answer.dc.html']=chat('صفحه گفت‌وگو — پاسخ موجودی و تأیید حل', me('مانتو الف مشکی، سایز M موجوده؟')+bot('مانتو الف، مشکی، M طبق اطلاعات فروشگاه امروز ساعت ۱۰:۳۰ موجود است.<span style="display:block;margin-top:6px;font-size:14px;line-height:22px;color:'+C['mutedfg']+'">این به معنای رزرو نیست و موجودی ممکن است تا زمان خرید تغییر کند.</span>','جواب سؤالتان را گرفتید؟',qr=rows(row('',chip('بله، ممنون'),chip('نه، هنوز نه')))))
 f['Chat-Registered.dc.html']=chat('صفحه گفت‌وگو — درخواست ثبت شد (موجودی نامشخص)', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('الان نمی‌توانم با اطمینان بگویم مانتو ب، سرمه‌ای، L موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. از همکارانم در پشتیبانی می‌پرسم.','درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+me('ممنون، منتظرم',t='۱۰:۴۱'),status='s3',header_btn=False)

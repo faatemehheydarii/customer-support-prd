@@ -30,7 +30,8 @@ nav button:hover{background:var(--bg)}nav button[aria-current=true]{background:v
 <div class="seg dev" id="dev" role="group" aria-label="دستگاه"><button data-d="m" aria-pressed="true">موبایل</button><button data-d="d" aria-pressed="false">دسکتاپ</button></div>
 <span class="hint">روی جای خالی بزنید تا نقاط کلیک‌پذیر نشان داده شوند</span></header>
 <div class="wrap"><nav id="nav"></nav><div class="stage" id="stage"></div></div>
-<script>
+<script>function tap(b,f){var t=0;b.addEventListener("pointerdown",function(e){if(e.button)return;t=Date.now();f()});b.addEventListener("click",function(){if(Date.now()-t>600)f()})}
+
 var G={"customer": ["مشتری", "صفحه گفت‌وگو", [["Chat-Welcome", "ح۱ خوش‌آمد"], ["Chat-Clarify", "ح۴ رفع ابهام"], ["Chat-Typing", "ح۲ در حال پاسخ"], ["Chat-Answer", "ح۳ پاسخ و تأیید حل"], ["Chat-Closed", "ح۸ بسته"], ["Chat-Registering", "ح۵ در حال ثبت"], ["Chat-Registered", "ح۶ درخواست ثبت شد"], ["Chat-Human", "ح۷ پشتیبان در گفت‌وگو"], ["Chat-Error", "ح۹ خطای سرویس"], ["Chat-RegisterFailed", "ح۱۰ شکست ثبت"], ["Chat-SendFailed", "ح۱۱ ارسال نشد"], ["Chat-TooLong", "ح۱۲ پیام بلند"]]], "admin": ["ادمین", "پنل ادمین", [["Login-Admin", "ورود"], ["Main", "صف اقدام"], ["Queue-Stopped", "صف — پاسخ خودکار متوقف"], ["Queue-Empty", "صف خالی"], ["Conversation-Queue", "مکالمه — نمای صف"], ["Conversation", "مکالمه — نمای مالک"], ["Conversation-Observer", "مکالمه — نمای ناظر"], ["Conversation-Closed", "مکالمه — بسته"], ["Bots", "گفت‌وگوهای دستیار"], ["Conversation-Bot", "مکالمه — نمای دستیار"], ["Conversation-Bot?modal=W1-Takeover", "W1 تحویل از دستیار"], ["Conversation?modal=W2-Resolve", "W2 بستن مستند"], ["Conversation?modal=W3-CloseUnconfirmed", "W3 بستن بدون تأیید"], ["Main?modal=W4-Stop", "W4 توقف پاسخ خودکار"], ["Conversation?modal=W5-Handback", "W5 واگذاری"]]], "store": ["فروشگاه", "پنل مدیریت فروشگاه", [["Login-Store", "ورود"], ["Store-Discrepancies", "مغایرت‌ها"], ["Store-FixInventory", "اصلاح موجودی"], ["Store-FixConflict", "اطلاعات متعارض"], ["Store-Products", "محصولات و گونه‌ها"], ["Store-ProductEdit", "ویرایش محصول"], ["Store-Knowledge", "دانش و سیاست"], ["Store-KnowledgeEdit", "ویرایش منبع"], ["Store-Settings", "تنظیمات"], ["Store-Permissions", "مجوزها"], ["Store-Report", "گزارش"], ["Store-FixInventory?modal=SW1-CloseDiscrepancy", "W1 بستن مغایرت"], ["Store-Settings?modal=SW2-Threshold", "W2 تأیید آستانه"], ["Store-Permissions?modal=SW3-Grant", "W3 اعطای مجوز"], ["Store-ProductEdit?modal=SW4-Leave", "W4 ترک صفحه"], ["Denied-Role", "دسترسی رد شد — نقش"], ["Denied-Page", "دسترسی رد شد — صفحه"]]]},area="customer",dev="m",cur=null;
 var stage=document.getElementById("stage"),nav=document.getElementById("nav");
 function frame(){var mobile=area==="customer"&&dev==="m";stage.innerHTML=mobile?'<div class="phone"><iframe id="f" title="صفحه"></iframe></div>':'<div class="desk" id="dk"><iframe id="f" title="صفحه"></iframe></div>';fit()}
@@ -39,9 +40,9 @@ function open(n){var p=n.split("?");document.getElementById("f").src="screens/"+
 function mark(n){cur=n;nav.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-current",b.dataset.n===n)})}
 function setArea(a){area=a;document.querySelectorAll("[data-a]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.a===a)});document.getElementById("dev").hidden=a!=="customer";
 var g=G[a];nav.innerHTML="<h2>"+g[1]+"</h2>"+g[2].map(function(s){return'<button data-n="'+s[0]+'">'+s[1]+"</button>"}).join("");
-nav.querySelectorAll("button").forEach(function(b){b.onclick=function(){open(b.dataset.n)}});frame();open(g[2][0][0]);mark(g[2][0][0])}
-document.querySelectorAll("[data-a]").forEach(function(b){b.onclick=function(){setArea(b.dataset.a)}});
-document.querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){dev=b.dataset.d;document.querySelectorAll("[data-d]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});var n=cur;frame();open(n)}});
+nav.querySelectorAll("button").forEach(function(b){tap(b,function(){open(b.dataset.n)})});frame();open(g[2][0][0]);mark(g[2][0][0])}
+document.querySelectorAll("[data-a]").forEach(function(b){tap(b,function(){setArea(b.dataset.a)})});
+document.querySelectorAll("[data-d]").forEach(function(b){tap(b,function(){dev=b.dataset.d;document.querySelectorAll("[data-d]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});var n=cur;frame();open(n)})});
 addEventListener("message",function(e){if(e.data&&e.data.proto==="screen")mark(e.data.name)});
 addEventListener("resize",fit);
 setArea("customer");
