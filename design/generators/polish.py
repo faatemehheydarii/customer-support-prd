@@ -90,17 +90,19 @@ main{background:#ffffff!important}
 footer{border-top:1px solid #edf1f0!important}
 footer textarea:not([aria-invalid]){background:#f1f5f4!important;border-color:transparent!important}
 footer button[aria-label="ارسال"][disabled]{background:#e7f4f1!important;color:#0f766e!important;opacity:.55}
-body{background:#0b3b38!important}
+body{background:#f6f8f7!important}
+@media (min-width:700px){body>div[style*="max-width:560px"]{height:calc(100vh - 48px)!important;margin:24px auto!important;border-radius:24px;overflow:hidden;border:1px solid #e3eae8;box-shadow:0 1px 3px rgba(11,59,56,.08),0 16px 40px rgba(11,59,56,.10)}}
 /*endpolish3*/'''
 HERO='<div class="hero" style="margin-block:auto;align-self:center;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center"><span class="store-mark" aria-hidden="true" style="width:72px;height:72px;font-size:30px;border-radius:22px;box-shadow:none">ف</span><div style="font-size:18px;font-weight:700;line-height:28px;margin-top:6px">فروشگاه نمایشی</div><div style="font-size:13px;line-height:20px;color:#4f6260">دستیار پشتیبانی فروشگاه</div></div>'
 COL_OLD='width:560px;height:100vh;margin:0 auto;border-inline:1px solid #d3dcda;'
-COL_NEW='width:560px;height:calc(100vh - 48px);margin:24px auto;border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28);'
+COL_NEW='width:560px;height:calc(100vh - 48px);margin:24px auto;border-radius:24px;border:1px solid #e3eae8;box-shadow:0 1px 3px rgba(11,59,56,.08),0 16px 40px rgba(11,59,56,.10);'
+COL_PREV='width:560px;height:calc(100vh - 48px);margin:24px auto;border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28);'
 import os
 for f in glob.glob(DIR+'/*Chat-*.html'):
     s=open(f,encoding='utf-8').read(); o=s
     s=re.sub(r'/\*polish3\*/.*?/\*endpolish3\*/\n?','',s,count=1,flags=re.S)
     s=s.replace('</style>',P3+'\n</style>',1)
-    s=s.replace(COL_OLD,COL_NEW)
+    s=s.replace(COL_OLD,COL_NEW).replace(COL_PREV,COL_NEW)
     if os.path.basename(f).replace('D-','').startswith('Chat-Welcome') and 'class="hero"' not in s:
         s=s.replace('justify-content:flex-end;gap:20px;padding:20px 16px">','justify-content:flex-end;gap:20px;padding:20px 16px">\n'+HERO,1)
     if s!=o: open(f,'w',encoding='utf-8').write(s); n+=1
