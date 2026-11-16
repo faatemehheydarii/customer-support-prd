@@ -27,42 +27,42 @@
       "expand": "fill"
     },
     "Chat-Welcome.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 0,
       "w": 390,
       "h": 844,
       "title": "ح۱ · خوش‌آمد"
     },
     "Chat-Clarify.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 1080,
       "w": 390,
       "h": 844,
       "title": "ح۴ · رفع ابهام"
     },
     "Chat-Answer.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 2160,
       "w": 390,
       "h": 844,
       "title": "ح۳ · پاسخ موجودی + تأیید حل"
     },
     "Chat-Registered.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 3240,
       "w": 390,
       "h": 844,
       "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"
     },
     "Chat-Human.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 4320,
       "w": 390,
       "h": 844,
       "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"
     },
     "Chat-Error.dc.html": {
-      "x": 3400,
+      "x": 4642,
       "y": 5400,
       "w": 390,
       "h": 844,
@@ -224,7 +224,7 @@
       "expand": "fill"
     },
     "D-Chat-Welcome.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -232,7 +232,7 @@
       "expand": "fill"
     },
     "D-Chat-Clarify.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 1080,
       "w": 1440,
       "h": 900,
@@ -240,7 +240,7 @@
       "expand": "fill"
     },
     "D-Chat-Answer.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 2160,
       "w": 1440,
       "h": 900,
@@ -248,7 +248,7 @@
       "expand": "fill"
     },
     "D-Chat-Registered.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 3240,
       "w": 1440,
       "h": 900,
@@ -256,7 +256,7 @@
       "expand": "fill"
     },
     "D-Chat-Human.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 4320,
       "w": 1440,
       "h": 900,
@@ -264,7 +264,7 @@
       "expand": "fill"
     },
     "D-Chat-Error.dc.html": {
-      "x": 3870,
+      "x": 5112,
       "y": 5400,
       "w": 1440,
       "h": 900,
@@ -314,6 +314,128 @@
       "w": 520,
       "h": 240,
       "title": "W4 فروشگاه · ترک صفحه با تغییر ذخیره‌نشده"
+    },
+    "Chat-Typing.dc.html": {
+      "x": 4642,
+      "y": 6480,
+      "w": 390,
+      "h": 844,
+      "title": "ح۲ · در حال پاسخ"
+    },
+    "D-Chat-Typing.dc.html": {
+      "x": 5112,
+      "y": 6480,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۲ · در حال پاسخ",
+      "expand": "fill"
+    },
+    "Chat-Registering.dc.html": {
+      "x": 4642,
+      "y": 7560,
+      "w": 390,
+      "h": 844,
+      "title": "ح۵ · در حال ثبت"
+    },
+    "D-Chat-Registering.dc.html": {
+      "x": 5112,
+      "y": 7560,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۵ · در حال ثبت",
+      "expand": "fill"
+    },
+    "Chat-Closed.dc.html": {
+      "x": 4642,
+      "y": 8640,
+      "w": 390,
+      "h": 844,
+      "title": "ح۸ · بسته (پس از تأیید حل)"
+    },
+    "D-Chat-Closed.dc.html": {
+      "x": 5112,
+      "y": 8640,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۸ · بسته (پس از تأیید حل)",
+      "expand": "fill"
+    },
+    "Chat-RegisterFailed.dc.html": {
+      "x": 4642,
+      "y": 9720,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۰ · شکست ثبت (با مسیر جایگزین)"
+    },
+    "D-Chat-RegisterFailed.dc.html": {
+      "x": 5112,
+      "y": 9720,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۰ · شکست ثبت (با مسیر جایگزین)",
+      "expand": "fill"
+    },
+    "Chat-SendFailed.dc.html": {
+      "x": 4642,
+      "y": 10800,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۱ · ارسال نشد"
+    },
+    "D-Chat-SendFailed.dc.html": {
+      "x": 5112,
+      "y": 10800,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۱ · ارسال نشد",
+      "expand": "fill"
+    },
+    "Chat-TooLong.dc.html": {
+      "x": 4642,
+      "y": 11880,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۲ · پیام بلند"
+    },
+    "D-Chat-TooLong.dc.html": {
+      "x": 5112,
+      "y": 11880,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۲ · پیام بلند",
+      "expand": "fill"
+    },
+    "Login-Admin.dc.html": {
+      "x": 0,
+      "y": 14200,
+      "w": 1440,
+      "h": 900,
+      "title": "ورود · پنل ادمین (ورود ناموفق)",
+      "expand": "fill"
+    },
+    "Login-Store.dc.html": {
+      "x": 1520,
+      "y": 14200,
+      "w": 1440,
+      "h": 900,
+      "title": "ورود · پنل فروشگاه (پایان نشست)",
+      "expand": "fill"
+    },
+    "Denied-Role.dc.html": {
+      "x": 0,
+      "y": 15300,
+      "w": 1440,
+      "h": 900,
+      "title": "دسترسی رد شد · نقش ورودی را ندارد",
+      "expand": "fill"
+    },
+    "Denied-Page.dc.html": {
+      "x": 1520,
+      "y": 15300,
+      "w": 1440,
+      "h": 900,
+      "title": "دسترسی رد شد · صفحه بی‌مجوز (ادمین در پنل فروشگاه)",
+      "expand": "fill"
     }
   },
   "order": [
@@ -356,7 +478,23 @@
     "SW1-CloseDiscrepancy.dc.html",
     "SW2-Threshold.dc.html",
     "SW3-Grant.dc.html",
-    "SW4-Leave.dc.html"
+    "SW4-Leave.dc.html",
+    "Chat-Typing.dc.html",
+    "D-Chat-Typing.dc.html",
+    "Chat-Registering.dc.html",
+    "D-Chat-Registering.dc.html",
+    "Chat-Closed.dc.html",
+    "D-Chat-Closed.dc.html",
+    "Chat-RegisterFailed.dc.html",
+    "D-Chat-RegisterFailed.dc.html",
+    "Chat-SendFailed.dc.html",
+    "D-Chat-SendFailed.dc.html",
+    "Chat-TooLong.dc.html",
+    "D-Chat-TooLong.dc.html",
+    "Login-Admin.dc.html",
+    "Login-Store.dc.html",
+    "Denied-Role.dc.html",
+    "Denied-Page.dc.html"
   ],
   "notes": {
     "adm": {
@@ -364,14 +502,16 @@
       "y": -300,
       "text": "پنل ادمین (دسکتاپ)",
       "kind": "title1",
-      "maxW": 2960
+      "maxW": 2960,
+      "w": 240
     },
     "chat": {
-      "x": 3400,
+      "x": 4642,
       "y": -300,
       "text": "صفحه گفت‌وگوی مشتری — موبایل و دسکتاپ کنار هم",
       "kind": "title1",
-      "maxW": 1910
+      "maxW": 1910,
+      "w": 240
     },
     "adm2": {
       "kind": "title1",
@@ -402,6 +542,14 @@
       "text": "دیالوگ‌های پنل فروشگاه (W1–W4)",
       "x": 0,
       "y": 13000
+    },
+    "auth": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "ورود و «دسترسی رد شد» (دسکتاپ)",
+      "w": 240,
+      "x": 0,
+      "y": 13900
     }
   },
   "designSystems": [
@@ -412,5 +560,15 @@
       "version": null,
       "copiedAt": "2026-11-15T17:42:25Z"
     }
+  ],
+  "attachments": {},
+  "noteOrder": [
+    "adm",
+    "chat",
+    "adm2",
+    "dlg",
+    "store",
+    "sdlg",
+    "auth"
   ]
 }
