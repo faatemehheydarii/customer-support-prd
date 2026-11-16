@@ -28,7 +28,7 @@ FOOT_LONG=f'''<footer style="padding:10px 16px 20px;background:{C['card']};borde
 <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
 <div style="display:flex;flex-direction:column;border:1px solid {C['dang']};border-radius:20px;background:{C['card']};overflow:hidden">
 <label style="display:flex"><span class="sr">پیام</span>
-<textarea rows="4" aria-invalid="true" aria-describedby="h12 c12" style="flex:1;resize:none;height:100px;box-sizing:border-box;padding:9px 16px 4px;border:0;outline:0;font-family:inherit;font-size:16px;line-height:24px;color:{C['fg']};background:transparent">{LONG}</textarea></label>
+<textarea rows="4" aria-invalid="true" aria-describedby="h12 c12" style="flex:1;margin:0 0 0 8px;resize:none;height:100px;box-sizing:border-box;padding:9px 16px 4px;border:0;outline:0;font-family:inherit;font-size:16px;line-height:24px;color:{C['fg']};background:transparent">{LONG}</textarea></label>
 <div style="display:flex;justify-content:flex-end;margin:0 12px;padding:6px 0 8px;border-top:1px solid #f6dada"><span id="c12" style="padding:0 8px;border-radius:999px;background:{C['dangs']};color:{C['dang']};font-size:12px;line-height:20px;font-weight:600;font-variant-numeric:tabular-nums">۱۰۴۲ از ۱۰۰۰</span></div>
 </div>
 <p id="h12" role="alert" style="margin:0;padding:0 4px;font-size:12px;line-height:18px;color:{C['dang']}">پیامتان طولانی است. لطفاً کوتاه‌ترش کنید یا در چند پیام بفرستید.</p>

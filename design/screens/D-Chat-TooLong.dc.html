@@ -54,9 +54,8 @@ body{background:#eef3f2}
 ::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px;min-height:28px}
 ::-webkit-scrollbar-thumb:hover{background:#115e59}
 ::-webkit-scrollbar-button,::-webkit-scrollbar-corner{display:none;width:0;height:0;background:transparent}
-textarea::-webkit-scrollbar{width:14px}
-textarea::-webkit-scrollbar-track{margin:8px 0;border-left:8px solid transparent;background-clip:padding-box}
-textarea::-webkit-scrollbar-thumb{border-left:8px solid transparent;background-clip:padding-box;border-radius:999px}
+textarea::-webkit-scrollbar{width:6px}
+textarea::-webkit-scrollbar-track{margin:8px 0}
 @supports not selector(::-webkit-scrollbar){*{scrollbar-width:thin;scrollbar-color:#0f766e #e6ecea}}
 svg{flex:none}
 .btn svg,.chip svg{display:block}
@@ -67,7 +66,7 @@ svg{flex:none}
 /*polish3*/
 header{height:72px!important;background:#0f766e!important;border-bottom:0!important;color:#fff}
 header div[style*="color:#4f6260"]{color:#cdeee7!important}
-header button[disabled]{background:#eef3f2!important;color:#4f6260!important;opacity:1!important}
+header button[disabled]{background:#d9ece8!important;color:#2f8178!important;border:0!important;opacity:1!important}
 header .store-mark{box-shadow:0 0 0 3px rgba(255,255,255,.25)}
 header button:not([disabled]){border-color:#fff!important}
 main{background:#ffffff!important}
@@ -78,13 +77,13 @@ main{background:#ffffff!important}
 .grp.them:not(:has(.meta))::before{bottom:6px}
 .typing{display:inline-flex!important;align-items:center;gap:8px;min-height:40px;padding:0 14px!important;border-radius:18px;background:#f1f4f3;border:0!important;color:#4f6260;font-size:13px}
 .grp.them:has(.who-h)::before{content:"پ";background:#0b3b38;font-weight:700;font-size:14px}
-.act{align-self:stretch;margin-top:-4px;padding:14px 16px;border-radius:18px;background:#fff;border:1px solid #e3eae8;box-shadow:0 4px 16px rgba(11,59,56,.06)}
+.act{align-self:stretch;margin-top:-4px;padding:14px 16px;border-radius:18px;background:#e8f5ec;border:0;box-shadow:none}
 .act .qr{margin:0;gap:12px}
 .act .qr-row{gap:8px}
-.act .qr-lab{min-width:40px;font-size:13px;font-weight:600;color:#0b3b38}
+.act .qr-lab{min-width:40px;font-size:13px;font-weight:600;color:#166534}
 .act .qr-row:not(:has(.qr-lab)) .chip{flex:1}
-.act .chip{min-height:44px;border-color:#d3dcda;background:#fff}
-.act .chip.on{background:#e7f4f1;border-color:#0f766e;color:#0b3b38}
+.act .chip{min-height:44px;border-color:#c4e2cd;background:#fff;color:#0b2422}
+.act .chip.on{background:#fff;border:2px solid #166534;color:#166534;font-weight:600}
 .act .chip.cta{background:#0f766e;border-color:#0f766e;color:#fff}
 .day,.sys{background:transparent;box-shadow:none;color:#6b7c7a}
 footer{border-top:1px solid #edf1f0!important}
@@ -113,7 +112,7 @@ body{background:#0b3b38!important}
 <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
 <div style="display:flex;flex-direction:column;border:1px solid #b42318;border-radius:20px;background:#ffffff;overflow:hidden">
 <label style="display:flex"><span class="sr">پیام</span>
-<textarea rows="4" aria-invalid="true" aria-describedby="h12 c12" style="flex:1;resize:none;height:100px;box-sizing:border-box;padding:9px 16px 4px;border:0;outline:0;font-family:inherit;font-size:16px;line-height:24px;color:#142624;background:transparent">سلام. سفارش ۱۲۳۴ رو هفته پیش ثبت کردم و هنوز به دستم نرسیده. توی پیگیری نوشته ارسال شده ولی کد رهگیری کار نمی‌کنه. قبلاً هم یک بار از همین فروشگاه خرید کرده بودم و همه چیز خوب بود، برای همین تعجب کردم. یک مانتو و یک شلوار سفارش دادم، رنگ مانتو سرمه‌ای و سایز L بود و شلوار جین آبی سایز ۳۲. آدرس رو هم دوباره چک کردم درسته. می‌خواستم بدونم دقیقاً کجاست، کی می‌رسه، و اگر گم شده باشه چه کار باید بکنم. ضمناً اگر دیرتر از جمعه برسه دیگه لازمش ندارم چون برای مهمانی می‌خواستم و ممکنه بخوام مرجوعش کنم. شرایط مرجوعی چیه و هزینه ارسال برگشت با کیه؟ اگر بشه هم شماره تماس پیک رو بدید ممنون می‌شم. باز هم ببخشید پیام طولانی شد ولی می‌خواستم همه چیز رو یک‌جا بگم تا مجبور نشید چند بار…</textarea></label>
+<textarea rows="4" aria-invalid="true" aria-describedby="h12 c12" style="flex:1;margin:0 0 0 8px;resize:none;height:100px;box-sizing:border-box;padding:9px 16px 4px;border:0;outline:0;font-family:inherit;font-size:16px;line-height:24px;color:#142624;background:transparent">سلام. سفارش ۱۲۳۴ رو هفته پیش ثبت کردم و هنوز به دستم نرسیده. توی پیگیری نوشته ارسال شده ولی کد رهگیری کار نمی‌کنه. قبلاً هم یک بار از همین فروشگاه خرید کرده بودم و همه چیز خوب بود، برای همین تعجب کردم. یک مانتو و یک شلوار سفارش دادم، رنگ مانتو سرمه‌ای و سایز L بود و شلوار جین آبی سایز ۳۲. آدرس رو هم دوباره چک کردم درسته. می‌خواستم بدونم دقیقاً کجاست، کی می‌رسه، و اگر گم شده باشه چه کار باید بکنم. ضمناً اگر دیرتر از جمعه برسه دیگه لازمش ندارم چون برای مهمانی می‌خواستم و ممکنه بخوام مرجوعش کنم. شرایط مرجوعی چیه و هزینه ارسال برگشت با کیه؟ اگر بشه هم شماره تماس پیک رو بدید ممنون می‌شم. باز هم ببخشید پیام طولانی شد ولی می‌خواستم همه چیز رو یک‌جا بگم تا مجبور نشید چند بار…</textarea></label>
 <div style="display:flex;justify-content:flex-end;margin:0 12px;padding:6px 0 8px;border-top:1px solid #f6dada"><span id="c12" style="padding:0 8px;border-radius:999px;background:#fdecea;color:#b42318;font-size:12px;line-height:20px;font-weight:600;font-variant-numeric:tabular-nums">۱۰۴۲ از ۱۰۰۰</span></div>
 </div>
 <p id="h12" role="alert" style="margin:0;padding:0 4px;font-size:12px;line-height:18px;color:#b42318">پیامتان طولانی است. لطفاً کوتاه‌ترش کنید یا در چند پیام بفرستید.</p>
