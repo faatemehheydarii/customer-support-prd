@@ -55,7 +55,8 @@ def chat(title, items, status=None, header_btn=True):
 def me(*texts, t='۱۰:۳۱'):
     return '<div class="grp me">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta">{t}</span></div>'
 def bot(*texts, t='۱۰:۳۲', qr=''):
-    return '<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+qr+f'<span class="meta">دستیار · {t}</span></div>'
+    g='<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta">دستیار · {t}</span></div>'
+    return g+(f'<section class="act" aria-label="پاسخ سریع">{qr}</section>' if qr else '')
 def human(*texts, t='۱۰:۴۶'):
     return '<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta"><span class="who-h">پشتیبان فروشگاه</span> · {t}</span></div>'
 def rows(*rs): return '<div class="qr">'+''.join(rs)+'</div>'

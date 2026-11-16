@@ -45,36 +45,47 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .fail{color:#b42318;font-weight:500}
 .lnk{border:0;background:none;padding:0 2px;min-height:32px;color:#0f766e;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 /*polish*/
-::-webkit-scrollbar{width:8px;height:8px}
-::-webkit-scrollbar-track{background:#e6ecea;border-radius:999px;margin:6px}
-::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px;border:2px solid transparent;background-clip:padding-box;min-height:32px}
-::-webkit-scrollbar-thumb:hover{background:#115e59;background-clip:padding-box}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#e6ecea;border-radius:999px;margin:6px 0}
+::-webkit-scrollbar-thumb{background:#0f766e;border-radius:999px;min-height:28px}
+::-webkit-scrollbar-thumb:hover{background:#115e59}
 ::-webkit-scrollbar-button,::-webkit-scrollbar-corner{display:none;width:0;height:0;background:transparent}
+textarea::-webkit-scrollbar{width:14px}
+textarea::-webkit-scrollbar-track{margin:8px 0;border-left:8px solid transparent;background-clip:padding-box}
+textarea::-webkit-scrollbar-thumb{border-left:8px solid transparent;background-clip:padding-box;border-radius:999px}
 @supports not selector(::-webkit-scrollbar){*{scrollbar-width:thin;scrollbar-color:#0f766e #e6ecea}}
 svg{flex:none}
 .btn svg,.chip svg{display:block}
 .chip{display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.brand-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);color:#fff;font-weight:700;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
-.store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#f6c26b 0%,#e8894a 100%);color:#fff;font-size:18px;font-weight:700}
-/*endpolish*/
+.brand-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:#14b8a6;color:#fff;font-weight:700}
+.store-mark{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:#ec9a55;color:#fff;font-size:18px;font-weight:700}
+/*endpolishB*/
 /*polish3*/
-header{height:72px!important;background:radial-gradient(120% 160% at 100% 0%,#14b8a6 0%,#0f766e 42%,#0b3b38 100%)!important;border-bottom:0!important;color:#fff}
-header [style*="color:#4f6260"]{color:#bfe9e1!important}
+header{height:72px!important;background:#0f766e!important;border-bottom:0!important;color:#fff}
+header [style*="color:#4f6260"]{color:#cdeee7!important}
 header .store-mark{box-shadow:0 0 0 3px rgba(255,255,255,.25)}
-header button:not([disabled]){border-color:#fff!important;box-shadow:0 2px 10px rgba(0,0,0,.14)}
-main{background:radial-gradient(100% 45% at 50% 0%,rgba(153,226,214,.32),transparent 70%),radial-gradient(rgba(15,118,110,.08) 1px,transparent 1.3px) 0 0/18px 18px,#f7faf9}
-.me .bub{background:#0f766e!important;color:#fff!important}
-.them .bub{border-color:transparent!important;box-shadow:0 1px 2px rgba(11,59,56,.06),0 6px 16px rgba(11,59,56,.06)}
+header button:not([disabled]){border-color:#fff!important}
+main{background:#ffffff!important}
+.me .bub{background:#134e4a!important;color:#fff!important}
+.them .bub{background:#f1f4f3!important;border:0!important;box-shadow:none!important;color:#0b2422}
 .grp.them{position:relative;padding-inline-start:38px}
-.grp.them::before{content:"✦";position:absolute;inset-inline-start:0;bottom:20px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;font-size:13px;line-height:28px;text-align:center}
+.grp.them::before{content:"✦";position:absolute;inset-inline-start:0;bottom:22px;width:28px;height:28px;border-radius:50%;background:#0f766e;color:#fff;font-size:13px;line-height:28px;text-align:center}
+.grp.them:not(:has(.meta))::before{bottom:6px}
+.typing{display:inline-flex!important;align-items:center;gap:8px;min-height:40px;padding:0 14px!important;border-radius:18px;background:#f1f4f3;border:0!important;color:#4f6260;font-size:13px}
 .grp.them:has(.who-h)::before{content:"پ";background:#0b3b38;font-weight:700;font-size:14px}
-.chip:not(.on):not(.cta){background:#fff;box-shadow:0 1px 2px rgba(11,59,56,.08)}
-.day,.sys{background:rgba(255,255,255,.85);box-shadow:0 1px 2px rgba(11,59,56,.06);padding:3px 12px;border-radius:999px}
-footer{border-top:0!important;box-shadow:0 -6px 24px rgba(11,59,56,.07)}
+.act{align-self:stretch;margin-top:-4px;padding:14px 16px;border-radius:18px;background:#fff;border:1px solid #e3eae8;box-shadow:0 4px 16px rgba(11,59,56,.06)}
+.act .qr{margin:0;gap:12px}
+.act .qr-row{gap:8px}
+.act .qr-lab{min-width:40px;font-size:13px;font-weight:600;color:#0b3b38}
+.act .qr-row:not(:has(.qr-lab)) .chip{flex:1}
+.act .chip{min-height:44px;border-color:#d3dcda;background:#fff}
+.act .chip.on{background:#e7f4f1;border-color:#0f766e;color:#0b3b38}
+.act .chip.cta{background:#0f766e;border-color:#0f766e;color:#fff}
+.day,.sys{background:transparent;box-shadow:none;color:#6b7c7a}
+footer{border-top:1px solid #edf1f0!important}
 footer textarea:not([aria-invalid]){background:#f1f5f4!important;border-color:transparent!important}
 footer button[aria-label="ارسال"][disabled]{background:#e7f4f1!important;color:#0f766e!important;opacity:.55}
-body{background:radial-gradient(55% 70% at 85% 10%,rgba(20,184,166,.55) 0%,transparent 60%),linear-gradient(135deg,#0b3b38 0%,#0f766e 100%)!important}
-@media (min-width:700px){body>div[style*="max-width:560px"]{height:calc(100vh - 48px)!important;margin:24px auto!important;border-radius:24px;box-shadow:0 24px 60px rgba(0,0,0,.28)}}
+body{background:#0b3b38!important}
 /*endpolish3*/
 </style>
 <div style="width:100%;height:100vh;box-sizing:border-box;display:flex;flex-direction:column;max-width:560px;margin:0 auto;background:#f7faf9;overflow:hidden">
@@ -89,7 +100,7 @@ body{background:radial-gradient(55% 70% at 85% 10%,rgba(20,184,166,.55) 0%,trans
 </header>
 
 <main style="flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;padding:20px 16px">
-<div class="grp me"><div class="bub tail">مانتو الف مشکی، سایز M موجوده؟</div><span class="meta">۱۰:۳۱</span></div><div class="grp them"><div class="bub">مانتو الف، مشکی، M طبق اطلاعات فروشگاه امروز ساعت ۱۰:۳۰ موجود است.</div><div class="bub tail">جواب سؤالتان را گرفتید؟</div><div class="qr"><div class="qr-row" role="group" aria-label="پاسخ سریع"><button class="chip on" disabled aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>بله، ممنون</button><button class="chip" disabled style="opacity:.5;cursor:default">نه، هنوز نه</button></div></div><span class="meta">دستیار · ۱۰:۳۲</span></div><div class="grp them"><div class="bub tail">خوشحالم که کمک کرد. اگر سؤال دیگری داشتید، همین‌جا بپرسید.</div><span class="meta">دستیار · ۱۰:۳۳</span></div>
+<div class="grp me"><div class="bub tail">مانتو الف مشکی، سایز M موجوده؟</div><span class="meta">۱۰:۳۱</span></div><div class="grp them"><div class="bub">مانتو الف، مشکی، M طبق اطلاعات فروشگاه امروز ساعت ۱۰:۳۰ موجود است.</div><div class="bub tail">جواب سؤالتان را گرفتید؟</div><span class="meta">دستیار · ۱۰:۳۲</span></div><section class="act" aria-label="پاسخ سریع"><div class="qr"><div class="qr-row" role="group" aria-label="پاسخ سریع"><button class="chip on" disabled aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>بله، ممنون</button><button class="chip" disabled style="opacity:.5;cursor:default">نه، هنوز نه</button></div></div></section><div class="grp them"><div class="bub tail">خوشحالم که کمک کرد. اگر سؤال دیگری داشتید، همین‌جا بپرسید.</div><span class="meta">دستیار · ۱۰:۳۳</span></div>
 </main>
 <footer style="padding:10px 16px 24px;background:#ffffff;border-top:1px solid #d3dcda">
 <div style="display:flex;gap:8px;align-items:center">
