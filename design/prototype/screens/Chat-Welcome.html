@@ -32,6 +32,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .chip.cta{background:#0f766e;border-color:#0f766e;color:#fff;display:inline-flex;align-items:center;gap:8px}
 .day{align-self:center;font-size:12px;line-height:18px;color:#4f6260;padding:2px 10px;border-radius:999px;background:#eef3f2}
 .sys{align-self:center;font-size:12px;line-height:18px;color:#4f6260;display:flex;align-items:center;gap:6px}
+.qr-hint{margin:0;font-size:13px;line-height:20px;color:#4f6260}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 /*polish*/
 ::-webkit-scrollbar{width:6px;height:6px}
@@ -102,7 +103,7 @@ body{background:#f6f8f7!important}
 </div>
 </footer>
 </div>
-<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
+<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
 (function(){var RULES=[["گفت‌وگو با پشتیبان", "Chat-Registering"], ["@send", "Chat-Clarify"], ["@composer", "Chat-Clarify"], ["موجودی محصول", "Chat-Clarify"], ["هزینه و زمان ارسال", "Chat-Error"], ["پیگیری سفارش", "Chat-Typing"], ["مرجوعی کالا", "Chat-Typing"]],AUTO=null;
 var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مغایرت", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]]};
@@ -127,10 +128,15 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  cands.forEach(function(el){var tx=(el.textContent||"").replace(/\s+/g," ").trim();if(tx===k||tx.indexOf(k)===0&&tx.length<k.length+6)bind(el,t)});
 });
 document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.getAttribute("href").replace(".dc.html","");bind(a,t)});
-document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
+function toast(m){var t=document.getElementById("ptoast");if(!t){t=document.createElement("div");t.id="ptoast";t.setAttribute("role","status");t.setAttribute("style","position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:80;padding:10px 16px;border-radius:12px;background:#0b3b38;color:#fff;font-size:14px;line-height:22px;box-shadow:0 8px 24px rgba(11,59,56,.25);transition:opacity .2s");document.body.appendChild(t)}t.textContent=m;t.style.opacity="1";clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity="0"},1800)}
+document.addEventListener("click",function(e){var t=e.target;if(t.closest("[data-hot],[data-live],#pmodal,details,input,textarea,select,label"))return;var el=t.closest("button,a,[role=tab]");if(!el)return;e.preventDefault();e.stopPropagation();toast("این بخش در نسخه نمایشی فعال نیست")},true);
+if(false){var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));function applyF(){var tb=document.querySelector("tbody");if(!tb)return;var rows=[].slice.call(tb.querySelectorAll("tr:not(.empty)"));var tab=document.querySelector('[role=tab][aria-selected=true]');var tl=tab?tab.textContent.replace(/\(.*\)/,"").trim():"همه";var sels=[].slice.call(document.querySelectorAll("main select"));var inp=document.querySelector("main input[placeholder]");var q=inp?inp.value.trim():"";var shown=0;
+rows.forEach(function(tr){var b=tr.querySelector(".badge");var st=b?b.textContent.trim():"";var ok=tl==="همه"||st===tl||(tl==="بسته"&&/بسته|حل‌شده/.test(st));sels.forEach(function(se){var lab=se.closest("label")?se.closest("label").textContent:"";var v=se.value;if(/مسئول/.test(lab)){if(v==="بدون مسئول")ok=ok&&!!tr.querySelector(".own0");if(v==="من")ok=ok&&tr.textContent.indexOf("سارا")>=0}if(/نوع پاسخ/.test(lab)&&v!=="همه")ok=ok&&tr.textContent.indexOf(v)>=0});if(q)ok=ok&&tr.textContent.indexOf(q)>=0;tr.style.display=ok?"":"none";if(ok)shown++});
+var em=tb.querySelector("tr.empty");if(!em){em=document.createElement("tr");em.className="empty";em.innerHTML='<td colspan="9" style="text-align:center;padding:32px;color:#4f6260">گفت‌وگویی با این فیلتر نیست.</td>';tb.appendChild(em)}em.style.display=shown?"none":""}
+tabs.forEach(function(b){b.dataset.live="1";b.addEventListener("click",function(){tabs.forEach(function(x){x.setAttribute("aria-selected",x===b)});applyF()})});document.querySelectorAll("main select").forEach(function(se){se.addEventListener("change",applyF)});var ii=document.querySelector("main input[placeholder]");if(ii)ii.addEventListener("input",applyF)}
+try{if(parent.HL)document.documentElement.classList.add("hl")}catch(e){}
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
-if(!AUTO&&!sessionStorage.getItem("hint_"+location.pathname)){try{sessionStorage.setItem("hint_"+location.pathname,"1")}catch(e){}document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},1100)}
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
 </script>

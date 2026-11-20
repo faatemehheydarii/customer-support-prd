@@ -20,10 +20,11 @@ R={
 'Chat-TooLong':{'rules':CHAT_HDR},
 # admin
 'Login-Admin':{'rules':[('ورود','Main')]},
-'Main':{'rules':ADMIN_NAV+[('@row1','Conversation-Queue'),('@row2','Conversation-Queue'),('@row3','Conversation-Queue'),('@row4','Conversation-Queue'),('@row5','Conversation'),('@row6','Conversation-Observer')]},
-'Queue-Stopped':{'rules':ADMIN_NAV+[('@row1','Conversation-Queue'),('@row2','Conversation-Queue'),('@row3','Conversation-Queue'),('@row4','Conversation-Queue'),('فعال‌سازی پاسخ خودکار','Main')]},
+'Main':{'filters':1,'rules':ADMIN_NAV+[('@row1','Conversation-Queue'),('@row2','Conversation-Queue'),('@row3','Conversation-Queue'),('@row4','Conversation-Queue'),('@row5','Conversation'),('@row6','Conversation-Observer')]},
+'Queue-Stopped':{'filters':1,'rules':ADMIN_NAV+[('@row1','Conversation-Queue'),('@row2','Conversation-Queue'),('@row3','Conversation-Queue'),('@row4','Conversation-Queue'),('فعال‌سازی پاسخ خودکار','Main')]},
 'Queue-Empty':{'rules':ADMIN_NAV+[('رفتن به گفت‌وگوهای دستیار','Bots')]},
-'Bots':{'rules':ADMIN_NAV},
+'Bots':{'rules':ADMIN_NAV+[('۱۰ گفت‌وگوی تصادفی برای بازبینی','Bots-Sample')],'filters':1},
+'Bots-Sample':{'rules':ADMIN_NAV+[('بازگشت به فهرست','Bots'),('نمونه تازه','Bots-Sample')]},
 'Conversation-Queue':{'rules':ADMIN_NAV+[('تحویل می‌گیرم','Conversation'),('بازگشت','Main')]},
 'Conversation':{'rules':ADMIN_NAV+[('بستن — حل شد','W2-Resolve'),('بستن بدون تأیید','W3-CloseUnconfirmed'),('واگذاری به دستیار','W5-Handback'),('بازگشت','Main'),('درخواست تأیید از مشتری','Conversation-Closed')]},
 'Conversation-Bot':{'rules':ADMIN_NAV+[('تحویل از دستیار','W1-Takeover'),('بستن بدون تأیید','W3-CloseUnconfirmed'),('بازگشت','Bots')]},
@@ -53,7 +54,7 @@ R={
 'SW3-Grant':{'rules':[('اعطای مجوز','Store-Permissions'),('انصراف',B)]},
 'SW4-Leave':{'rules':[('ماندن',B),('ترک صفحه','Store-Discrepancies')]},
 }
-RT='''<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
+RT='''<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
 (function(){var RULES=__R__,AUTO=__A__;
 var MODALS=__M__;
@@ -78,10 +79,15 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  cands.forEach(function(el){var tx=(el.textContent||"").replace(/\\s+/g," ").trim();if(tx===k||tx.indexOf(k)===0&&tx.length<k.length+6)bind(el,t)});
 });
 document.querySelectorAll('a[href$=".dc.html"]').forEach(function(a){var t=a.getAttribute("href").replace(".dc.html","");bind(a,t)});
-document.addEventListener("click",function(e){if(e.target.closest("[data-hot]"))return;document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},700)});
+function toast(m){var t=document.getElementById("ptoast");if(!t){t=document.createElement("div");t.id="ptoast";t.setAttribute("role","status");t.setAttribute("style","position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:80;padding:10px 16px;border-radius:12px;background:#0b3b38;color:#fff;font-size:14px;line-height:22px;box-shadow:0 8px 24px rgba(11,59,56,.25);transition:opacity .2s");document.body.appendChild(t)}t.textContent=m;t.style.opacity="1";clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity="0"},1800)}
+document.addEventListener("click",function(e){var t=e.target;if(t.closest("[data-hot],[data-live],#pmodal,details,input,textarea,select,label"))return;var el=t.closest("button,a,[role=tab]");if(!el)return;e.preventDefault();e.stopPropagation();toast("این بخش در نسخه نمایشی فعال نیست")},true);
+if(__F__){var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));function applyF(){var tb=document.querySelector("tbody");if(!tb)return;var rows=[].slice.call(tb.querySelectorAll("tr:not(.empty)"));var tab=document.querySelector('[role=tab][aria-selected=true]');var tl=tab?tab.textContent.replace(/\\(.*\\)/,"").trim():"همه";var sels=[].slice.call(document.querySelectorAll("main select"));var inp=document.querySelector("main input[placeholder]");var q=inp?inp.value.trim():"";var shown=0;
+rows.forEach(function(tr){var b=tr.querySelector(".badge");var st=b?b.textContent.trim():"";var ok=tl==="همه"||st===tl||(tl==="بسته"&&/بسته|حل‌شده/.test(st));sels.forEach(function(se){var lab=se.closest("label")?se.closest("label").textContent:"";var v=se.value;if(/مسئول/.test(lab)){if(v==="بدون مسئول")ok=ok&&!!tr.querySelector(".own0");if(v==="من")ok=ok&&tr.textContent.indexOf("سارا")>=0}if(/نوع پاسخ/.test(lab)&&v!=="همه")ok=ok&&tr.textContent.indexOf(v)>=0});if(q)ok=ok&&tr.textContent.indexOf(q)>=0;tr.style.display=ok?"":"none";if(ok)shown++});
+var em=tb.querySelector("tr.empty");if(!em){em=document.createElement("tr");em.className="empty";em.innerHTML='<td colspan="9" style="text-align:center;padding:32px;color:#4f6260">گفت‌وگویی با این فیلتر نیست.</td>';tb.appendChild(em)}em.style.display=shown?"none":""}
+tabs.forEach(function(b){b.dataset.live="1";b.addEventListener("click",function(){tabs.forEach(function(x){x.setAttribute("aria-selected",x===b)});applyF()})});document.querySelectorAll("main select").forEach(function(se){se.addEventListener("change",applyF)});var ii=document.querySelector("main input[placeholder]");if(ii)ii.addEventListener("input",applyF)}
+try{if(parent.HL)document.documentElement.classList.add("hl")}catch(e){}
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
-if(!AUTO&&!sessionStorage.getItem("hint_"+location.pathname)){try{sessionStorage.setItem("hint_"+location.pathname,"1")}catch(e){}document.documentElement.classList.add("hl");setTimeout(function(){document.documentElement.classList.remove("hl")},1100)}
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
 })();
 </script>'''
@@ -97,7 +103,7 @@ def convert(name):
     if name.startswith('Chat-'):
         pass
     r=R[name]
-    rt=RT.replace('__M__',json.dumps({k:v['rules'] for k,v in R.items() if k.startswith(('W','SW'))},ensure_ascii=False)).replace('__R__',json.dumps(r['rules'],ensure_ascii=False)).replace('__A__',json.dumps(list(r['auto']) if 'auto' in r else None))
+    rt=RT.replace('__M__',json.dumps({k:v['rules'] for k,v in R.items() if k.startswith(('W','SW'))},ensure_ascii=False)).replace('__R__',json.dumps(r['rules'],ensure_ascii=False)).replace('__F__','true' if r.get('filters') else 'false').replace('__A__',json.dumps(list(r['auto']) if 'auto' in r else None))
     s=s.replace('</body>',rt+'\n</body>')
     open(f'{OUT}/screens/{name}.html','w',encoding='utf-8').write(s)
 for n in R: convert(n)

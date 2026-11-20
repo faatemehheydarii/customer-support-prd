@@ -22,6 +22,7 @@ CSS=f'''html,body{{overflow:hidden}}
 .chip.cta{{background:{C['pri']};border-color:{C['pri']};color:#fff;display:inline-flex;align-items:center;gap:8px}}
 .day{{align-self:center;font-size:12px;line-height:18px;color:{C['mutedfg']};padding:2px 10px;border-radius:999px;background:{C['muted']}}}
 .sys{{align-self:center;font-size:12px;line-height:18px;color:{C['mutedfg']};display:flex;align-items:center;gap:6px}}
+.qr-hint{{margin:0;font-size:13px;line-height:20px;color:#4f6260}}
 .sr{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}'''
 def chat(title, items, status=None, header_btn=True):
     btn=(f'<button style="flex:none;display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:999px;border:0;background:{C["sec"]};color:{C["secfg"]};font-size:14px;line-height:20px;font-weight:600;white-space:nowrap;cursor:pointer">{I("headset",18)}گفت‌وگو با پشتیبان</button>' if header_btn else '')
@@ -68,7 +69,7 @@ def chip_on(t): return f'<button class="chip on" disabled aria-pressed="true">{I
 DAY='<div class="day">امروز</div>'
 f={}
 f['Chat-Welcome.dc.html']=chat('صفحه گفت‌وگو — خوش‌آمد', bot('سلام! من دستیار پشتیبانی فروشگاه نمایشی هستم. درباره محصولات، موجودی، ارسال، سفارش یا مرجوعی بپرسید.','هر وقت خواستید، می‌توانید با پشتیبان انسانی هم صحبت کنید.',t='۱۰:۳۰',qr=rows(row('',chip('موجودی محصول'),chip('هزینه و زمان ارسال')),row('',chip('پیگیری سفارش'),chip('مرجوعی کالا')))))
-f['Chat-Clarify.dc.html']=chat('صفحه گفت‌وگو — رفع ابهام', DAY+me('سلام، مانتو الف رو دارید؟')+bot('این مانتو در سایزهای S، M، L و رنگ‌های مشکی و کرم هست. کدام را می‌خواهید؟',t='۱۰:۳۱',qr=rows(row('سایز',chip('S'),chip('M'),chip('L')),row('رنگ',chip('مشکی'),chip('کرم')))))
+f['Chat-Clarify.dc.html']=chat('صفحه گفت‌وگو — رفع ابهام', DAY+me('سلام، مانتو الف رو دارید؟')+bot('این مانتو در سایزهای S، M، L و رنگ‌های مشکی و کرم هست. کدام سایز و رنگ را می‌خواهید؟',t='۱۰:۳۱',qr=rows(row('سایز',chip('S'),chip('M'),chip('L')),row('رنگ',chip('مشکی'),chip('کرم')),'<p class="qr-hint">سایز و رنگ را انتخاب کنید؛ با انتخاب هر دو، پیام فرستاده می‌شود.</p>')))
 f['Chat-Answer.dc.html']=chat('صفحه گفت‌وگو — پاسخ موجودی و تأیید حل', me('مانتو الف مشکی، سایز M موجوده؟')+bot('مانتو الف، مشکی، M طبق اطلاعات فروشگاه امروز ساعت ۱۰:۳۰ موجود است.<span style="display:block;margin-top:6px;font-size:14px;line-height:22px;color:'+C['mutedfg']+'">این به معنای رزرو نیست و موجودی ممکن است تا زمان خرید تغییر کند.</span>','جواب سؤالتان را گرفتید؟',qr=rows(row('',chip('بله، ممنون'),chip('نه، هنوز نه')))))
 f['Chat-Registered.dc.html']=chat('صفحه گفت‌وگو — درخواست ثبت شد (موجودی نامشخص)', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('الان نمی‌توانم با اطمینان بگویم مانتو ب، سرمه‌ای، L موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. از همکارانم در پشتیبانی می‌پرسم.','درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+me('ممنون، منتظرم',t='۱۰:۴۱'),status='s3',header_btn=False)
 f['Chat-Human.dc.html']=chat('صفحه گفت‌وگو — پشتیبان در گفت‌وگو', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+f'<div class="sys">{I("headset",14)}پشتیبان فروشگاه به گفت‌وگو پیوست</div>'+human('سلام، از انبار پرسیدم؛ سرمه‌ای سایز L موجود است.','می‌خواهید لینک خریدش را برایتان بفرستم؟')+me('بله لطفاً',t='۱۰:۴۷'),status='s4',header_btn=False)
