@@ -141,6 +141,13 @@ tr.w2 .alert{background:#fdecea;color:#b42318}
 .rv.none{color:#7d8e8c}
 .sample{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:#e7f4f1;color:#0b3b38;font-size:14px;line-height:22px}
 /*endpolish5*/
+/*polish8*/
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:8px;max-width:min(560px,calc(100vw - 32px));padding:10px 16px;border-radius:12px;background:#0b3b38;color:#fff;font-size:14px;line-height:22px;box-shadow:0 8px 24px rgba(11,59,56,.25);transition:opacity .25s}
+.toast svg{color:#99e2d6;flex:none}.toast.err{background:#b42318}.toast.err svg{color:#fff}
+.err{color:#b42318}
+input[aria-invalid="true"]{border-color:#b42318!important}
+.seg .tab{min-height:34px;padding:0 12px}
+/*endpolish8*/
 </style>
 <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f7faf9;padding:24px;box-sizing:border-box">
 <main style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:24px">
@@ -157,7 +164,7 @@ tr.w2 .alert{background:#fdecea;color:#b42318}
 <style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
 (function(){var RULES=[["ورود", "Store-Discrepancies"]],AUTO=null;
-var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مغایرت", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]]};
+var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مورد", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]], "SW5-Password": [["تغییر رمز", "back"], ["انصراف", "back"]]};
 function go(t){if(t==="back"){history.back();return}if(MODALS[t]){openModal(t);return}location.href=t+".html"}
 function closeModal(){var o=document.getElementById("pmodal");if(o)o.remove()}
 function openModal(t){fetch(t+".html").then(function(r){return r.text()}).then(function(h){var d=new DOMParser().parseFromString(h,"text/html");var dlg=d.querySelector("[role=dialog]");if(!dlg)return;closeModal();
@@ -173,6 +180,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k.indexOf("@sel:")===0){bind(document.querySelector(k.slice(5)),t);return}
  if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}
@@ -189,6 +197,72 @@ try{if(parent.HL)document.documentElement.classList.add("hl")}catch(e){}
 var q=new URLSearchParams(location.search).get("modal");if(q)setTimeout(function(){openModal(q)},150);
 if(AUTO)setTimeout(function(){go(AUTO[0])},AUTO[1]);
 try{parent.postMessage({proto:"screen",name:location.pathname.split("/").pop().replace(".html","")},"*")}catch(e){}
+})();
+</script>
+<script data-p8>
+(function(){
+var page=location.pathname.split("/").pop().replace(".html","");
+var CK='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>';
+function T(m,err){var t=document.getElementById("p8t");if(!t){t=document.createElement("div");t.id="p8t";t.setAttribute("role","status");document.body.appendChild(t)}t.className="toast"+(err?" err":"");t.innerHTML=CK+"<span>"+m+"</span>";t.style.opacity="1";clearTimeout(T.h);T.h=setTimeout(function(){t.style.opacity="0"},3400)}
+function later(m){try{sessionStorage.setItem("p8t",m)}catch(e){}}
+function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){}}
+document.querySelectorAll(".toast.demo").forEach(function(e){e.remove()});
+var q=ss("p8t");if(q){try{sessionStorage.removeItem("p8t")}catch(e){}setTimeout(function(){T(q)},250)}
+function tx(el){return (el.textContent||"").replace(/\s+/g," ").trim()}
+function live(el,fn){if(!el)return;el.dataset.live="1";el.style.cursor="pointer";el.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();fn(e,el)})}
+function fa2n(v){return +String(v).replace(/[۰-۹]/g,function(d){return "۰۱۲۳۴۵۶۷۸۹".indexOf(d)}).replace(/[^0-9]/g,"")||NaN}
+function ask(title,text,ok,cb){var o=document.createElement("div");o.setAttribute("style","position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(11,59,56,.38)");
+o.innerHTML='<div role="dialog" aria-modal="true" style="width:100%;max-width:480px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:24px;background:#fff;border-radius:14px;box-shadow:0 12px 32px rgba(11,59,56,.16)"><h2 style="margin:0;font-size:18px;line-height:28px;font-weight:600">'+title+'</h2><p style="margin:0;font-size:14px;line-height:24px">'+text+'</p><div style="display:flex;gap:8px"><button class="btn btn-p">'+ok+'</button><button class="btn btn-o">انصراف</button></div></div>';
+document.body.appendChild(o);var bs=o.querySelectorAll("button");bs.forEach(function(b){b.dataset.live="1"});bs[0].focus();
+bs[0].onclick=function(e){e.stopPropagation();o.remove();cb()};bs[1].onclick=function(e){e.stopPropagation();o.remove()};o.onclick=function(e){if(e.target===o)o.remove()}}
+/* messages carried to the next screen or shown when a dialog button is pressed */
+var NAV={
+"Store-FixInventory":{"تأیید":"تأیید شد. از پرسش بعدی مشتری، دستیار از این اطلاعات استفاده می‌کند.","بله، هنوز درست است":"دوباره تأیید شد. اعتبار داده از همین لحظه شروع شد.","بستن مورد":"مورد بدون اصلاح بسته شد."},
+"Store-Settings":{"ذخیره@dlg":"آستانه اعتبار ذخیره شد."},
+"Store-Employee":{"ذخیره":"اطلاعات کارمند ذخیره شد."},
+"Conversation-Queue":{"تحویل می‌گیرم":"این گفت‌وگو حالا با شماست."},
+"Conversation-Bot":{"تحویل از دستیار@dlg":"این گفت‌وگو حالا با شماست.","بستن بدون تأیید@dlg":"گفت‌وگو بدون تأیید بسته شد."},
+"Conversation":{"بستن — حل شد@dlg":"گفت‌وگو با وضعیت «حل‌شده» بسته شد.","بستن بدون تأیید@dlg":"گفت‌وگو بدون تأیید بسته شد.","واگذاری به دستیار@dlg":"گفت‌وگو به دستیار سپرده شد.","درخواست تأیید از مشتری":"درخواست تأیید برای مشتری فرستاده شد."},
+"Main":{"توقف پاسخ خودکار@dlg":"پاسخ خودکار متوقف شد؛ پیام‌های تازه مستقیم به صف می‌آیند."},
+"Queue-Stopped":{"فعال‌سازی پاسخ خودکار":"پاسخ خودکار دوباره فعال شد."},
+"*":{"تغییر رمز@dlg":"رمز عبور تغییر کرد."}};
+document.addEventListener("click",function(e){var b=e.target.closest("button,a,label");if(!b)return;var t=tx(b),inDlg=!!b.closest("#pmodal");
+[NAV[page]||{},NAV["*"]].forEach(function(M){Object.keys(M).forEach(function(k){var kk=k.replace("@dlg",""),wantDlg=k.indexOf("@dlg")>0;if(wantDlg!==inDlg)return;if(t===kk||t.indexOf(kk)===0&&!wantDlg){if(inDlg&&kk==="تغییر رمز")setTimeout(function(){T(M[k])},60);else later(M[k])}})})},true);
+/* settings */
+if(page==="Store-Settings"){
+ var thr=document.getElementById("thr"),te=document.getElementById("thr-err");
+ document.addEventListener("click",function(e){var b=e.target.closest("#thr-save");if(!b)return;var v=fa2n(thr.value);if(!(v>=15&&v<=60)){e.preventDefault();e.stopPropagation();te.style.display="";thr.setAttribute("aria-invalid","true");thr.focus();T("ذخیره نشد؛ آستانه را اصلاح کنید.",1)}else{te.style.display="none";thr.removeAttribute("aria-invalid")}},true);
+ document.querySelectorAll("section[data-sec] .btn-p").forEach(function(b){if(b.id==="thr-save")return;live(b,function(){var sec=b.closest("section"),name=sec.getAttribute("data-sec");
+  if(b.id==="alt-save"){var a=document.getElementById("alt"),ae=document.getElementById("alt-err");if(!a.value.trim()){ae.style.display="";a.setAttribute("aria-invalid","true");a.focus();T("ذخیره نشد؛ مسیر تماس را بنویسید.",1);return}
+   ae.style.display="none";a.removeAttribute("aria-invalid");ss("p8alt",a.value.trim());altDone()}
+  var last=sec.querySelector(".help[style*='margin-inline-start:auto']");if(last)last.textContent="آخرین تغییر: مریم احمدی، همین حالا";T("«"+name+"» ذخیره شد.")})});
+ function altDone(){var w=document.querySelector(".alt-warn");if(w)w.remove();var a=document.getElementById("alt");if(a&&!a.value)a.value=ss("p8alt")}
+ if(ss("p8alt"))altDone();
+ document.querySelectorAll(".day-sw").forEach(function(sw){live(sw,function(){var on=!sw.classList.contains("on");sw.classList.toggle("on",on);sw.setAttribute("aria-checked",on);sw.lastChild.nodeValue=on?"باز":"تعطیل";var tm=sw.parentNode.querySelector(".times");if(tm)tm.style.display=on?"flex":"none"})});
+ live(document.getElementById("renew"),function(){T("تمدید در نسخه نمایشی فعال نیست؛ با تیم محصول تماس بگیرید.")});
+ document.querySelectorAll("main input,main select").forEach(function(i){i.dataset.live="1"});
+}
+if(page==="Store-Discrepancies"&&ss("p8alt")){var c=document.querySelector(".card.setup");if(c)c.remove()}
+/* users & permissions */
+if(page==="Store-Permissions"){document.querySelectorAll("tbody .sw").forEach(function(sw){live(sw,function(){var tr=sw.closest("tr"),td=sw.closest("td"),i=[].indexOf.call(tr.children,td),g=tx(document.querySelectorAll("thead th")[i]),n=tx(tr.querySelector("strong")),on=!sw.classList.contains("on");
+ function apply(){sw.classList.toggle("on",on);sw.lastChild.nodeValue=on?"ویرایش":"فقط دیدن";var h=td.querySelector(".help");if(h)h.textContent="مریم احمدی · همین حالا";T(on?"اجازه ویرایش «"+g+"» به "+n+" داده شد.":"اجازه ویرایش «"+g+"» از "+n+" گرفته شد؛ از این به بعد فقط می‌بیند.")}
+ if(on)ask("اجازه ویرایش",n+" اجازه ویرایش «"+g+"» را می‌گیرد. ادامه می‌دهید؟","اجازه می‌دهم",apply);else apply()})})}
+/* employee form */
+if(page==="Store-Employee"){document.querySelectorAll(".seg").forEach(function(g){var bs=g.querySelectorAll("button");bs.forEach(function(b){live(b,function(){bs.forEach(function(x){x.setAttribute("aria-selected",x===b);x.setAttribute("aria-checked",x===b)})})})});
+ document.querySelectorAll("main .sw").forEach(function(sw){live(sw,function(){var on=!sw.classList.contains("on");sw.classList.toggle("on",on);sw.lastChild.nodeValue=on?"حساب فعال":"حساب غیرفعال"})});
+ document.querySelectorAll("main button").forEach(function(b){if(tx(b)==="ساخت رمز تازه")live(b,function(){T("رمز موقت تازه ساخته شد.")})});
+ document.querySelectorAll("main input").forEach(function(i){i.dataset.live="1"})}
+/* products */
+if(page==="Store-ProductEdit"){document.querySelectorAll("main button").forEach(function(b){var t=tx(b);
+ if(t==="افزودن گونه")live(b,function(){var tb=b.closest("section").querySelector("tbody");if(!tb)return;var tr=document.createElement("tr");tr.innerHTML='<td><input class="inp" placeholder="سایز" style="width:80px"></td><td><input class="inp" placeholder="رنگ" style="width:110px"></td><td><span class="tag t-neu">غیرفعال</span></td><td><span class="help">موجودی ثبت نشده</span></td><td><a href="Store-FixInventory.html" style="color:#0f766e">ثبت موجودی</a></td>';tb.insertBefore(tr,tb.firstChild);tr.querySelectorAll("input,a").forEach(function(x){x.dataset.live="1"});tr.querySelector("input").focus();T("گونه تازه اضافه شد؛ تا موجودی تأییدشده نداشته باشد فعال نمی‌شود.")});
+ if(t==="تأیید")live(b,function(){T("تأیید شد. از پرسش بعدی مشتری، دستیار از این اطلاعات استفاده می‌کند.")});
+ if(t==="ذخیره پیش‌نویس")live(b,function(){T("پیش‌نویس ذخیره شد. تا تأییدش نکنید، دستیار از آن استفاده نمی‌کند.")})});document.querySelectorAll("main input,main textarea").forEach(function(i){i.dataset.live="1"})}
+if(page==="Store-KnowledgeEdit"||page==="Store-FixInventory"){document.querySelectorAll("main button").forEach(function(b){var t=tx(b);
+ if(t==="ذخیره پیش‌نویس")live(b,function(){T("پیش‌نویس ذخیره شد. تا تأییدش نکنید، دستیار از آن استفاده نمی‌کند.")});
+ if(t==="تأیید"&&page==="Store-KnowledgeEdit")live(b,function(){T("تأیید شد. از پرسش بعدی مشتری، دستیار از این متن استفاده می‌کند.")})})}
+if(page==="Store-Report"){document.querySelectorAll("main button").forEach(function(b){if(tx(b)==="استخراج CSV")live(b,function(){T("فایل CSV همه داده‌های این صفحه آماده شد (نمایشی).")})})}
+/* admin manual reply */
+if(page==="Conversation"){var ta=document.getElementById("reply"),hist=document.querySelector('section[aria-label="تاریخچه گفت‌وگو"]>div');if(ta){ta.dataset.live="1";document.querySelectorAll("button").forEach(function(b){if(tx(b)==="ارسال")live(b,function(){var v=ta.value.trim();if(!v){ta.focus();T("ابتدا پاسخ را بنویسید.",1);return}var d=document.createElement("div");d.className="grp them";var bub=document.createElement("div");bub.className="bub tail";bub.textContent=v;var m=document.createElement("span");m.className="meta";m.textContent="سارا رحیمی · پشتیبان فروشگاه · همین حالا";d.appendChild(bub);d.appendChild(m);hist.appendChild(d);hist.scrollTop=hist.scrollHeight;ta.value=""})})}}
 })();
 </script>
 </body>

@@ -1,8 +1,8 @@
 import os, re, json, glob
 SRC='/home/claude/canvas/project'; OUT='/home/claude/proto'
 B='back'
-ADMIN_NAV=[('صف اقدام','Main'),('گفت‌وگوهای دستیار','Bots'),('توقف پاسخ خودکار','W4-Stop'),('خروج','Login-Admin')]
-STORE_NAV=[('مغایرت‌ها','Store-Discrepancies'),('محصولات و گونه‌ها','Store-Products'),('دانش و سیاست','Store-Knowledge'),('تنظیمات','Store-Settings'),('مجوزها','Store-Permissions'),('گزارش','Store-Report'),('خروج','Login-Store')]
+ADMIN_NAV=[('صف اقدام','Main'),('گفت‌وگوهای دستیار','Bots'),('توقف پاسخ خودکار','W4-Stop'),('تغییر رمز','SW5-Password'),('خروج','Login-Admin')]
+STORE_NAV=[('بررسی موجودی','Store-Discrepancies'),('محصولات و گونه‌ها','Store-Products'),('دانشنامه فروشگاه','Store-Knowledge'),('تنظیمات','Store-Settings'),('کاربران و مجوزها','Store-Permissions'),('گزارش','Store-Report'),('تغییر رمز','SW5-Password'),('خروج','Login-Store')]
 CHAT_HDR=[('گفت‌وگو با پشتیبان','Chat-Registering')]
 R={
 # customer
@@ -38,21 +38,23 @@ R={
 'Denied-Role':{'rules':[('خروج','Login-Store')]},
 # store
 'Login-Store':{'rules':[('ورود','Store-Discrepancies')]},
-'Store-Discrepancies':{'rules':STORE_NAV+[('@row1','Store-FixInventory'),('@row2','Store-FixConflict'),('@row3','Store-FixInventory'),('رفتن به تنظیمات','Store-Settings')]},
-'Store-FixInventory':{'rules':STORE_NAV+[('بستن مغایرت بدون اصلاح','SW1-CloseDiscrepancy'),('تأیید','Store-Discrepancies'),('@ok','Store-Discrepancies')]},
-'Store-FixConflict':{'rules':STORE_NAV+[('این رکورد درست است','Store-Discrepancies'),('بستن مغایرت بدون اصلاح','SW1-CloseDiscrepancy')]},
-'Store-Products':{'rules':STORE_NAV+[('@row1','Store-ProductEdit'),('@row2','Store-ProductEdit'),('@row3','Store-ProductEdit'),('@row4','Store-ProductEdit')]},
+'Store-Discrepancies':{'rules':STORE_NAV+[('@row1','Store-FixInventory'),('@row2','Store-FixInventory'),('@row3','Store-FixInventory'),('رفتن به تنظیمات','Store-Settings')]},
+'Store-FixInventory':{'rules':STORE_NAV+[('بستن بدون اصلاح','SW1-CloseDiscrepancy'),('تأیید','Store-Discrepancies'),('@ok','Store-Discrepancies')]},
+'Store-FixConflict':{'rules':STORE_NAV+[('این رکورد درست است','Store-Discrepancies'),('بستن بدون اصلاح','SW1-CloseDiscrepancy')]},
+'Store-Products':{'rules':STORE_NAV+[('افزودن محصول','Store-ProductEdit'),('@row1','Store-ProductEdit'),('@row2','Store-ProductEdit'),('@row3','Store-ProductEdit'),('@row4','Store-ProductEdit')]},
 'Store-ProductEdit':{'rules':STORE_NAV+[('اصلاح موجودی','Store-FixInventory')]},
-'Store-Knowledge':{'rules':STORE_NAV+[('@row1','Store-KnowledgeEdit'),('@row2','Store-KnowledgeEdit'),('@row3','Store-KnowledgeEdit'),('@row4','Store-KnowledgeEdit')]},
+'Store-Knowledge':{'rules':STORE_NAV+[('افزودن','Store-KnowledgeEdit'),('@row1','Store-KnowledgeEdit'),('@row2','Store-KnowledgeEdit'),('@row3','Store-KnowledgeEdit'),('@row4','Store-KnowledgeEdit')]},
 'Store-KnowledgeEdit':{'rules':STORE_NAV},
-'Store-Settings':{'rules':STORE_NAV+[('ذخیره','SW2-Threshold')]},
-'Store-Permissions':{'rules':STORE_NAV+[('@sw','SW3-Grant')]},
+'Store-Settings':{'rules':STORE_NAV+[('@sel:#thr-save','SW2-Threshold')]},
+'Store-Permissions':{'rules':STORE_NAV+[('افزودن کارمند','Store-Employee'),('ویرایش','Store-Employee')]},
+'Store-Employee':{'rules':STORE_NAV+[('ذخیره','Store-Permissions'),('انصراف','Store-Permissions')]},
 'Store-Report':{'rules':STORE_NAV},
 'Denied-Page':{'rules':STORE_NAV+[('رفتن به صفحه اصلی','Store-Discrepancies')]},
-'SW1-CloseDiscrepancy':{'rules':[('بستن مغایرت','Store-Discrepancies'),('انصراف',B)]},
+'SW1-CloseDiscrepancy':{'rules':[('بستن مورد','Store-Discrepancies'),('انصراف',B)]},
 'SW2-Threshold':{'rules':[('ذخیره','Store-Settings'),('انصراف',B)]},
 'SW3-Grant':{'rules':[('اعطای مجوز','Store-Permissions'),('انصراف',B)]},
 'SW4-Leave':{'rules':[('ماندن',B),('ترک صفحه','Store-Discrepancies')]},
+'SW5-Password':{'rules':[('تغییر رمز',B),('انصراف',B)]},
 }
 RT='''<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
 <script>
@@ -73,6 +75,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k.indexOf("@sel:")===0){bind(document.querySelector(k.slice(5)),t);return}
  if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}

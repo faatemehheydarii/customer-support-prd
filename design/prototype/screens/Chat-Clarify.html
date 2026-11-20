@@ -118,7 +118,7 @@ textarea.scroll::-webkit-scrollbar,textarea[aria-invalid]::-webkit-scrollbar{wid
 </style>
 <script>
 (function(){var RULES=[["گفت‌وگو با پشتیبان", "Chat-Registering"], ["S", "Chat-Typing"], ["M", "Chat-Typing"], ["L", "Chat-Typing"], ["مشکی", "Chat-Typing"], ["کرم", "Chat-Typing"]],AUTO=null;
-var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مغایرت", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]]};
+var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مورد", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]], "SW5-Password": [["تغییر رمز", "back"], ["انصراف", "back"]]};
 function go(t){if(t==="back"){history.back();return}if(MODALS[t]){openModal(t);return}location.href=t+".html"}
 function closeModal(){var o=document.getElementById("pmodal");if(o)o.remove()}
 function openModal(t){fetch(t+".html").then(function(r){return r.text()}).then(function(h){var d=new DOMParser().parseFromString(h,"text/html");var dlg=d.querySelector("[role=dialog]");if(!dlg)return;closeModal();
@@ -134,6 +134,7 @@ RULES.forEach(function(r){var k=r[0],t=r[1];
  if(k==="@send"){bind(document.querySelector('button[aria-label="ارسال"]'),t);return}
  if(k==="@composer"){bind(document.querySelector("textarea"),t);return}
  if(k==="@main"){bind(document.querySelector("main"),t);return}
+ if(k.indexOf("@sel:")===0){bind(document.querySelector(k.slice(5)),t);return}
  if(k==="@ok"){bind(document.querySelector(".choice label"),t);return}
  if(k==="@sw"){bind(document.querySelectorAll(".sw")[5]||document.querySelector(".sw"),t);return}
  var m=/^@row(\d)$/.exec(k);if(m){var tr=document.querySelectorAll("tbody tr")[+m[1]-1];if(tr){tr.querySelectorAll("a").forEach(function(a){bind(a,t)});bind(tr,t)}return}
