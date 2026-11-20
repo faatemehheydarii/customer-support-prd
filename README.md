@@ -37,13 +37,14 @@ BACKLOG.md                           ← نقشه بک‌لاگ و زمان‌ب
 
 ‏`/speckit-specify` ← `/speckit-clarify` ← `/speckit-plan` ← `/speckit-tasks` ← `/speckit-analyze` ← ‏Issues ← `/speckit-implement`
 
-## ‏نسخه‌های پایه
+## ‏نسخه‌ها
 
 | ‏شاخه | ‏معنا |
 |---|---|
-| ‏`baseline/v1` | ‏PRD تا CH-53 (پوشه `design/` در این برچسب هنوز در حالت CH-52 است) |
-| ‏`baseline/v2` | ‏PRD تا CH-55، همراه طراحی (`design/screens`)، پروتوتایپ (`design/prototype`) و اسکریپت‌های ساخت (`design/generators`) |
+| ‏`v1` | ‏همه کارها تا CH-56 (PRD، `design/screens`، `design/prototype`، `design/generators`). ثابت؛ `main` هم تا تصمیم درباره v2 همین است |
+| ‏`v2` | ‏مسیر جدای پیشنهادهای ChatGPT روی v1؛ هر تغییر یک CH در یک commit جدا |
+| ‏`archive/pre-ch54` | ‏بایگانی: PRD تا CH-53، پیش از بازخورد سوم سعید |
 
-‏هر تغییر پس از v2 یک CH در یک commit جداست و در Master Index با «پایه: v2» ثبت می‌شود؛ برگرداندن آن با `git revert` همان commit انجام می‌شود (Master Index §5.1). این دو شاخه نقطه ثابت‌اند و کسی روی آن‌ها commit نمی‌کند؛ برچسب‌های `v1` و `v2` فعلاً فقط در نسخه محلی ساخته شده‌اند.
+‏برگرداندن یک تغییر v2 با `git revert` همان commit انجام می‌شود؛ کنار گذاشتن کل v2 یعنی برگشت به شاخه `v1` (Master Index §5.1).
 
 </div>
