@@ -39,11 +39,11 @@ BACKLOG.md                           ← نقشه بک‌لاگ و زمان‌ب
 
 ## ‏نسخه‌های پایه
 
-| ‏برچسب | ‏معنا |
+| ‏شاخه | ‏معنا |
 |---|---|
-| ‏`v1` | ‏PRD تا CH-53 (پوشه `design/` در این برچسب هنوز در حالت CH-52 است) |
-| ‏`v2` | ‏PRD تا CH-55، همراه طراحی (`design/screens`)، پروتوتایپ (`design/prototype`) و اسکریپت‌های ساخت (`design/generators`) |
+| ‏`baseline/v1` | ‏PRD تا CH-53 (پوشه `design/` در این برچسب هنوز در حالت CH-52 است) |
+| ‏`baseline/v2` | ‏PRD تا CH-55، همراه طراحی (`design/screens`)، پروتوتایپ (`design/prototype`) و اسکریپت‌های ساخت (`design/generators`) |
 
-‏هر تغییر پس از v2 یک CH در یک commit جداست و در Master Index با «پایه: v2» ثبت می‌شود؛ برگرداندن آن با `git revert` همان commit انجام می‌شود (Master Index §5.1).
+‏هر تغییر پس از v2 یک CH در یک commit جداست و در Master Index با «پایه: v2» ثبت می‌شود؛ برگرداندن آن با `git revert` همان commit انجام می‌شود (Master Index §5.1). این دو شاخه نقطه ثابت‌اند و کسی روی آن‌ها commit نمی‌کند؛ برچسب‌های `v1` و `v2` فعلاً فقط در نسخه محلی ساخته شده‌اند.
 
 </div>
