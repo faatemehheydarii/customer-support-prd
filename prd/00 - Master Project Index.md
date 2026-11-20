@@ -2,7 +2,7 @@
 doc: 00 - Master Project Index
 project: Customer Support — AI Customer Support Assistant PRD
 role: Single Source of Truth
-version: 1.19
+version: 1.20
 last_updated: 2026-11-20
 status: Approved (living document)
 ---
@@ -231,25 +231,25 @@ Customer Support PRD/
 | ‏PRD-04-EP05 - Reference Data Management | ‏Approved | ‏**1.4 (CH-31، CH-41، CH-53، CH-54)** | ‏2026-11-20 | ‏PRD-04؛ CH-31؛ Q-42 |
 | ‏PRD-04-EP06 - Measurement & Audit | ‏Approved | ‏**1.5 (CH-31، CH-41، CH-43، CH-44، CH-54، CH-55، CH-60 v2)** | ‏2026-11-20 | ‏PRD-04؛ CH-31؛ Q-42؛ v2 |
 | ‏PRD-04-EP07 - Human Control | ‏Approved | ‏**1.3 (CH-31، CH-43، CH-52)** | ‏2026-11-20 | ‏PRD-04؛ CH-31؛ Q-42 |
-| ‏PRD-04-EP08 - Shopping Assistance *(v2)* | ‏Approved (v2) | ‏**1.0 (CH-59 v2)** | ‏2026-11-20 | ‏v2 |
+| ‏PRD-04-EP08 - Shopping Assistance *(v2)* | ‏Approved (v2) | ‏**1.1 (CH-59، CH-63 v2)** | ‏2026-11-20 | ‏v2 |
 | ‏PRD-04-DD - Data Dictionary | ‏Approved | ‏**1.7 (CH-31، CH-41، CH-43، CH-52، CH-54، CH-58، CH-60، CH-61 v2)** | ‏2026-11-20 | ‏PRD-04؛ CH-31؛ Q-42؛ v2 |
 | ‏PRD-05 - UX Flows (فهرست) | ‏Approved | ‏**1.4 (CH-31، CH-41 تا CH-43، CH-54، CH-61 v2)** | ‏2026-11-20 | ‏PRD-05؛ CH-31؛ Q-42؛ v2 |
 | ‏PRD-05a - Chat Page | ‏Approved | ‏**1.5 (CH-52، CH-61 v2)** | ‏2026-11-20 | ‏PRD-05؛ Q-42؛ v2 |
 | ‏PRD-05b - Admin Panel | ‏Approved | ‏**1.6 (CH-52، CH-61 v2)** | ‏2026-11-20 | ‏PRD-05؛ CH-31؛ Q-42؛ v2 |
 | ‏PRD-05c - Store Management Panel | ‏Approved | ‏**1.7 (CH-48، CH-53 تا CH-55، CH-61 v2)** | ‏2026-11-20 | ‏PRD-05؛ CH-31؛ Q-42؛ v2 |
-| ‏PRD-06 - Non-Functional Requirements | ‏Approved | ‏**1.1 (CH-44)** | ‏2026-11-12 | ‏PRD-06؛ Q-42 |
-| ‏PRD-07 - Environment & System Requirements | ‏Approved | ‏**1.3 (CH-31، CH-41، CH-54)** | ‏2026-11-20 | ‏PRD-07؛ CH-31؛ Q-42 |
-| ‏PRD-08 - Assumptions, Constraints & Risks | ‏Approved | ‏**1.5 (CH-21، CH-23، CH-26، CH-44، CH-45، CH-54)** | ‏2026-11-20 | ‏PRD-08؛ PRD-09؛ PRD-11؛ PRD-12؛ Q-42 |
-| ‏PRD-09 - Dependencies | ‏Approved | ‏**1.3 (CH-24، CH-44، CH-45، CH-54)** | ‏2026-11-20 | ‏PRD-09؛ PRD-11؛ Q-42 |
+| ‏PRD-06 - Non-Functional Requirements | ‏Approved | ‏**1.2 (CH-63 v2)** | ‏2026-11-20 | ‏PRD-06؛ Q-42 |
+| ‏PRD-07 - Environment & System Requirements | ‏Approved | ‏**1.4 (CH-31، CH-41، CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-07؛ CH-31؛ Q-42 |
+| ‏PRD-08 - Assumptions, Constraints & Risks | ‏Approved | ‏**1.6 (CH-21، CH-23، CH-26، CH-44، CH-45، CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-08؛ PRD-09؛ PRD-11؛ PRD-12؛ Q-42 |
+| ‏PRD-09 - Dependencies | ‏Approved | ‏**1.4 (CH-24، CH-44، CH-45، CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-09؛ PRD-11؛ Q-42 |
 | ‏PRD-10 - Current Product State | ‏Approved | ‏**1.1 (CH-45)** | ‏2026-11-12 | ‏PRD-10؛ Q-42 |
-| ‏PRD-11 - Current Release Plan (فهرست) | ‏Approved | ‏**1.1 (CH-44، CH-45)** | ‏2026-11-12 | ‏PRD-11؛ Q-42 |
-| ‏PRD-11a - Execution Plan | ‏Approved | ‏**1.3 (CH-44، CH-45، CH-47، CH-54)** | ‏2026-11-20 | ‏PRD-11؛ Q-42؛ CH-47 |
-| ‏PRD-11b - Acceptance | ‏Approved | ‏**1.3 (CH-31، CH-42 تا CH-44، CH-54)** | ‏2026-11-20 | ‏PRD-11؛ CH-31؛ Q-42 |
+| ‏PRD-11 - Current Release Plan (فهرست) | ‏Approved | ‏**1.2 (CH-63 v2)** | ‏2026-11-20 | ‏PRD-11؛ Q-42 |
+| ‏PRD-11a - Execution Plan | ‏Approved | ‏**1.4 (CH-44، CH-45، CH-47، CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-11؛ Q-42؛ CH-47 |
+| ‏PRD-11b - Acceptance | ‏Approved | ‏**1.4 (CH-31، CH-42 تا CH-44، CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-11؛ CH-31؛ Q-42 |
 | ‏PRD-12 - Future Release Plan (فهرست) | ‏Approved | ‏**1.3 (CH-41، CH-45، CH-54، CH-57 v2)** | ‏2026-11-20 | ‏PRD-12؛ Q-42؛ v2 |
 | ‏PRD-12a - Pilot Entry Gate | ‏Approved | ‏**1.1 (CH-45)** | ‏2026-11-12 | ‏PRD-12؛ Q-42 |
 | ‏PRD-13 - Go-to-Market Strategy | ‏Approved | ‏**1.1 (CH-29)** | ‏2026-11-11 | ‏PRD-13؛ PRD-14 |
 | ‏PRD-14 - Revenue Forecast | ‏Approved | ‏1.0 | ‏2026-11-11 | ‏PRD-14 |
-| ‏PRD-15 - Glossary | ‏Approved | ‏**1.6 (CH-31، CH-37، CH-41 تا CH-45، CH-52 تا CH-54)** | ‏2026-11-20 | ‏PRD-15؛ CH-31؛ PRD-00؛ Q-42 |
+| ‏PRD-15 - Glossary | ‏Approved | ‏**1.7 (CH-31، CH-37، CH-41 تا CH-45، CH-52 تا CH-54، CH-63 v2)** | ‏2026-11-20 | ‏PRD-15؛ CH-31؛ PRD-00؛ Q-42 |
 | ‏PRD-16 - Appendix | ‏Approved | ‏**1.2 (CH-38، CH-41 تا CH-44)** | ‏2026-11-12 | ‏PRD-16؛ PRD-00؛ Q-42 |
 | ‏**04 - Final PRD** | ‏**Pending Review** — پیش‌نویس برای بررسی پنج تأییدکننده و تصویب BRD (DEC-254) | ‏0.9 (بازتولید CH-46) | ‏2026-11-12 | ‏04 - Final PRD؛ Q-42 |
 | ‏`05 - Architecture/architecture.md` (P-03) | ‏Pending Review — معماری 0.1 و تک‌استک 0.2: تأیید مالک محصول (۲۰۲۶-۱۱-۱۸)؛ منتظر بررسی تیم؛ میزبانی و سرویس مدل منتظر بحث گروه | ‏**0.2 (CH-50)** | ‏2026-11-18 | ‏P-03؛ P-03 تک‌استک |
@@ -603,6 +603,7 @@ Customer Support PRD/
 | ‏DEC-337 | ‏**v2 — وضعیت در رابط (P1):** چهار برچسب ساده در پنل ادمین: «نیازمند رسیدگی» (S3)، «در حال رسیدگی» (S4)، «منتظر مشتری» (S1، S2)، «حل‌شده» (S5، S6 با نشان «بدون تأیید»). داده، انتقال‌ها و شاخص‌ها همچنان S1 تا S6 (نرخ حل KM-06 دست نمی‌خورد). وضعیت دستیار (فعال / متوقف) ویژگی مستقل است. *(جایگزین برچسب S3 و S1 در رابط از CH-31)* | ‏2026-11-20 | ‏PRD-05b؛ VL-01؛ پیشنهاد ChatGPT P1 | ‏CH-61 |
 | ‏DEC-339 | ‏**v2 — کارت محصول در گفت‌وگو:** تصویر اصلی (یا تصویر همان رنگ)، نام و گونه، قیمت اعلام‌شده، خط دلیل یا «تفاوت با انتخاب شما»؛ بی پیوند خرید و سبد؛ حالت‌های ح۱۶ تا ح۱۸؛ SCR-28 ویژگی‌های کاتالوگ؛ بوم v2 نسخه 1795196929-49dc؛ پروتوتایپ v2 نسخه 1795196953-4629 | ‏2026-11-20 | ‏PRD-05، 05a، 05c؛ پیشنهاد ChatGPT P1 | ‏CH-61 |
 | ‏DEC-340 | ‏**v2 — معماری کمک به خرید:** ماژول تازه `catalog` (جست‌وجو، پیشنهاد، جایگزین؛ قطعی؛ ورودی متن و ویژگی، تصویر رزرو)، لایه `tools` با سطح دسترسی و تأیید (همه خواندنی جز `handoff.create`؛ ابزار خرید فقط تعریف و غیرفعال)، `MediaStoragePort`، خروجی گسترده `understand` و `tone` در `compose`؛ جدول‌های `attribute_def*`، `product_image`، `product_relation` و ستون‌های تازه. همان برنامه ماژولار واحد (DEC-275)؛ بی فراخوانی مدل تازه | ‏2026-11-20 | ‏05 - Architecture/architecture-v2.md؛ پیشنهاد ChatGPT P1؛ منتظر مسئول فنی | ‏CH-62 |
+| ‏DEC-341 | ‏**v2 — آزمون و داده نمونه کمک به خرید:** مجموعه TS-S01 تا TS-S12 جدا از ۶۰ سناریوی هسته و بیرون از دروازه پذیرش هسته؛ کاتالوگ نمونه ساختگی ۱۲ محصولی (DEP-26) هم‌خوان با CH-52؛ مسیر «خرید» در PRD-11a با نقطه‌های بررسی روز ۴ و ۶؛ NFR-02-9، NFR-02-10، NFR-03-6، NFR-07-4، NFR-08-3؛ ENV-68؛ DEP-25، DEP-26؛ RSK-27 تا RSK-29 | ‏2026-11-20 | ‏PRD-06، 07، 08، 09، 11، 11a، 11b، 15؛ Sample Knowledge Base؛ پیشنهاد ChatGPT P1 | ‏CH-63 |
 
 ### ‏۶.۲ تصمیمات پیشنهادی (منتظر تأیید)
 
@@ -1099,3 +1100,4 @@ flowchart TD
 | ‏CH-60 | ‏2026-11-20 | ‏**v2 — پیشنهاد ChatGPT، مورد P1 (رویدادها و گزارش):** DEC-336 و DEC-338. EV-28 تا EV-33 و نگاشت فهرست ۱۲ رویداد P1؛ KM-21 تا KM-27؛ دسته گزارش «خرید و درخواست‌ها»؛ بازبینی و اصلاح پاسخ AI در نمای مکالمه. PRD-04-EP06 1.5، PRD-04-DD 1.6 | ‏EP-06، DD، Master Index |
 | ‏CH-61 | ‏2026-11-20 | ‏**v2 — پیشنهاد ChatGPT، مورد P1 (تجربه کاربری و پروتوتایپ):** DEC-337 و DEC-339. بوم v2: ح۱۶ تا ح۱۸ (موبایل و دسکتاپ)، SCR-28 تازه، ویژگی‌ها و تصویرها در SCR-22، دو بخش SCR-24، دسته «خرید و درخواست‌ها» در SCR-26، خلاصه و بازبینی SCR-11، چهار برچسب وضعیت. پروتوتایپ v2: گفت‌وگوی زنده با کاتالوگ نمونه ۱۲ محصولی (پیشنهاد با دلیل، جایگزین، تردید قیمت، مقایسه، بی‌نتیجه). PRD-05 1.4، 05a 1.5، 05b 1.6، 05c 1.7، DD 1.7. اسکریپت‌ها: `design/generators/v2_ui.py`، `v2_proto.py`، `v2_catalog.py` | ‏PRD-05، 05a، 05b، 05c، DD، design/، Master Index |
 | ‏CH-62 | ‏2026-11-20 | ‏**v2 — پیشنهاد ChatGPT، مورد P1 (معماری):** DEC-340. افزوده تازه `05 - Architecture/architecture-v2.md` 0.1: نگاشت ۱۲ مسئولیت P1 به ماژول‌ها، ماژول `catalog`، خروجی فهم، لایه ابزار با سطح دسترسی، درگاه فایل تصویر، API و جدول‌های تازه، ریسک‌های فنی. architecture.md و data-model.md دست نخوردند (هنوز با CH-54 هم همگام نیستند) | ‏05 - Architecture (تازه: architecture-v2.md)، Master Index |
+| ‏CH-63 | ‏2026-11-20 | ‏**v2 — پیشنهاد ChatGPT، مورد P1 (برنامه، پذیرش و داده نمونه):** DEC-341. PRD-06 1.2 (پنج حد کیفی)، PRD-07 1.4 (ENV-68)، PRD-08 1.6 (RSK-27 تا RSK-29)، PRD-09 1.4 (DEP-25، DEP-26)، PRD-11 1.2 (ترتیب کاهش EP-08)، PRD-11a 1.4 (مسیر «خرید» روزبه‌روز)، PRD-11b 1.4 (TS-S01 تا TS-S12 با رفتار پروتوتایپ)، PRD-15 1.7، EP-08 1.1 (هم‌خوانی AC با داده)، Sample Knowledge Base (کاتالوگ v2). **هنوز همگام نشده با v2:** متن روایی PRD-03 (UCD-20 تا UCD-23)، PRD-10، PRD-13، PRD-14، PRD-16، architecture.md و data-model.md (افزوده جدا: architecture-v2.md) | ‏PRD-06، 07، 08، 09، 11، 11a، 11b، 15، EP-08، Sample Knowledge Base، Master Index |
