@@ -1,1 +1,740 @@
-{"v": 3, "createdOnFiles": {"v": 1, "at": "2026-11-15T17:42:25Z"}, "title": "دستیار پشتیبانی — طراحی صفحه‌ها", "launch": {"view": "canvas"}, "pages": [], "boards": {"Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "SCR-10 · صف اقدام", "expand": "fill"}, "Conversation.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1000, "title": "SCR-11 · نمای مکالمه — مالک", "expand": "fill"}, "Chat-Welcome.dc.html": {"x": 4642, "y": 0, "w": 390, "h": 844, "title": "ح۱ · خوش‌آمد"}, "Chat-Clarify.dc.html": {"x": 4642, "y": 1080, "w": 390, "h": 844, "title": "ح۴ · رفع ابهام"}, "Chat-Answer.dc.html": {"x": 4642, "y": 2160, "w": 390, "h": 844, "title": "ح۳ · پاسخ موجودی + تأیید حل"}, "Chat-Registered.dc.html": {"x": 4642, "y": 3240, "w": 390, "h": 844, "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"}, "Chat-Human.dc.html": {"x": 4642, "y": 4320, "w": 390, "h": 844, "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"}, "Chat-Error.dc.html": {"x": 4642, "y": 5400, "w": 390, "h": 844, "title": "ح۹ · خطای سرویس"}, "Queue-Stopped.dc.html": {"h": 900, "title": "SCR-10 · پاسخ خودکار متوقف (R0-b)", "w": 1440, "x": 0, "y": 1500, "expand": "fill"}, "Queue-Empty.dc.html": {"h": 640, "title": "SCR-10 · صف خالی", "w": 1440, "x": 1520, "y": 1500, "expand": "fill"}, "Bots.dc.html": {"h": 860, "title": "SCR-12 · گفت‌وگوهای دستیار", "w": 1440, "x": 0, "y": 2560, "expand": "fill"}, "Conversation-Queue.dc.html": {"h": 980, "title": "SCR-11 · نمای صف (S3)", "w": 1440, "x": 1520, "y": 2560, "expand": "fill"}, "Conversation-Bot.dc.html": {"h": 860, "title": "SCR-11 · نمای دستیار (S2) با بازبینی", "w": 1440, "x": 0, "y": 3900, "expand": "fill"}, "W1-Takeover.dc.html": {"h": 260, "title": "W1 · تحویل از دستیار", "w": 520, "x": 1520, "y": 3900}, "W2-Resolve.dc.html": {"h": 440, "title": "W2 · بستن مستند (دکمه تا پرشدن غیرفعال)", "w": 520, "x": 2120, "y": 3900}, "W3-CloseUnconfirmed.dc.html": {"h": 400, "title": "W3 · بستن بدون تأیید", "w": 520, "x": 2720, "y": 3900}, "W4-Stop.dc.html": {"h": 260, "title": "W4 · توقف پاسخ خودکار", "w": 520, "x": 3320, "y": 3900}, "W5-Handback.dc.html": {"h": 240, "title": "W5 · واگذاری به دستیار", "w": 520, "x": 3920, "y": 3900}, "Store-Discrepancies.dc.html": {"x": 0, "y": 6700, "w": 1440, "h": 860, "title": "SCR-20 · بررسی موجودی (فهرست مغایرت‌ها)", "expand": "fill"}, "Store-FixInventory.dc.html": {"x": 1520, "y": 6700, "w": 1440, "h": 1080, "title": "SCR-21 · اصلاح موجودی گونه (قدیمی شده + پیش‌نویس)", "expand": "fill"}, "Store-FixConflict.dc.html": {"x": 0, "y": 7960, "w": 1440, "h": 760, "title": "SCR-21 · اطلاعات متعارض — فقط پایلوت (DEC-314)", "expand": "fill"}, "Store-Products.dc.html": {"x": 1520, "y": 7960, "w": 1440, "h": 760, "title": "SCR-22 · محصولات و گونه‌ها — فهرست", "expand": "fill"}, "Store-ProductEdit.dc.html": {"x": 0, "y": 8900, "w": 1440, "h": 900, "title": "SCR-22 · ویرایش محصول", "expand": "fill"}, "Store-Knowledge.dc.html": {"x": 1520, "y": 8900, "w": 1440, "h": 760, "title": "SCR-23 · دانشنامه فروشگاه — فهرست (همه)", "expand": "fill"}, "Store-KnowledgeEdit.dc.html": {"x": 0, "y": 9980, "w": 1440, "h": 820, "title": "SCR-23 · ویرایش منبع (منقضی)", "expand": "fill"}, "Store-Settings.dc.html": {"x": 1520, "y": 9980, "w": 1440, "h": 1500, "title": "SCR-24 · تنظیمات فروشگاه", "expand": "fill"}, "Store-Permissions.dc.html": {"x": 0, "y": 11420, "w": 1440, "h": 820, "title": "SCR-25 · کاربران و مجوزها", "expand": "fill"}, "Store-Report.dc.html": {"x": 1520, "y": 11560, "w": 1440, "h": 1380, "title": "SCR-26 · گزارش سنجش", "expand": "fill"}, "D-Chat-Welcome.dc.html": {"x": 5112, "y": 0, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱ · خوش‌آمد", "expand": "fill"}, "D-Chat-Clarify.dc.html": {"x": 5112, "y": 1080, "w": 1440, "h": 900, "title": "دسکتاپ · ح۴ · رفع ابهام", "expand": "fill"}, "D-Chat-Answer.dc.html": {"x": 5112, "y": 2160, "w": 1440, "h": 900, "title": "دسکتاپ · ح۳ · پاسخ موجودی + تأیید حل", "expand": "fill"}, "D-Chat-Registered.dc.html": {"x": 5112, "y": 3240, "w": 1440, "h": 900, "title": "دسکتاپ · ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)", "expand": "fill"}, "D-Chat-Human.dc.html": {"x": 5112, "y": 4320, "w": 1440, "h": 900, "title": "دسکتاپ · ح۷ · پشتیبان در گفت‌وگو (S4)", "expand": "fill"}, "D-Chat-Error.dc.html": {"x": 5112, "y": 5400, "w": 1440, "h": 900, "title": "دسکتاپ · ح۹ · خطای سرویس", "expand": "fill"}, "Conversation-Observer.dc.html": {"x": 0, "y": 4960, "w": 1440, "h": 1000, "title": "SCR-11 · نمای ناظر (S4، مالک دیگر)", "expand": "fill"}, "Conversation-Closed.dc.html": {"x": 1520, "y": 4960, "w": 1440, "h": 1060, "title": "SCR-11 · نمای بسته (S5)", "expand": "fill"}, "SW1-CloseDiscrepancy.dc.html": {"x": 0, "y": 13680, "w": 520, "h": 380, "title": "W1 فروشگاه · بستن بدون اصلاح"}, "SW2-Threshold.dc.html": {"x": 600, "y": 13680, "w": 520, "h": 260, "title": "W2 فروشگاه · تأیید آستانه"}, "SW3-Grant.dc.html": {"x": 1200, "y": 13680, "w": 520, "h": 260, "title": "W3 فروشگاه · تأیید اعطای مجوز"}, "SW4-Leave.dc.html": {"x": 1800, "y": 13680, "w": 520, "h": 240, "title": "W4 فروشگاه · ترک صفحه با تغییر ذخیره‌نشده"}, "Chat-Typing.dc.html": {"x": 4642, "y": 6480, "w": 390, "h": 844, "title": "ح۲ · در حال پاسخ"}, "D-Chat-Typing.dc.html": {"x": 5112, "y": 6480, "w": 1440, "h": 900, "title": "دسکتاپ · ح۲ · در حال پاسخ", "expand": "fill"}, "Chat-Registering.dc.html": {"x": 4642, "y": 7560, "w": 390, "h": 844, "title": "ح۵ · در حال ثبت"}, "D-Chat-Registering.dc.html": {"x": 5112, "y": 7560, "w": 1440, "h": 900, "title": "دسکتاپ · ح۵ · در حال ثبت", "expand": "fill"}, "Chat-Closed.dc.html": {"x": 4642, "y": 8640, "w": 390, "h": 844, "title": "ح۸ · بسته (پس از تأیید حل)"}, "D-Chat-Closed.dc.html": {"x": 5112, "y": 8640, "w": 1440, "h": 900, "title": "دسکتاپ · ح۸ · بسته (پس از تأیید حل)", "expand": "fill"}, "Chat-RegisterFailed.dc.html": {"x": 4642, "y": 9720, "w": 390, "h": 844, "title": "ح۱۰ · شکست ثبت (با مسیر جایگزین)"}, "D-Chat-RegisterFailed.dc.html": {"x": 5112, "y": 9720, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۰ · شکست ثبت (با مسیر جایگزین)", "expand": "fill"}, "Chat-SendFailed.dc.html": {"x": 4642, "y": 10800, "w": 390, "h": 844, "title": "ح۱۱ · ارسال نشد"}, "D-Chat-SendFailed.dc.html": {"x": 5112, "y": 10800, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۱ · ارسال نشد", "expand": "fill"}, "Chat-TooLong.dc.html": {"x": 4642, "y": 11880, "w": 390, "h": 844, "title": "ح۱۲ · پیام بلند"}, "D-Chat-TooLong.dc.html": {"x": 5112, "y": 11880, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۲ · پیام بلند", "expand": "fill"}, "Login-Admin.dc.html": {"x": 0, "y": 14800, "w": 1440, "h": 900, "title": "ورود · پنل ادمین (ورود ناموفق)", "expand": "fill"}, "Login-Store.dc.html": {"x": 1520, "y": 14800, "w": 1440, "h": 900, "title": "ورود · پنل فروشگاه (پایان نشست)", "expand": "fill"}, "Denied-Role.dc.html": {"x": 0, "y": 15900, "w": 1440, "h": 900, "title": "دسترسی رد شد · نقش ورودی را ندارد", "expand": "fill"}, "Denied-Page.dc.html": {"x": 1520, "y": 15900, "w": 1440, "h": 900, "title": "دسترسی رد شد · صفحه بی‌مجوز (ادمین در پنل فروشگاه)", "expand": "fill"}, "Chat-ClarifyPartial.dc.html": {"x": 4642, "y": 12960, "w": 390, "h": 844, "title": "ح۴ب · رفع ابهام — یکی از دو انتخاب"}, "D-Chat-ClarifyPartial.dc.html": {"x": 5112, "y": 12960, "w": 1440, "h": 900, "title": "دسکتاپ · ح۴ب · رفع ابهام — یکی از دو انتخاب"}, "Chat-NotYet.dc.html": {"x": 4642, "y": 14040, "w": 390, "h": 844, "title": "ح۳ب · «نه، هنوز نه» ← پیشنهاد ارجاع"}, "D-Chat-NotYet.dc.html": {"x": 5112, "y": 14040, "w": 1440, "h": 900, "title": "دسکتاپ · ح۳ب · «نه، هنوز نه» ← پیشنهاد ارجاع"}, "Chat-Shipping.dc.html": {"x": 4642, "y": 15120, "w": 390, "h": 844, "title": "ح۱۳ · هزینه و زمان ارسال"}, "D-Chat-Shipping.dc.html": {"x": 5112, "y": 15120, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۳ · هزینه و زمان ارسال"}, "Chat-Order.dc.html": {"x": 4642, "y": 16200, "w": 390, "h": 844, "title": "ح۱۴ · پیگیری سفارش (پرسیدن شماره)"}, "D-Chat-Order.dc.html": {"x": 5112, "y": 16200, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۴ · پیگیری سفارش (پرسیدن شماره)"}, "Chat-Return.dc.html": {"x": 4642, "y": 17280, "w": 390, "h": 844, "title": "ح۱۵ · مرجوعی کالا (سفارش و کالا)"}, "D-Chat-Return.dc.html": {"x": 5112, "y": 17280, "w": 1440, "h": 900, "title": "دسکتاپ · ح۱۵ · مرجوعی کالا (سفارش و کالا)"}, "Bots-Sample.dc.html": {"x": 3040, "y": 2560, "w": 1440, "h": 1000, "title": "SCR-12 · نمونه ۱۰تایی برای بازبینی", "expand": "fill"}, "Store-Employee.dc.html": {"expand": "fill", "h": 1000, "title": "SCR-27 · افزودن و ویرایش کارمند", "w": 1440, "x": 0, "y": 12320}, "SW5-Password.dc.html": {"h": 440, "title": "W5 · تغییر رمز عبور (هر دو پنل)", "w": 520, "x": 2400, "y": 13680}}, "order": ["Main.dc.html", "Conversation.dc.html", "Chat-Welcome.dc.html", "D-Chat-Welcome.dc.html", "Chat-Clarify.dc.html", "D-Chat-Clarify.dc.html", "Chat-Answer.dc.html", "D-Chat-Answer.dc.html", "Chat-Registered.dc.html", "D-Chat-Registered.dc.html", "Chat-Human.dc.html", "D-Chat-Human.dc.html", "Chat-Error.dc.html", "D-Chat-Error.dc.html", "Queue-Stopped.dc.html", "Queue-Empty.dc.html", "Bots.dc.html", "Conversation-Queue.dc.html", "Conversation-Bot.dc.html", "W1-Takeover.dc.html", "W2-Resolve.dc.html", "W3-CloseUnconfirmed.dc.html", "W4-Stop.dc.html", "W5-Handback.dc.html", "Store-Discrepancies.dc.html", "Store-FixInventory.dc.html", "Store-FixConflict.dc.html", "Store-Products.dc.html", "Store-ProductEdit.dc.html", "Store-Knowledge.dc.html", "Store-KnowledgeEdit.dc.html", "Store-Settings.dc.html", "Store-Permissions.dc.html", "Store-Report.dc.html", "Conversation-Observer.dc.html", "Conversation-Closed.dc.html", "SW1-CloseDiscrepancy.dc.html", "SW2-Threshold.dc.html", "SW3-Grant.dc.html", "SW4-Leave.dc.html", "Chat-Typing.dc.html", "D-Chat-Typing.dc.html", "Chat-Registering.dc.html", "D-Chat-Registering.dc.html", "Chat-Closed.dc.html", "D-Chat-Closed.dc.html", "Chat-RegisterFailed.dc.html", "D-Chat-RegisterFailed.dc.html", "Chat-SendFailed.dc.html", "D-Chat-SendFailed.dc.html", "Chat-TooLong.dc.html", "D-Chat-TooLong.dc.html", "Login-Admin.dc.html", "Login-Store.dc.html", "Denied-Role.dc.html", "Denied-Page.dc.html", "Store-Employee.dc.html", "SW5-Password.dc.html"], "notes": {"adm": {"x": 0, "y": -300, "text": "پنل ادمین (دسکتاپ)", "kind": "title1", "maxW": 2960, "w": 240}, "chat": {"x": 4642, "y": -300, "text": "صفحه گفت‌وگوی مشتری — موبایل و دسکتاپ کنار هم", "kind": "title1", "maxW": 1910, "w": 240}, "adm2": {"kind": "title1", "maxW": 2960, "text": "پنل ادمین — حالت‌ها و نماهای دیگر", "w": 240, "x": 0, "y": 1200}, "dlg": {"kind": "title1", "maxW": 2920, "text": "دیالوگ‌ها (W1–W5)", "w": 240, "x": 1520, "y": 3640}, "store": {"kind": "title1", "maxW": 2400, "text": "پنل مدیریت فروشگاه (دسکتاپ)", "x": 0, "y": 6400}, "sdlg": {"kind": "title1", "maxW": 2400, "text": "دیالوگ‌های پنل فروشگاه (W1–W5)", "x": 0, "y": 13400}, "auth": {"kind": "title1", "maxW": 2960, "text": "ورود و «دسترسی رد شد» (دسکتاپ)", "w": 240, "x": 0, "y": 14500}}, "designSystems": [{"title": "دستیار پشتیبانی", "namespace": "dastyar", "artifact": "https://claude.ai/artifact/Wnt4fEfrQCmQeeE28BiSzb", "version": null, "copiedAt": "2026-11-15T17:42:25Z"}], "attachments": {}, "noteOrder": ["adm", "chat", "adm2", "dlg", "store", "sdlg", "auth"]}
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-15T17:42:25Z"
+  },
+  "title": "دستیار پشتیبانی — طراحی صفحه‌ها",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "SCR-10 · صف اقدام",
+      "expand": "fill"
+    },
+    "Conversation.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1080,
+      "title": "SCR-11 · نمای مکالمه — مالک",
+      "expand": "fill"
+    },
+    "Chat-Welcome.dc.html": {
+      "x": 4642,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱ · خوش‌آمد"
+    },
+    "Chat-Clarify.dc.html": {
+      "x": 4642,
+      "y": 1080,
+      "w": 390,
+      "h": 844,
+      "title": "ح۴ · رفع ابهام"
+    },
+    "Chat-Answer.dc.html": {
+      "x": 4642,
+      "y": 2160,
+      "w": 390,
+      "h": 844,
+      "title": "ح۳ · پاسخ موجودی + تأیید حل"
+    },
+    "Chat-Registered.dc.html": {
+      "x": 4642,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)"
+    },
+    "Chat-Human.dc.html": {
+      "x": 4642,
+      "y": 4320,
+      "w": 390,
+      "h": 844,
+      "title": "ح۷ · پشتیبان در گفت‌وگو (S4)"
+    },
+    "Chat-Error.dc.html": {
+      "x": 4642,
+      "y": 5400,
+      "w": 390,
+      "h": 844,
+      "title": "ح۹ · خطای سرویس"
+    },
+    "Queue-Stopped.dc.html": {
+      "h": 900,
+      "title": "SCR-10 · پاسخ خودکار متوقف (R0-b)",
+      "w": 1440,
+      "x": 0,
+      "y": 1500,
+      "expand": "fill"
+    },
+    "Queue-Empty.dc.html": {
+      "h": 640,
+      "title": "SCR-10 · صف خالی",
+      "w": 1440,
+      "x": 1520,
+      "y": 1500,
+      "expand": "fill"
+    },
+    "Bots.dc.html": {
+      "h": 860,
+      "title": "SCR-12 · گفت‌وگوهای دستیار",
+      "w": 1440,
+      "x": 0,
+      "y": 2560,
+      "expand": "fill"
+    },
+    "Conversation-Queue.dc.html": {
+      "h": 980,
+      "title": "SCR-11 · نمای صف (S3)",
+      "w": 1440,
+      "x": 1520,
+      "y": 2560,
+      "expand": "fill"
+    },
+    "Conversation-Bot.dc.html": {
+      "h": 860,
+      "title": "SCR-11 · نمای دستیار (S2) با بازبینی",
+      "w": 1440,
+      "x": 0,
+      "y": 3900,
+      "expand": "fill"
+    },
+    "W1-Takeover.dc.html": {
+      "h": 260,
+      "title": "W1 · تحویل از دستیار",
+      "w": 520,
+      "x": 1520,
+      "y": 3900
+    },
+    "W2-Resolve.dc.html": {
+      "h": 440,
+      "title": "W2 · بستن مستند (دکمه تا پرشدن غیرفعال)",
+      "w": 520,
+      "x": 2120,
+      "y": 3900
+    },
+    "W3-CloseUnconfirmed.dc.html": {
+      "h": 400,
+      "title": "W3 · بستن بدون تأیید",
+      "w": 520,
+      "x": 2720,
+      "y": 3900
+    },
+    "W4-Stop.dc.html": {
+      "h": 260,
+      "title": "W4 · توقف پاسخ خودکار",
+      "w": 520,
+      "x": 3320,
+      "y": 3900
+    },
+    "W5-Handback.dc.html": {
+      "h": 240,
+      "title": "W5 · واگذاری به دستیار",
+      "w": 520,
+      "x": 3920,
+      "y": 3900
+    },
+    "Store-Discrepancies.dc.html": {
+      "x": 0,
+      "y": 6700,
+      "w": 1440,
+      "h": 860,
+      "title": "SCR-20 · بررسی موجودی (فهرست مغایرت‌ها)",
+      "expand": "fill"
+    },
+    "Store-FixInventory.dc.html": {
+      "x": 1520,
+      "y": 6700,
+      "w": 1440,
+      "h": 1080,
+      "title": "SCR-21 · اصلاح موجودی گونه (قدیمی شده + پیش‌نویس)",
+      "expand": "fill"
+    },
+    "Store-FixConflict.dc.html": {
+      "x": 0,
+      "y": 7960,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-21 · اطلاعات متعارض — فقط پایلوت (DEC-314)",
+      "expand": "fill"
+    },
+    "Store-Products.dc.html": {
+      "x": 1520,
+      "y": 7960,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-22 · محصولات و گونه‌ها — فهرست",
+      "expand": "fill"
+    },
+    "Store-ProductEdit.dc.html": {
+      "x": 0,
+      "y": 8900,
+      "w": 1440,
+      "h": 1420,
+      "title": "SCR-22 · ویرایش محصول",
+      "expand": "fill"
+    },
+    "Store-Knowledge.dc.html": {
+      "x": 1520,
+      "y": 8900,
+      "w": 1440,
+      "h": 760,
+      "title": "SCR-23 · دانشنامه فروشگاه — فهرست (همه)",
+      "expand": "fill"
+    },
+    "Store-KnowledgeEdit.dc.html": {
+      "x": 0,
+      "y": 10500,
+      "w": 1440,
+      "h": 820,
+      "title": "SCR-23 · ویرایش منبع (منقضی)",
+      "expand": "fill"
+    },
+    "Store-Settings.dc.html": {
+      "x": 1520,
+      "y": 10500,
+      "w": 1440,
+      "h": 1900,
+      "title": "SCR-24 · تنظیمات فروشگاه",
+      "expand": "fill"
+    },
+    "Store-Permissions.dc.html": {
+      "x": 0,
+      "y": 12340,
+      "w": 1440,
+      "h": 820,
+      "title": "SCR-25 · کاربران و مجوزها",
+      "expand": "fill"
+    },
+    "Store-Report.dc.html": {
+      "x": 1520,
+      "y": 12480,
+      "w": 1440,
+      "h": 1760,
+      "title": "SCR-26 · گزارش سنجش",
+      "expand": "fill"
+    },
+    "D-Chat-Welcome.dc.html": {
+      "x": 5112,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱ · خوش‌آمد",
+      "expand": "fill"
+    },
+    "D-Chat-Clarify.dc.html": {
+      "x": 5112,
+      "y": 1080,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۴ · رفع ابهام",
+      "expand": "fill"
+    },
+    "D-Chat-Answer.dc.html": {
+      "x": 5112,
+      "y": 2160,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۳ · پاسخ موجودی + تأیید حل",
+      "expand": "fill"
+    },
+    "D-Chat-Registered.dc.html": {
+      "x": 5112,
+      "y": 3240,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۶ · نامشخص ← ثبت برای پشتیبانی (S3)",
+      "expand": "fill"
+    },
+    "D-Chat-Human.dc.html": {
+      "x": 5112,
+      "y": 4320,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۷ · پشتیبان در گفت‌وگو (S4)",
+      "expand": "fill"
+    },
+    "D-Chat-Error.dc.html": {
+      "x": 5112,
+      "y": 5400,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۹ · خطای سرویس",
+      "expand": "fill"
+    },
+    "Conversation-Observer.dc.html": {
+      "x": 0,
+      "y": 4960,
+      "w": 1440,
+      "h": 1000,
+      "title": "SCR-11 · نمای ناظر (S4، مالک دیگر)",
+      "expand": "fill"
+    },
+    "Conversation-Closed.dc.html": {
+      "x": 1520,
+      "y": 4960,
+      "w": 1440,
+      "h": 1060,
+      "title": "SCR-11 · نمای بسته (S5)",
+      "expand": "fill"
+    },
+    "SW1-CloseDiscrepancy.dc.html": {
+      "x": 0,
+      "y": 14980,
+      "w": 520,
+      "h": 380,
+      "title": "W1 فروشگاه · بستن بدون اصلاح"
+    },
+    "SW2-Threshold.dc.html": {
+      "x": 600,
+      "y": 14980,
+      "w": 520,
+      "h": 260,
+      "title": "W2 فروشگاه · تأیید آستانه"
+    },
+    "SW3-Grant.dc.html": {
+      "x": 1200,
+      "y": 14980,
+      "w": 520,
+      "h": 260,
+      "title": "W3 فروشگاه · تأیید اعطای مجوز"
+    },
+    "SW4-Leave.dc.html": {
+      "x": 1800,
+      "y": 14980,
+      "w": 520,
+      "h": 240,
+      "title": "W4 فروشگاه · ترک صفحه با تغییر ذخیره‌نشده"
+    },
+    "Chat-Typing.dc.html": {
+      "x": 4642,
+      "y": 6480,
+      "w": 390,
+      "h": 844,
+      "title": "ح۲ · در حال پاسخ"
+    },
+    "D-Chat-Typing.dc.html": {
+      "x": 5112,
+      "y": 6480,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۲ · در حال پاسخ",
+      "expand": "fill"
+    },
+    "Chat-Registering.dc.html": {
+      "x": 4642,
+      "y": 7560,
+      "w": 390,
+      "h": 844,
+      "title": "ح۵ · در حال ثبت"
+    },
+    "D-Chat-Registering.dc.html": {
+      "x": 5112,
+      "y": 7560,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۵ · در حال ثبت",
+      "expand": "fill"
+    },
+    "Chat-Closed.dc.html": {
+      "x": 4642,
+      "y": 8640,
+      "w": 390,
+      "h": 844,
+      "title": "ح۸ · بسته (پس از تأیید حل)"
+    },
+    "D-Chat-Closed.dc.html": {
+      "x": 5112,
+      "y": 8640,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۸ · بسته (پس از تأیید حل)",
+      "expand": "fill"
+    },
+    "Chat-RegisterFailed.dc.html": {
+      "x": 4642,
+      "y": 9720,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۰ · شکست ثبت (با مسیر جایگزین)"
+    },
+    "D-Chat-RegisterFailed.dc.html": {
+      "x": 5112,
+      "y": 9720,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۰ · شکست ثبت (با مسیر جایگزین)",
+      "expand": "fill"
+    },
+    "Chat-SendFailed.dc.html": {
+      "x": 4642,
+      "y": 10800,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۱ · ارسال نشد"
+    },
+    "D-Chat-SendFailed.dc.html": {
+      "x": 5112,
+      "y": 10800,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۱ · ارسال نشد",
+      "expand": "fill"
+    },
+    "Chat-TooLong.dc.html": {
+      "x": 4642,
+      "y": 11880,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۲ · پیام بلند"
+    },
+    "D-Chat-TooLong.dc.html": {
+      "x": 5112,
+      "y": 11880,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۲ · پیام بلند",
+      "expand": "fill"
+    },
+    "Login-Admin.dc.html": {
+      "x": 0,
+      "y": 16100,
+      "w": 1440,
+      "h": 900,
+      "title": "ورود · پنل ادمین (ورود ناموفق)",
+      "expand": "fill"
+    },
+    "Login-Store.dc.html": {
+      "x": 1520,
+      "y": 16100,
+      "w": 1440,
+      "h": 900,
+      "title": "ورود · پنل فروشگاه (پایان نشست)",
+      "expand": "fill"
+    },
+    "Denied-Role.dc.html": {
+      "x": 0,
+      "y": 17200,
+      "w": 1440,
+      "h": 900,
+      "title": "دسترسی رد شد · نقش ورودی را ندارد",
+      "expand": "fill"
+    },
+    "Denied-Page.dc.html": {
+      "x": 1520,
+      "y": 17200,
+      "w": 1440,
+      "h": 900,
+      "title": "دسترسی رد شد · صفحه بی‌مجوز (ادمین در پنل فروشگاه)",
+      "expand": "fill"
+    },
+    "Chat-ClarifyPartial.dc.html": {
+      "x": 4642,
+      "y": 12960,
+      "w": 390,
+      "h": 844,
+      "title": "ح۴ب · رفع ابهام — یکی از دو انتخاب"
+    },
+    "D-Chat-ClarifyPartial.dc.html": {
+      "x": 5112,
+      "y": 12960,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۴ب · رفع ابهام — یکی از دو انتخاب"
+    },
+    "Chat-NotYet.dc.html": {
+      "x": 4642,
+      "y": 14040,
+      "w": 390,
+      "h": 844,
+      "title": "ح۳ب · «نه، هنوز نه» ← پیشنهاد ارجاع"
+    },
+    "D-Chat-NotYet.dc.html": {
+      "x": 5112,
+      "y": 14040,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۳ب · «نه، هنوز نه» ← پیشنهاد ارجاع"
+    },
+    "Chat-Shipping.dc.html": {
+      "x": 4642,
+      "y": 15120,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۳ · هزینه و زمان ارسال"
+    },
+    "D-Chat-Shipping.dc.html": {
+      "x": 5112,
+      "y": 15120,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۳ · هزینه و زمان ارسال"
+    },
+    "Chat-Order.dc.html": {
+      "x": 4642,
+      "y": 16200,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۴ · پیگیری سفارش (پرسیدن شماره)"
+    },
+    "D-Chat-Order.dc.html": {
+      "x": 5112,
+      "y": 16200,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۴ · پیگیری سفارش (پرسیدن شماره)"
+    },
+    "Chat-Return.dc.html": {
+      "x": 4642,
+      "y": 17280,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۵ · مرجوعی کالا (سفارش و کالا)"
+    },
+    "D-Chat-Return.dc.html": {
+      "x": 5112,
+      "y": 17280,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۵ · مرجوعی کالا (سفارش و کالا)"
+    },
+    "Bots-Sample.dc.html": {
+      "x": 3040,
+      "y": 2560,
+      "w": 1440,
+      "h": 1000,
+      "title": "SCR-12 · نمونه ۱۰تایی برای بازبینی",
+      "expand": "fill"
+    },
+    "Store-Employee.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "title": "SCR-27 · افزودن و ویرایش کارمند",
+      "w": 1440,
+      "x": 0,
+      "y": 13620
+    },
+    "SW5-Password.dc.html": {
+      "h": 440,
+      "title": "W5 · تغییر رمز عبور (هر دو پنل)",
+      "w": 520,
+      "x": 2400,
+      "y": 14980
+    },
+    "Store-Attributes.dc.html": {
+      "x": 3040,
+      "y": 7960,
+      "w": 1440,
+      "h": 900,
+      "title": "SCR-28 · ویژگی‌های کاتالوگ (v2)",
+      "expand": "fill"
+    },
+    "Chat-Products.dc.html": {
+      "x": 4642,
+      "y": 18360,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۶ · پیشنهاد محصول با دلیل (v2)"
+    },
+    "D-Chat-Products.dc.html": {
+      "x": 5112,
+      "y": 18360,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۶ · پیشنهاد محصول با دلیل (v2)",
+      "expand": "fill"
+    },
+    "Chat-Alternative.dc.html": {
+      "x": 4642,
+      "y": 19440,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۷ · جایگزین برای گونه ناموجود (v2)"
+    },
+    "D-Chat-Alternative.dc.html": {
+      "x": 5112,
+      "y": 19440,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۷ · جایگزین برای گونه ناموجود (v2)",
+      "expand": "fill"
+    },
+    "Chat-Rescue.dc.html": {
+      "x": 4642,
+      "y": 20520,
+      "w": 390,
+      "h": 844,
+      "title": "ح۱۸ · کمک در تردید خرید: قیمت (v2)"
+    },
+    "D-Chat-Rescue.dc.html": {
+      "x": 5112,
+      "y": 20520,
+      "w": 1440,
+      "h": 900,
+      "title": "دسکتاپ · ح۱۸ · کمک در تردید خرید: قیمت (v2)",
+      "expand": "fill"
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Conversation.dc.html",
+    "Chat-Welcome.dc.html",
+    "D-Chat-Welcome.dc.html",
+    "Chat-Clarify.dc.html",
+    "D-Chat-Clarify.dc.html",
+    "Chat-Answer.dc.html",
+    "D-Chat-Answer.dc.html",
+    "Chat-Registered.dc.html",
+    "D-Chat-Registered.dc.html",
+    "Chat-Human.dc.html",
+    "D-Chat-Human.dc.html",
+    "Chat-Error.dc.html",
+    "D-Chat-Error.dc.html",
+    "Queue-Stopped.dc.html",
+    "Queue-Empty.dc.html",
+    "Bots.dc.html",
+    "Conversation-Queue.dc.html",
+    "Conversation-Bot.dc.html",
+    "W1-Takeover.dc.html",
+    "W2-Resolve.dc.html",
+    "W3-CloseUnconfirmed.dc.html",
+    "W4-Stop.dc.html",
+    "W5-Handback.dc.html",
+    "Store-Discrepancies.dc.html",
+    "Store-FixInventory.dc.html",
+    "Store-FixConflict.dc.html",
+    "Store-Products.dc.html",
+    "Store-ProductEdit.dc.html",
+    "Store-Knowledge.dc.html",
+    "Store-KnowledgeEdit.dc.html",
+    "Store-Settings.dc.html",
+    "Store-Permissions.dc.html",
+    "Store-Report.dc.html",
+    "Conversation-Observer.dc.html",
+    "Conversation-Closed.dc.html",
+    "SW1-CloseDiscrepancy.dc.html",
+    "SW2-Threshold.dc.html",
+    "SW3-Grant.dc.html",
+    "SW4-Leave.dc.html",
+    "Chat-Typing.dc.html",
+    "D-Chat-Typing.dc.html",
+    "Chat-Registering.dc.html",
+    "D-Chat-Registering.dc.html",
+    "Chat-Closed.dc.html",
+    "D-Chat-Closed.dc.html",
+    "Chat-RegisterFailed.dc.html",
+    "D-Chat-RegisterFailed.dc.html",
+    "Chat-SendFailed.dc.html",
+    "D-Chat-SendFailed.dc.html",
+    "Chat-TooLong.dc.html",
+    "D-Chat-TooLong.dc.html",
+    "Login-Admin.dc.html",
+    "Login-Store.dc.html",
+    "Denied-Role.dc.html",
+    "Denied-Page.dc.html",
+    "Store-Employee.dc.html",
+    "SW5-Password.dc.html",
+    "Chat-ClarifyPartial.dc.html",
+    "D-Chat-ClarifyPartial.dc.html",
+    "Chat-NotYet.dc.html",
+    "D-Chat-NotYet.dc.html",
+    "Chat-Shipping.dc.html",
+    "D-Chat-Shipping.dc.html",
+    "Chat-Order.dc.html",
+    "D-Chat-Order.dc.html",
+    "Chat-Return.dc.html",
+    "D-Chat-Return.dc.html",
+    "Bots-Sample.dc.html",
+    "Store-Attributes.dc.html",
+    "Chat-Products.dc.html",
+    "D-Chat-Products.dc.html",
+    "Chat-Alternative.dc.html",
+    "D-Chat-Alternative.dc.html",
+    "Chat-Rescue.dc.html",
+    "D-Chat-Rescue.dc.html"
+  ],
+  "notes": {
+    "adm": {
+      "x": 0,
+      "y": -300,
+      "text": "پنل ادمین (دسکتاپ)",
+      "kind": "title1",
+      "maxW": 2960,
+      "w": 240
+    },
+    "chat": {
+      "x": 4642,
+      "y": -300,
+      "text": "صفحه گفت‌وگوی مشتری — موبایل و دسکتاپ کنار هم",
+      "kind": "title1",
+      "maxW": 1910,
+      "w": 240
+    },
+    "adm2": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "پنل ادمین — حالت‌ها و نماهای دیگر",
+      "w": 240,
+      "x": 0,
+      "y": 1200
+    },
+    "dlg": {
+      "kind": "title1",
+      "maxW": 2920,
+      "text": "دیالوگ‌ها (W1–W5)",
+      "w": 240,
+      "x": 1520,
+      "y": 3640
+    },
+    "store": {
+      "kind": "title1",
+      "maxW": 2400,
+      "text": "پنل مدیریت فروشگاه (دسکتاپ)",
+      "x": 0,
+      "y": 6400
+    },
+    "sdlg": {
+      "kind": "title1",
+      "maxW": 2400,
+      "text": "دیالوگ‌های پنل فروشگاه (W1–W5)",
+      "x": 0,
+      "y": 14700
+    },
+    "auth": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "ورود و «دسترسی رد شد» (دسکتاپ)",
+      "w": 240,
+      "x": 0,
+      "y": 15800
+    }
+  },
+  "designSystems": [
+    {
+      "title": "دستیار پشتیبانی",
+      "namespace": "dastyar",
+      "artifact": "https://claude.ai/artifact/Wnt4fEfrQCmQeeE28BiSzb",
+      "version": null,
+      "copiedAt": "2026-11-15T17:42:25Z"
+    }
+  ],
+  "attachments": {},
+  "noteOrder": [
+    "adm",
+    "chat",
+    "adm2",
+    "dlg",
+    "store",
+    "sdlg",
+    "auth"
+  ]
+}
