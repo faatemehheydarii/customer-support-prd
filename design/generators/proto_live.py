@@ -39,9 +39,9 @@ textarea{max-height:120px;overflow-y:auto}
 s = s.replace('</head>', CSS + '\n</head>', 1)
 JS = r'''<script>
 (function(){
-var SN=__SN__,LONG=__LONG__;
+var SN=__SN__,LONG=__LONG__,FAQ=__FAQ__,AGENT="سارا رحیمی",topic=null;
 var M=document.querySelector("main"),HB=document.querySelector("header button"),TA=document.querySelector("textarea"),SB=document.querySelector('button[aria-label="ارسال"]');
-var FAST=false,phase="bot",aw=null,miss=0,minute=31,humanReplied=false,started=false,local=null,clar={s:null,c:null,act:null};
+var FAST=false,phase="bot",aw=null,miss=0,minute=31,humanReplied=false,wantTrack=false,started=false,local=null,clar={s:null,c:null,act:null};
 var fa=function(x){return String(x).replace(/\d/g,function(d){return "۰۱۲۳۴۵۶۷۸۹"[d]})};
 var en=function(x){return x.replace(/[۰-۹]/g,function(d){return "۰۱۲۳۴۵۶۷۸۹".indexOf(d)}).replace(/[٠-٩]/g,function(d){return "٠١٢٣٤٥٦٧٨٩".indexOf(d)})};
 var norm=function(x){return en(x).replace(/ي/g,"ی").replace(/ك/g,"ک").replace(/‌/g," ")};
@@ -52,7 +52,7 @@ function add(n){M.appendChild(n);M.scrollTop=M.scrollHeight;return n}
 function sim(k){if(local===k){local=null;return true}try{if(parent.SIM===k){parent.SIM="normal";if(parent.simSync)parent.simSync();return true}}catch(e){}return false}
 function me(t,failed){var g=el('<div class="grp me"><div class="bub tail"></div><span class="meta"></span></div>');g.firstChild.textContent=t;var m=g.lastChild;
  if(failed){m.setAttribute("role","alert");m.innerHTML='<span class="fail" style="display:inline-flex;align-items:center;gap:4px">'+SN.fail+'ارسال نشد. دوباره بفرستید.</span><button class="lnk">ارسال دوباره</button>'}else m.textContent=tm();return add(g)}
-function grp(texts,who){var h='<div class="grp them">';texts.forEach(function(x,i){h+='<div class="bub'+(i===texts.length-1?" tail":"")+'">'+x+'</div>'});h+='<span class="meta">'+(who==="h"?'<span class="who-h">پشتیبان فروشگاه</span> · ':"دستیار · ")+tm()+'</span></div>';return add(el(h))}
+function grp(texts,who){var h='<div class="grp them">';texts.forEach(function(x,i){h+='<div class="bub'+(i===texts.length-1?" tail":"")+'">'+x+'</div>'});h+='<span class="meta">'+(who==="h"?'<span class="who-h">'+AGENT+'</span> · پشتیبان فروشگاه · ':"دستیار · ")+tm()+'</span></div>';return add(el(h))}
 function act(rowsArr,label){var s=document.createElement("section");s.className="act";s.setAttribute("aria-label",label||"پاسخ سریع");var q=document.createElement("div");q.className="qr";s.appendChild(q);
  rowsArr.forEach(function(r){if(r.hint){var p=document.createElement("p");p.className="qr-hint";p.textContent=r.hint;q.appendChild(p);return}var row=document.createElement("div");row.className="qr-row";row.setAttribute("role","group");row.setAttribute("aria-label",r.label||"پاسخ سریع");
   if(r.label){var l=document.createElement("span");l.className="qr-lab";l.textContent=r.label;row.appendChild(l)}
@@ -70,7 +70,10 @@ function register(){if(phase!=="bot")return;retireActs();phase="reg";hb("off");v
  later(function(){sy.remove();if(sim("regfail")){phase="bot";hb("on");grp(["متأسفانه الان نتوانستم درخواستتان را ثبت کنم. برای پیگیری می‌توانید از این راه با فروشگاه تماس بگیرید:"+SN.altc+"یا چند دقیقه بعد دوباره امتحان کنید."]);var s=act([{chips:[{t:"دوباره امتحان کنید",icon:SN.retry,f:function(b){freeze(s,[b]);register()}}]}]);return}
   grp(["درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد."]);phase="queued";hb("hide");banner("s3");
   if(!FAST)setTimeout(join,6000)},1600)}
-function join(){if(phase!=="queued")return;phase="human";banner("s4");add(el(SN.join));minute++;grp(["سلام، پشتیبان فروشگاه هستم. پیام‌هایتان را دیدم؛ الان بررسی می‌کنم."],"h")}
+var HR={invB:"از انبار پرسیدم؛ مانتو ب سرمه‌ای سایز L موجود است. اگر بخواهید لینک خریدش را همین‌جا می‌فرستم.",ret:"درخواست مرجوعی شما را ثبت کردم. همکار ارسال برای هماهنگی دریافت کالا با شما تماس می‌گیرد.",disc:"برای خرید ده‌تایی ۵٪ تخفیف می‌دهیم؛ هنگام سفارش کد BULK5 را بزنید.",late:"سفارشتان را با شرکت حمل پیگیری کردم؛ بسته در مرکز پخش است و تا دو روز کاری آینده تحویل می‌شود."};
+function join(){if(phase!=="queued")return;phase="human";banner("s4");add(el(SN.join));minute++;grp(["سلام، "+AGENT+" هستم از پشتیبانی فروشگاه. پیام‌هایتان را دیدم؛ الان بررسی می‌کنم."],"h");
+ later(function(){if(phase!=="human")return;minute+=2;grp([HR[topic]||"موضوع را بررسی کردم و با مدیر فروشگاه هماهنگ کردم؛ پاسخ کامل را همین‌جا برایتان نوشتم: این یک پاسخ نمونه پشتیبان در نسخه نمایشی است.","مشکلتان حل شد؟"],"h");humanReplied=true;
+  var s=act([{chips:[{t:"بله، ممنون",f:function(b){freeze(s,[b]);me("بله، ممنون");later(function(){add(el('<div class="sys">گفت‌وگو بسته شد</div>'));phase="bot";topic=null;banner(null);hb("on")},600)}},{t:"نه، هنوز نه",f:function(b){freeze(s,[b]);me("نه، هنوز نه");later(function(){grp(["ممنون که گفتید؛ بیشتر توضیح بدهید تا ادامه بدهم."],"h")},1200)}}]}])},3500)}
 /* ---- intents ---- */
 var SIZES=["S","M","L"],COLORS=["مشکی","کرم"];
 function pSize(t){var m=/(^|[^A-Za-z])(S|M|L|s|m|l)([^A-Za-z]|$)/.exec(t);if(m)return m[2].toUpperCase();if(/لارج/.test(t))return "L";if(/مدیوم/.test(t))return "M";if(/اسمال/.test(t))return "S";return null}
@@ -91,22 +94,23 @@ function notFound(){miss++;if(miss>=2){aw=null;miss=0;grp(["باز هم این �
  grp(["این شماره سفارش را پیدا نکردم. لطفاً شماره را دوباره بفرستید؛ این شماره در پیامک یا ایمیل تأیید سفارش آمده است."])}
 function returnItems(no){aw="returnItem";if(no==="1234"){aw=null;answer(["سفارش ۱۲۳۴ هنوز تحویل نشده است. مرجوعی تا ۷ روز پس از تحویل ممکن است؛ بعد از رسیدن سفارش دوباره بپرسید."]);return}
  grp(["در سفارش ۵۵۱ دو کالا هست. کدام را می‌خواهید مرجوع کنید؟"]);var s=act([{chips:["مانتو ب سرمه‌ای L","شلوار جین آبی ۳۲"].map(function(x){return{t:x,f:function(b){freeze(s,[b]);me(x);aw=null;typing(function(){retPolicy()})}}})}])}
-function retPolicy(){var g=grp(['مرجوعی تا ۷ روز پس از تحویل ممکن است، به شرط استفاده‌نشده بودن و داشتن برچسب. سفارش ۵۵۱ دو روز پیش تحویل شده و هنوز در مهلت است.<span style="display:block;margin-top:6px">ثبت مرجوعی را همکاران پشتیبانی انجام می‌دهند؛ برای ثبت، «گفت‌وگو با پشتیبان» را بزنید.</span>',Q]);
+function retPolicy(){topic="ret";var g=grp(['مرجوعی تا ۷ روز پس از تحویل ممکن است، به شرط استفاده‌نشده بودن و داشتن برچسب. سفارش ۵۵۱ دو روز پیش تحویل شده و هنوز در مهلت است.<span style="display:block;margin-top:6px">ثبت مرجوعی را همکاران پشتیبانی انجام می‌دهند؛ برای ثبت، «گفت‌وگو با پشتیبان» را بزنید.</span>',Q]);
  var s=act([{chips:[{t:"بله، ممنون",f:function(b){freeze(s,[b]);me("بله، ممنون");typing(function(){grp(["خوشحالم که کمک کرد. اگر سؤال دیگری داشتید، همین‌جا بپرسید."])})}},{t:"نه، هنوز نه",f:function(b){freeze(s,[b]);me("نه، هنوز نه");typing(function(){grp(["متأسفم که پاسخ کامل نبود. می‌توانید سؤالتان را دقیق‌تر بپرسید یا با پشتیبان صحبت کنید."]);var c=act([{chips:[{t:"گفت‌وگو با پشتیبان",cta:1,f:function(b2){freeze(c,[b2]);register()}}]}])})}}]},{chips:[{t:"گفت‌وگو با پشتیبان",cta:1,f:function(b){freeze(s,[b]);register()}}]}])}
 function route(raw){var t=norm(raw);
- if(aw==="order"||aw==="returnOrder"){var n=orderNo(t);if(n==="1234"||n==="551"){var w=aw;aw=null;miss=0;if(w==="order")answer([n==="1234"?"سفارش ۱۲۳۴ طبق اطلاعات فروشگاه ۲۶ آبان ارسال شده است. زمان تقریبی رسیدن ۱ تا ۳ روز کاری است.":"سفارش ۵۵۱ طبق اطلاعات فروشگاه ۲۴ آبان تحویل شده است."]);else returnItems(n);return}
+ if(aw==="order"||aw==="returnOrder"){var n=orderNo(t);if(n==="1234"||n==="551"){var w=aw;aw=null;miss=0;if(w==="order")answer([n==="1234"?"سفارش ۱۲۳۴ طبق اطلاعات فروشگاه ۲۶ آبان به شرکت حمل تحویل شده است"+(wantTrack?"؛ کد رهگیری: TRK-1234.":".")+" زمان تقریبی رسیدن ۱ تا ۳ روز کاری است و قطعی نیست.":"سفارش ۵۵۱ طبق اطلاعات فروشگاه ۲۴ آبان تحویل شده است."]);else returnItems(n);return}
   if(n){notFound();return}aw=null}
  if(aw==="clarify"){var s0=pSize(t),c0=pColor(t);if(s0||c0){if(s0)clar.s=s0;if(c0)clar.c=c0;if(clar.s&&clar.c){if(clar.act)freeze(clar.act,[]);clar.act=null;stock()}else{grp(["کدام "+(clar.s?"رنگ":"سایز")+" را می‌خواهید؟"]);clarSync()}return}aw=null;clar.act=null}
- if(/پشتیبان|اپراتور|انسان|آدم واقعی/.test(t)){register();return}
- if(/مرجوع|برگشت|پس بد|عودت/.test(t)){aw="returnOrder";miss=0;grp([ASKO]);return}
- if(/پیگیری|کجاست|نرسیده|سفارشم/.test(t)){aw="order";miss=0;grp([ASKO]);return}
- if(/ارسال|پست|هزینه|کرایه|تحویل/.test(t)){answer([SHIP]);return}
- if(/تخفیف|قیمت ویژه/.test(t)){grp(["تصمیم درباره تخفیف با همکاران پشتیبانی است. درخواستتان را برایشان ثبت می‌کنم."]);register();return}
- if(/مانتو ب|شلوار/.test(t)){grp(["الان نمی‌توانم با اطمینان بگویم این کالا موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. از همکارانم در پشتیبانی می‌پرسم."]);register();return}
- if(/موجود|مانتو|سایز|رنگ|دارید/.test(t)){clar.s=pSize(t);clar.c=pColor(t);if(clar.s&&clar.c)stock();else clarify();return}
  if(/^(سلام|درود)[\s!.؟]*$/.test(t)){grp(["سلام! بفرمایید، درباره موجودی، ارسال، سفارش یا مرجوعی بپرسید."]);return}
- if(/ممنون|مرسی|متشکر/.test(t)){grp(["خواهش می‌کنم. اگر سؤال دیگری داشتید، همین‌جا بپرسید."]);return}
- grp(["برای این سؤال اطلاعات تأییدشده‌ای ندارم. درخواستتان را برای همکاران پشتیبانی ثبت می‌کنم."]);register()}
+ if(/^(ممنون|مرسی|متشکرم|سپاس)[\s!.]*$/.test(t)){grp(["خواهش می‌کنم. اگر سؤال دیگری داشتید، همین‌جا بپرسید."]);return}
+ var best=null,bs=0;FAQ.forEach(function(e){var sc=0;for(var i=0;i<e.k.length;i++){var m=new RegExp(e.k[i]).exec(t);if(!m){sc=-1;break}sc+=m[0].length+1}if(sc>0&&e.t==="ref")sc+=8;if(sc>0&&e.t==="order")sc+=6;if(sc>bs){bs=sc;best=e}});
+ if(!best){grp(["برای این سؤال اطلاعات تأییدشده‌ای ندارم. شما را به پشتیبان انسانی وصل می‌کنم."]);register();return}
+ if(best.t==="human"){register();return}
+ if(best.t==="order"){aw="order";miss=0;wantTrack=best.id==="ship-track";grp([ASKO]);return}
+ if(best.t==="ret"){aw="returnOrder";miss=0;grp([ASKO]);return}
+ if(best.t==="inv"){if(/مانتو ب|شلوار/.test(t)){topic="invB";grp(["الان نمی‌توانم با اطمینان بگویم این کالا موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. شما را به پشتیبان انسانی وصل می‌کنم."]);register();return}clar.s=pSize(t);clar.c=pColor(t);if(clar.s&&clar.c)stock();else clarify();return}
+ if(best.t==="ref"){topic={"disc-bulk":"disc","order-late":"late"}[best.id]||null;grp([best.a+" شما را به پشتیبان انسانی وصل می‌کنم."]);register();return}
+ var ans=[best.a];if((best.id==="ship-cost"||best.id==="ship-time")&&/هزینه|کرایه/.test(t)&&/زمان|کی|چند روز/.test(t))ans=["ship-cost","ship-time"].map(function(i){return FAQ.filter(function(e){return e.id===i})[0].a});answer(ans);return}
+
 function process(t){if(phase==="queued"||phase==="reg")return;if(phase==="human"){if(!humanReplied){humanReplied=true;later(function(){minute++;grp(["ممنون، پیامتان را دیدم. چند لحظه صبر کنید."],"h")},1500)}return}
  if(sim("error")){typing(function(){grp(["الان نمی‌توانم به پیامتان جواب بدهم. می‌توانید کمی بعد دوباره بپرسید یا همین حالا با پشتیبان صحبت کنید."]);var c=act([{chips:[{t:"گفت‌وگو با پشتیبان",cta:1,f:function(b){freeze(c,[b]);register()}}]}])});return}
  typing(function(){route(t)})}
@@ -115,7 +119,7 @@ function send(t){t=(t||"").trim();if(!t||t.length>1000)return;minute++;retireAct
  me(t);process(t)}
 /* ---- composer ---- */
 var row=SB.parentNode,cnt=document.createElement("div");cnt.id="cnt";cnt.innerHTML='<span class="e" role="alert"></span><span class="n"></span>';row.parentNode.appendChild(cnt);
-function sync(){TA.style.height="auto";TA.style.height=Math.min(TA.scrollHeight,120)+"px";var n=TA.value.length,over=n>1000;
+function sync(){TA.style.height="auto";TA.style.height=Math.min(TA.scrollHeight,120)+"px";TA.classList.toggle("scroll",TA.scrollHeight>122);var n=TA.value.length,over=n>1000;
  cnt.classList.toggle("show",n>=900);cnt.classList.toggle("over",over);cnt.querySelector(".n").textContent=fa(n)+" از ۱۰۰۰";cnt.querySelector(".e").textContent=over?"پیامتان طولانی است. لطفاً کوتاه‌ترش کنید یا در چند پیام بفرستید.":"";
  TA.style.borderColor=over?"#b42318":"";if(over)TA.setAttribute("aria-invalid","true");else TA.removeAttribute("aria-invalid");SB.disabled=!TA.value.trim()||over}
 TA.addEventListener("input",sync);
@@ -142,7 +146,7 @@ FAST=false;M.scrollTop=M.scrollHeight;
 try{parent.postMessage({proto:"screen",name:"Chat-Live"},"*")}catch(e){}
 })();
 </script>'''
-JS = JS.replace('__SN__', json.dumps(SN, ensure_ascii=False)).replace('__LONG__', json.dumps(LONG, ensure_ascii=False))
+JS = JS.replace('__FAQ__', open('/home/claude/work/faq.json',encoding='utf-8').read()).replace('__SN__', json.dumps(SN, ensure_ascii=False)).replace('__LONG__', json.dumps(LONG, ensure_ascii=False))
 s = s.replace('</body>', JS + '\n</body>', 1)
 open(f'{D}/Chat-Live.html', 'w', encoding='utf-8').write(s)
 print('Chat-Live', len(s))

@@ -102,7 +102,20 @@ body{background:#f6f8f7!important}
 </div>
 </footer>
 </div>
-<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}</style>
+<style>@keyframes pf{from{opacity:0}to{opacity:1}}[data-hot]{cursor:pointer}.hl [data-hot],.hl [data-live]{outline:2px solid #f2a33a!important;outline-offset:2px;border-radius:8px;transition:outline-color .2s}/*polish6*/
+.grp.me{align-self:flex-start!important;align-items:flex-start!important}
+.grp.them{align-self:flex-end!important;align-items:flex-end!important;padding-inline-start:0!important;padding-inline-end:38px}
+.grp.them::before{inset-inline-start:auto!important;inset-inline-end:0;content:""!important;background:#ec9a55 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 7h12l1 13H5L6 7z'/%3E%3Cpath d='M9 9V6a3 3 0 0 1 6 0v3'/%3E%3C/svg%3E") center/16px no-repeat!important}
+.grp.them:has(.who-h)::before{background:#0b3b38 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6'/%3E%3C/svg%3E") center/16px no-repeat!important}
+.me .bub.tail{border-end-end-radius:18px!important;border-end-start-radius:6px!important}
+.them .bub.tail{border-end-start-radius:18px!important;border-end-end-radius:6px!important}
+.store-mark{font-size:0!important;color:transparent!important;background:#ec9a55 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 7h12l1 13H5L6 7z'/%3E%3Cpath d='M9 9V6a3 3 0 0 1 6 0v3'/%3E%3C/svg%3E") center/55% no-repeat!important}
+textarea{scrollbar-width:none}
+textarea::-webkit-scrollbar{width:0!important;height:0!important}
+textarea.scroll,textarea[aria-invalid]{scrollbar-width:thin}
+textarea.scroll::-webkit-scrollbar,textarea[aria-invalid]::-webkit-scrollbar{width:6px!important}
+/*endpolish6*/
+</style>
 <script>
 (function(){var RULES=[["گفت‌وگو با پشتیبان", "Chat-Registering"]],AUTO=null;
 var MODALS={"W1-Takeover": [["تحویل از دستیار", "Conversation"], ["انصراف", "back"]], "W2-Resolve": [["بستن — حل شد", "Conversation-Closed"], ["انصراف", "back"]], "W3-CloseUnconfirmed": [["بستن بدون تأیید", "Main"], ["انصراف", "back"]], "W4-Stop": [["توقف پاسخ خودکار", "Queue-Stopped"], ["انصراف", "back"]], "W5-Handback": [["واگذاری به دستیار", "Main"], ["انصراف", "back"]], "SW1-CloseDiscrepancy": [["بستن مغایرت", "Store-Discrepancies"], ["انصراف", "back"]], "SW2-Threshold": [["ذخیره", "Store-Settings"], ["انصراف", "back"]], "SW3-Grant": [["اعطای مجوز", "Store-Permissions"], ["انصراف", "back"]], "SW4-Leave": [["ماندن", "back"], ["ترک صفحه", "Store-Discrepancies"]]};

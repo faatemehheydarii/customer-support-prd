@@ -30,7 +30,7 @@ def chat(title, items, status=None, header_btn=True):
     if status=='s3':
         st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:{C["warns"]};color:{C["warn"]};font-size:14px;line-height:22px">{I("clock",20)}<span>درخواستتان برای پشتیبانی ثبت شده است. پیام‌هایتان را همین‌جا بنویسید؛ پشتیبان همه را می‌بیند.</span></div>'
     if status=='s4':
-        st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:#e8f5ec;color:#166534;font-size:14px;line-height:22px">{I("headset",20)}<span>پشتیبان فروشگاه در گفت‌وگوست. پیام‌هایتان را همین‌جا بنویسید.</span></div>'
+        st=f'<div role="status" style="display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:#e8f5ec;color:#166534;font-size:14px;line-height:22px">{I("headset",20)}<span>سارا رحیمی از پشتیبانی فروشگاه در گفت‌وگوست. پیام‌هایتان را همین‌جا بنویسید.</span></div>'
     body=f'''<div style="width:390px;height:844px;box-sizing:border-box;display:flex;flex-direction:column;background:{C['bg']};overflow:hidden">
 <header style="display:flex;align-items:center;gap:16px;height:64px;box-sizing:border-box;padding:0 16px;background:{C['card']};border-bottom:1px solid {C['border']}">
 
@@ -59,7 +59,7 @@ def bot(*texts, t='۱۰:۳۲', qr=''):
     g='<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta">دستیار · {t}</span></div>'
     return g+(f'<section class="act" aria-label="{"پیشنهاد شروع" if "موجودی محصول" in qr else "پاسخ سریع"}">{qr}</section>' if qr else '')
 def human(*texts, t='۱۰:۴۶'):
-    return '<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta"><span class="who-h">پشتیبان فروشگاه</span> · {t}</span></div>'
+    return '<div class="grp them">'+''.join(f'<div class="bub{" tail" if i==len(texts)-1 else ""}">{x}</div>' for i,x in enumerate(texts))+f'<span class="meta"><span class="who-h">سارا رحیمی</span> · پشتیبان فروشگاه · {t}</span></div>'
 def rows(*rs): return '<div class="qr">'+''.join(rs)+'</div>'
 def row(label,*chips):
     lab=f'<span class="qr-lab">{label}</span>' if label else ''
@@ -72,7 +72,7 @@ f['Chat-Welcome.dc.html']=chat('صفحه گفت‌وگو — خوش‌آمد', b
 f['Chat-Clarify.dc.html']=chat('صفحه گفت‌وگو — رفع ابهام', DAY+me('سلام، مانتو الف رو دارید؟')+bot('این مانتو در سایزهای S، M، L و رنگ‌های مشکی و کرم هست. کدام سایز و رنگ را می‌خواهید؟',t='۱۰:۳۱',qr=rows(row('سایز',chip('S'),chip('M'),chip('L')),row('رنگ',chip('مشکی'),chip('کرم')),'<p class="qr-hint">سایز و رنگ را انتخاب کنید؛ با انتخاب هر دو، پیام فرستاده می‌شود.</p>')))
 f['Chat-Answer.dc.html']=chat('صفحه گفت‌وگو — پاسخ موجودی و تأیید حل', me('مانتو الف مشکی، سایز M موجوده؟')+bot('مانتو الف، مشکی، M طبق اطلاعات فروشگاه امروز ساعت ۱۰:۳۰ موجود است.<span style="display:block;margin-top:6px;font-size:14px;line-height:22px;color:'+C['mutedfg']+'">این به معنای رزرو نیست و موجودی ممکن است تا زمان خرید تغییر کند.</span>','جواب سؤالتان را گرفتید؟',qr=rows(row('',chip('بله، ممنون'),chip('نه، هنوز نه')))))
 f['Chat-Registered.dc.html']=chat('صفحه گفت‌وگو — درخواست ثبت شد (موجودی نامشخص)', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('الان نمی‌توانم با اطمینان بگویم مانتو ب، سرمه‌ای، L موجود است یا نه، چون اطلاعات موجودی آن به‌روز نیست. از همکارانم در پشتیبانی می‌پرسم.','درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+me('ممنون، منتظرم',t='۱۰:۴۱'),status='s3',header_btn=False)
-f['Chat-Human.dc.html']=chat('صفحه گفت‌وگو — پشتیبان در گفت‌وگو', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+f'<div class="sys">{I("headset",14)}پشتیبان فروشگاه به گفت‌وگو پیوست</div>'+human('سلام، از انبار پرسیدم؛ سرمه‌ای سایز L موجود است.','می‌خواهید لینک خریدش را برایتان بفرستم؟')+me('بله لطفاً',t='۱۰:۴۷'),status='s4',header_btn=False)
+f['Chat-Human.dc.html']=chat('صفحه گفت‌وگو — پشتیبان در گفت‌وگو', me('مانتو ب سرمه‌ای سایز L موجوده؟',t='۱۰:۴۰')+bot('درخواستتان ثبت شد. یکی از همکاران پشتیبانی همین‌جا پاسخ می‌دهد.',t='۱۰:۴۰')+f'<div class="sys">{I("headset",14)}سارا رحیمی از پشتیبانی فروشگاه به گفت‌وگو پیوست</div>'+human('سلام، از انبار پرسیدم؛ سرمه‌ای سایز L موجود است.','می‌خواهید لینک خریدش را برایتان بفرستم؟')+me('بله لطفاً',t='۱۰:۴۷'),status='s4',header_btn=False)
 f['Chat-Error.dc.html']=chat('صفحه گفت‌وگو — خطای سرویس', me('هزینه ارسال به شیراز چقدره؟',t='۱۰:۵۰')+bot('الان نمی‌توانم به پیامتان جواب بدهم. می‌توانید کمی بعد دوباره بپرسید یا همین حالا با پشتیبان صحبت کنید.',t='۱۰:۵۰',qr=rows(row('',f'<button class="chip cta">{I("headset",18)}گفت‌وگو با پشتیبان</button>'))))
 for k,v in f.items(): open(os.path.join(OUT,k),'w',encoding='utf-8').write(v)
 print('ok',len(f))

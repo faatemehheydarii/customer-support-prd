@@ -7,6 +7,12 @@ CSS5 = '''/*polish5*/
 .cause{display:block;margin-top:4px;font-size:13px;line-height:20px;color:#4f6260}
 tr.is-new{background:#f3faf8}
 tr.is-new>td:first-child{box-shadow:inset -3px 0 0 #0f766e}
+tr.late{background:#fff8eb!important}
+tr.late>td:first-child{box-shadow:inset -3px 0 0 #d97706!important}
+tr.late.w2{background:#fff4f2!important}
+tr.late.w2>td:first-child{box-shadow:inset -3px 0 0 #b42318!important}
+.alert{display:inline-flex;align-items:center;gap:4px;margin-top:6px;padding:1px 8px;border-radius:6px;background:#fdf1dc;color:#8a4b06;font-size:12px;line-height:20px;font-weight:600}
+tr.w2 .alert{background:#fdecea;color:#b42318}
 .own0{color:#7d8e8c}
 .own{display:inline-flex;align-items:center;gap:8px}
 .av{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#e7f4f1;color:#0b3b38;font-size:12px;font-weight:700}
@@ -32,16 +38,17 @@ def add_css(s):
 Q_HELP = ('<dl><dt><span class="badge s3">نیازمند انسان</span></dt><dd>دستیار گفت‌وگو را به صف فرستاده و هنوز ادمینی آن را تحویل نگرفته است.</dd>'
           '<dt><span class="badge s4">در حال رسیدگی</span></dt><dd>یک ادمین مسئول گفت‌وگوست و پاسخ می‌دهد.</dd>'
           '<dt><span class="badge s5">بسته</span></dt><dd>رسیدگی تمام شده است.</dd></dl>'
-          '<p style="margin:0;font-size:13px;line-height:20px;color:#4f6260">متن کم‌رنگ زیر وضعیت، علت آمدن گفت‌وگو به صف است. «پیام تازه» یعنی مشتری پیامی فرستاده که شما هنوز ندیده‌اید.</p>')
+          '<p style="margin:0;font-size:13px;line-height:20px;color:#4f6260">متن کم‌رنگ زیر وضعیت، علت آمدن گفت‌وگو به صف است. «پیام تازه» یعنی مشتری پیامی فرستاده که شما هنوز ندیده‌اید. <b style="color:#8a4b06">«بی‌پاسخ»</b> یعنی گفت‌وگو مسئول دارد ولی پیام مشتری ۱۵ دقیقه یا بیشتر بی‌پاسخ مانده است.</p>')
 B_HELP = ('<dl><dt><span class="badge s1">پاسخ‌گویی دستیار</span></dt><dd>دستیار در حال گفت‌وگو با مشتری است.</dd>'
           '<dt><span class="badge s2">منتظر مشتری</span></dt><dd>دستیار پاسخ داده و منتظر پاسخ یا تأیید مشتری است.</dd>'
           '<dt><span class="badge s5">حل‌شده</span></dt><dd>مشتری حل‌شدن را تأیید کرده است.</dd></dl>'
           '<p style="margin:0;font-size:13px;line-height:20px;color:#4f6260">«بازبینی» یعنی چند پاسخ دستیار در این گفت‌وگو را یک ادمین بررسی کرده است. «نوع پاسخ» پاسخ‌هایی را نشان می‌دهد که باید زودتر دیده شوند.</p>')
+CLOCK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
 TABLE = '<div style="overflow-x:auto;background:#ffffff;border:1px solid #d3dcda;border-radius:14px">'
 
 def legend(kind):
     if kind == 'q':
-        return ('<div class="legend"><span>انتظار مشتری از زمان ارجاع به صف:</span><span class="wait w1">۱۵ تا ۳۰ دقیقه</span><span class="wait w2">بیش از ۳۰ دقیقه</span>'
+        return ('<div class="legend"><span>انتظار مشتری از آخرین پیام بی‌پاسخ او:</span><span class="wait w1">۱۵ تا ۳۰ دقیقه</span><span class="wait w2">بیش از ۳۰ دقیقه</span>'
                 '<details><summary>راهنمای وضعیت‌ها</summary><div>' + Q_HELP + '</div></details></div>')
     return '<div class="legend"><details><summary>راهنمای وضعیت‌ها و ستون‌ها</summary><div>' + B_HELP + '</div></details></div>'
 
@@ -52,8 +59,17 @@ def queue(s, name):
     for n in ('سارا', 'مریم'):
         s = s.replace(f'<td>{n}</td></tr>', f'<td><span class="own"><span class="av" aria-hidden="true">{n[0]}</span>{n}</span></td></tr>')
     s = re.sub(r'<tr>(?=(?:(?!</tr>).)*class="unread")', '<tr class="is-new">', s, flags=re.S)
-    if 'class="legend"' not in s:
-        s = s.replace(TABLE, legend('q') + TABLE, 1)
+    s = s.replace('<td style="font-variant-numeric:tabular-nums">۱ دقیقه</td><td><span class="own"><span class="av" aria-hidden="true">م</span>مریم', '<td style="font-variant-numeric:tabular-nums"><span class="wait w1">'+CLOCK+'۱۹ دقیقه</span></td><td><span class="own"><span class="av" aria-hidden="true">م</span>مریم')
+    def late(m):
+        tr = m.group(0)
+        if 'badge s4' not in tr or 'class="alert"' in tr: return tr
+        w = re.search(r'class="wait (w[12])"', tr)
+        if not w: return tr
+        tr = re.sub(r'^<tr( class="([^"]*)")?>', lambda mm: '<tr class="%s late %s">' % ((mm.group(2) or ''), w.group(1)), tr)
+        return re.sub(r'(<span class="cause">[^<]*</span>)', r'\1<span class="alert">⚠ بی‌پاسخ</span>', tr, count=1)
+    s = re.sub(r'<tr[^>]*>.*?</tr>', late, s, flags=re.S)
+    s = re.sub(r'<div class="legend">.*?</details></div>', '', s, count=1, flags=re.S)
+    s = s.replace(TABLE, legend('q') + TABLE, 1)
     if name.startswith('Queue-Stopped') and 'جست‌وجو در صف' not in s:
         main = open(os.path.join(DIR, 'Main' + EXT), encoding='utf-8').read()
         m = re.search(r'<label style="flex:1;min-width:240px.*?</label>', main, flags=re.S)
